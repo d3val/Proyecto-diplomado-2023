@@ -26,6 +26,12 @@ public class ZonaComida : MonoBehaviour
     private int estado = 0;
     private bool jugadorCerca;
 
+    //Varibales de audio
+    [Header("Ajustes del audio")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip clipCocinando;
+    [SerializeField] AudioClip clipComidaLista;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -41,13 +47,21 @@ public class ZonaComida : MonoBehaviour
             case 1:
                 UIGameManager.instance.SetMensajeAccion("Ordenar");
                 if (Input.GetKeyDown(KeyCode.E))
+                {
+                    audioSource.clip=clipCocinando;
+                    audioSource.Play();
                     estado = 2;
+                }
                 break;
-
+            //Preparando comida
             case 2:
                 sliderPreparacion.value += Time.deltaTime;
                 if (sliderPreparacion.value >= sliderPreparacion.maxValue)
+                {
+                    audioSource.Stop();
+                    audioSource.PlayOneShot(clipComidaLista);
                     estado = 3;
+                }
                 break;
             case 3:
                 if (!jugadorCerca)
