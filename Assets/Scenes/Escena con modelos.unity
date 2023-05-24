@@ -1670,6 +1670,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &911135323 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666020184993150, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
+  m_PrefabInstance: {fileID: 1059039658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033358895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1808,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6595682667493986489, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 911135323}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
 --- !u!1 &1059039659 stripped
@@ -2569,5 +2578,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 252261915}
+    - target: {fileID: 6651917759192112161, guid: 7f68210f4d74d5841b4a99cbce4ae79f, type: 3}
+      propertyPath: m_TagString
+      value: Zona comida
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f68210f4d74d5841b4a99cbce4ae79f, type: 3}

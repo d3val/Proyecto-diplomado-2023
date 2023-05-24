@@ -727,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadReparacion: 1
   zonaReparacionActual: {fileID: 0}
+  animator: {fileID: 5866666020184993150}
 --- !u!82 &1059039665
 AudioSource:
   m_ObjectHideFlags: 0
