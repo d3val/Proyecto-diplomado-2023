@@ -1,5 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1738904512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738904513}
+  - component: {fileID: 1738904515}
+  - component: {fileID: 1738904514}
+  m_Layer: 0
+  m_Name: Zona reparacion
+  m_TagString: Zona reparacion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1738904513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738904512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.77, y: -1.79, z: -7.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4342658665783196515}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1738904515
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738904512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0999559, y: 1.1082904, z: 1}
+  m_Center: {x: 0.04997797, y: -0.054145217, z: -1.187284e-16}
+--- !u!114 &1738904514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738904512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bde09b473d48164b879c9b5ee38f597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condicion: 100
+  estado: 1
+  estaDanado: 0
+  velocidadReparacion: 1.5
+  velocidadDeterioro: 1
 --- !u!1 &17057773932135152
 GameObject:
   m_ObjectHideFlags: 0
@@ -10738,6 +10801,7 @@ Transform:
   - {fileID: 1241851268479649118}
   - {fileID: 1147771348508500447}
   - {fileID: 843429991920280831}
+  - {fileID: 1738904513}
   m_Father: {fileID: 6618851676346807178}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59162,6 +59226,7 @@ GameObject:
   - component: {fileID: 843429991920280831}
   - component: {fileID: 437875027191614312}
   - component: {fileID: 7268405536616517993}
+  - component: {fileID: 668563904}
   m_Layer: 0
   m_Name: Soporte
   m_TagString: Untagged
@@ -59234,6 +59299,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &668563904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8635179923236573496}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4, y: 3.3000007, z: 15.625671}
+  m_Center: {x: 1.5, y: -1.4999998, z: 7.812834}
 --- !u!1 &8645626773527684098
 GameObject:
   m_ObjectHideFlags: 0
@@ -63368,6 +63446,10 @@ PrefabInstance:
     - target: {fileID: 618394252869225667, guid: 0da03069a58d3864292ac4d49154ab0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -85.489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988658712918854850, guid: 0da03069a58d3864292ac4d49154ab0b, type: 3}
+      propertyPath: m_TagString
+      value: Zona comida
       objectReference: {fileID: 0}
     - target: {fileID: 4988658713828862329, guid: 0da03069a58d3864292ac4d49154ab0b, type: 3}
       propertyPath: m_Camera
