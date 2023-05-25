@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ZonaComida : MonoBehaviour
 {
@@ -14,14 +15,18 @@ public class ZonaComida : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] GameObject slider;
+    [SerializeField] Image sliderFill;
+    [SerializeField] GameObject textoAccion;
+    private TextMeshProUGUI texto;
     private Slider sliderPreparacion;
+
 
     // 0 = inactivo
     // 1 = en espera de orden
     // 2 = preparando orden
     // 3 = esperando entregar orden
     // 4 = Recuperando zona
-    [HideInInspector]
+
     public int estado = 0;
     private bool jugadorCerca;
 
@@ -37,13 +42,23 @@ public class ZonaComida : MonoBehaviour
         sliderPreparacion = slider.GetComponent<Slider>();
         sliderPreparacion.maxValue = tiempoPreparacion;
         comidaServida = new Comida(estaminaComida, tiempoParaConsumir, spriteComida);
+        texto = textoAccion.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
     {
         RevisarEstado();
+        ActualizarUI();
     }
-
+    private void ActualizarUI()
+    {
+        if (sliderPreparacion.value < sliderPreparacion.maxValue / 3)
+            sliderFill.color = Color.red;
+        else if (sliderPreparacion.value < sliderPreparacion.maxValue * 2 / 3)
+            sliderFill.color = Color.yellow;
+        else
+            sliderFill.color = Color.green;
+    }
     private void RevisarEstado()
     {
         switch (estado)
@@ -63,6 +78,8 @@ public class ZonaComida : MonoBehaviour
             case 2:
                 slider.SetActive(true);
                 sliderPreparacion.value += Time.deltaTime;
+                textoAccion.SetActive(true);
+                texto.text = "Preparando";
                 if (!audioSource.isPlaying)
                 {
                     audioSource.clip = clipCocinando;
@@ -77,6 +94,7 @@ public class ZonaComida : MonoBehaviour
                 break;
             //Esperando por que el jugador recoja comida
             case 3:
+                texto.text = "Listo";
                 if (jugadorCerca)
                     UIGameManager.instance.SetMensajeAccion("Recoger");
                 break;

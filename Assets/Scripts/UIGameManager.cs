@@ -26,12 +26,12 @@ public class UIGameManager : MonoBehaviour
     {
         mensajeAccion.SetActive(true);
         textoAccion.text = mensaje;
-        Debug.Log("Se activo");
+       // Debug.Log("Se activo");
     }
 
     public void DesactivarMensajeAccion()
     {
         mensajeAccion.SetActive(false);
-        Debug.Log("Se desactivo");
+        //Debug.Log("Se desactivo");
     }
 }
