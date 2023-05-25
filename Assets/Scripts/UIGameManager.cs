@@ -12,6 +12,7 @@ public class UIGameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textoAccion;
 
     public static UIGameManager instance;
+    public bool enZona;
 
     private void Awake()
     {
@@ -25,10 +26,12 @@ public class UIGameManager : MonoBehaviour
     {
         mensajeAccion.SetActive(true);
         textoAccion.text = mensaje;
+        Debug.Log("Se activo");
     }
 
     public void DesactivarMensajeAccion()
     {
         mensajeAccion.SetActive(false);
+        Debug.Log("Se desactivo");
     }
 }

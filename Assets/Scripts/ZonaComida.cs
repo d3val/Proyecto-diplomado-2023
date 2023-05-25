@@ -51,11 +51,13 @@ public class ZonaComida : MonoBehaviour
             // Inactivo
             case 0:
                 slider.SetActive(false);
-                UIGameManager.instance.DesactivarMensajeAccion();
+                if (!UIGameManager.instance.enZona)
+                    UIGameManager.instance.DesactivarMensajeAccion();
                 break;
             // Esperando por orden
             case 1:
-                UIGameManager.instance.SetMensajeAccion("Ordenar");
+                if (UIGameManager.instance.enZona)
+                    UIGameManager.instance.SetMensajeAccion("Ordenar");
                 break;
             //Preparando comida
             case 2:
@@ -92,6 +94,8 @@ public class ZonaComida : MonoBehaviour
             return;
 
         jugadorCerca = true;
+        UIGameManager.instance.enZona = true;
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -99,5 +103,7 @@ public class ZonaComida : MonoBehaviour
             return;
 
         jugadorCerca = false;
+        UIGameManager.instance.enZona = false;
+        UIGameManager.instance.DesactivarMensajeAccion();
     }
 }
