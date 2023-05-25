@@ -5,7 +5,11 @@ using UnityEngine;
 public class ZonaReparacion : MonoBehaviour
 {
     public float condicion = 100;
+
+    public int estado;
     public bool estaDanado = false;
+    public float velocidadReparacion;
+    public float velocidadDeterioro;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +19,34 @@ public class ZonaReparacion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (estado)
+        {
+            case 0:
+                break;
+            case 1:
+                condicion -= Time.deltaTime * velocidadDeterioro;
+                if (condicion < 0)
+                {
+                    estado = 4;
+                }
+                break;
+            case 2:
+                if (condicion < 100)
+                {
+                    condicion += Time.deltaTime * velocidadReparacion;
+                }
+                else
+                {
+                    estado = 3;
+                }
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+
+        }
+        /*
         if (condicion > 100)
         {
             condicion = 100;
@@ -29,9 +61,9 @@ public class ZonaReparacion : MonoBehaviour
         {
             condicion -= Time.deltaTime;
             Debug.Log("La condicion es del: " + condicion);
-        }
+        }*/
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Player"))
@@ -45,5 +77,5 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         other.GetComponent<Jugador>().zonaReparacionActual = null;
-    }
+    }*/
 }

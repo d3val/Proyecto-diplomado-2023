@@ -49,7 +49,6 @@ public class MovimientoJugador : MonoBehaviour
             rb.velocity = Vector3.zero;
             modificadorVelocidad = 1;
             enMovimiento = false;
-            Debug.Log("XD otra vez");
             return;
         }
         enMovimiento = true;

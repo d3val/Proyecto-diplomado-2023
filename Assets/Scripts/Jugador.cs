@@ -11,12 +11,21 @@ public class Jugador : MonoBehaviour
 
     private ZonaComida zonaComidaActual;
 
+    private MovimientoJugador movimientoJugador;
+
     //Variables animacion
     [SerializeField] Animator animator;
+
+    [Header("Herramientas del jugador")]
+    [SerializeField] GameObject martillo;
+
+
     // Start is called before the first frame update
     void Start()
     {
         zonaReparacionActual = null;
+        zonaComidaActual = null;
+        movimientoJugador = GetComponent<MovimientoJugador>();
     }
 
     // Update is called once per frame
@@ -38,6 +47,7 @@ public class Jugador : MonoBehaviour
         }
 
         AccionZonaComida();
+        AccionZonaReparacion();
     }
 
     private void AccionZonaComida()
@@ -66,7 +76,30 @@ public class Jugador : MonoBehaviour
 
         }
     }
+    private void AccionZonaReparacion()
+    {
+        if (zonaReparacionActual == null) return;
 
+        switch (zonaReparacionActual.estado)
+        {
+            case 1:
+                if (Input.GetKey(KeyCode.E))
+                {
+                    zonaReparacionActual.estado = 2;
+                    martillo.SetActive(true);
+                    animator.SetTrigger("trigger_reparando");
+                    movimientoJugador.enabled = false;
+                }
+                break;
+            case 3:
+                animator.SetTrigger("trigger_reparadoFinalizado");
+                martillo.SetActive(false);
+                movimientoJugador.enabled = true;
+                break;
+            default:
+                break;
+        }
+    }
     private void Reparar()
     {
         if (zonaReparacionActual == null)
@@ -79,23 +112,30 @@ public class Jugador : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Zona comida"))
+        if (other.gameObject.CompareTag("Zona comida"))
+        {
+            zonaComidaActual = other.GetComponent<ZonaComida>();
+            if (zonaComidaActual.estado == 0)
+                zonaComidaActual.estado = 1;
             return;
 
-        zonaComidaActual = other.GetComponent<ZonaComida>();
+        }
+        if (other.gameObject.CompareTag("Zona reparacion"))
+        {
+            zonaReparacionActual = other.GetComponent<ZonaReparacion>();
+            return;
+        }
 
-        if (zonaComidaActual.estado == 0)
-            zonaComidaActual.estado = 1;
     }
     private void OnTriggerExit(Collider other)
     {
-        if (!other.gameObject.CompareTag("Zona comida"))
+        if (other.gameObject.CompareTag("Zona comida"))
+        {
+            if (zonaComidaActual.estado == 1)
+                zonaComidaActual.estado = 0;
+            UIGameManager.instance.DesactivarMensajeAccion();
+            zonaComidaActual = null;
             return;
-
-        if (zonaComidaActual.estado == 1)
-            zonaComidaActual.estado = 0;
-
-        UIGameManager.instance.DesactivarMensajeAccion();
-        zonaComidaActual = null;
+        }
     }
 }
