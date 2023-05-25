@@ -17,7 +17,7 @@ public class MovimientoJugador : MonoBehaviour
 
     // Variables de animacion
     [SerializeField] private Animator animator;
-
+    private bool enMovimiento;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +38,21 @@ public class MovimientoJugador : MonoBehaviour
     //Rota la posision del jugador segun los inputs y lo mueve hacia adelante
     private void MoverJugador()
     {
+        //Actualizacion de parametros del animator
+        animator.SetBool("bool_moviendose", enMovimiento);
         animator.SetFloat("float_Speed", rb.velocity.magnitude);
+
+        //Lectura de la entrada
         Vector2 valoresEjes = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (valoresEjes.x == 0 && valoresEjes.y == 0)
         {
             rb.velocity = Vector3.zero;
             modificadorVelocidad = 1;
+            enMovimiento = false;
             return;
         }
+        enMovimiento = true;
+
         // Si hay estamina, es posible aumentar la velocidad de movimiento
         if (estamina > 0)
         {
@@ -72,8 +79,6 @@ public class MovimientoJugador : MonoBehaviour
 
         // Movimiento del jugador
         rb.velocity = modificadorVelocidad * velocidadMovimiento * transform.forward;
-
-        Debug.Log("Velocity " + rb.velocity.magnitude);
     }
 
     public void RecuperarEstamina(float estaminaRecuperada)
