@@ -2745,7 +2745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   condicion: 100
-  estado: 0
+  estado: 1
   estaDanado: 0
   velocidadReparacion: 1.5
   velocidadDeterioro: 1

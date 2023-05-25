@@ -95,6 +95,7 @@ public class Jugador : MonoBehaviour
                 animator.SetTrigger("trigger_reparadoFinalizado");
                 martillo.SetActive(false);
                 movimientoJugador.enabled = true;
+                zonaReparacionActual= null;
                 break;
             default:
                 break;
