@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -93,4 +95,6 @@ public class GameManager : MonoBehaviour
         panelJuego.SetActive(true);
         panelPausa.SetActive(false);
     }
+
+
 }
