@@ -47,6 +47,8 @@ public class ZonaComida : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.juegoPausado)
+            return;
         RevisarEstado();
         ActualizarUI();
     }

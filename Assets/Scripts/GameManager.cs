@@ -13,12 +13,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] float tiempoNivel;
 
     //UI variables
+    [SerializeField] GameObject panelJuego;
+    [SerializeField] GameObject panelPausa;
     [SerializeField] GameObject panelFin;
     [SerializeField] Image imagenComida;
     private TextMeshProUGUI contadorTiempo;
     private Slider tiempoSlider;
     private int minutos;
     private int segundos;
+
+    public static bool juegoPausado;
 
     // Start is called before the first frame update
     private void Awake()
@@ -37,6 +41,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (juegoPausado)
+                ReanudarJuego();
+            else
+                PausarJuego();
+        }
+        if (juegoPausado)
+            return;
+
         ActualizarUI();
 
         if (tiempoNivel < 0)
@@ -61,5 +75,22 @@ public class GameManager : MonoBehaviour
     {
         imagenComida.color = new Color(255, 255, 255, 1);
         imagenComida.sprite = spriteComida;
+    }
+
+    public void PausarJuego()
+    {
+        Time.timeScale = 0;
+        juegoPausado = true;
+        panelJuego.SetActive(false);
+        panelPausa.SetActive(true);
+
+    }
+
+    public void ReanudarJuego()
+    {
+        Time.timeScale = 1;
+        juegoPausado = false;
+        panelJuego.SetActive(true);
+        panelPausa.SetActive(false);
     }
 }

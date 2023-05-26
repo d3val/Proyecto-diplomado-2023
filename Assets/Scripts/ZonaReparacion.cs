@@ -31,6 +31,8 @@ public class ZonaReparacion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.juegoPausado)
+            return;
         RevisarEstado();
     }
     private void ActualizarUI()

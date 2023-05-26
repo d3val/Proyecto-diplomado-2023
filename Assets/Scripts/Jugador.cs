@@ -31,11 +31,8 @@ public class Jugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Reparar();
-        }
-
+        if (GameManager.juegoPausado)
+            return;
         if (comidaActual == null)
         {
             Debug.Log("No hay comida");
@@ -95,7 +92,7 @@ public class Jugador : MonoBehaviour
                 animator.SetTrigger("trigger_reparadoFinalizado");
                 martillo.SetActive(false);
                 movimientoJugador.enabled = true;
-                zonaReparacionActual= null;
+                zonaReparacionActual = null;
                 break;
             default:
                 break;
