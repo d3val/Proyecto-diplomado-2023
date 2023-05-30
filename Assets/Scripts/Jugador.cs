@@ -124,7 +124,7 @@ public class Jugador : MonoBehaviour
         {
             if (zonaComidaActual.estado == 1)
                 zonaComidaActual.estado = 0;
-            UIGameManager.instance.DesactivarMensajeAccion();
+            //UILevelManager.instance.DesactivarMensajeAccion();
             zonaComidaActual = null;
             return;
         }

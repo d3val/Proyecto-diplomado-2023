@@ -10,15 +10,12 @@ public class ZonaComida : MonoBehaviour
     [SerializeField] private float estaminaComida = 50f;
     [SerializeField] private float tiempoParaConsumir = 10f;
     [SerializeField] private float tiempoPreparacion = 10f;
+    float preparacion = 0f;
     [SerializeField] private Sprite spriteComida = null;
     public Comida comidaServida { private set; get; }
 
-    [Header("UI")]
-    [SerializeField] GameObject slider;
-    [SerializeField] Image sliderFill;
-    [SerializeField] GameObject textoAccion;
-    private TextMeshProUGUI texto;
-    private Slider sliderPreparacion;
+    private UIZona UIZona;
+
 
 
     // 0 = inactivo
@@ -39,10 +36,10 @@ public class ZonaComida : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        sliderPreparacion = slider.GetComponent<Slider>();
-        sliderPreparacion.maxValue = tiempoPreparacion;
+        preparacion = 0;
+        UIZona = GetComponent<UIZona>();
         comidaServida = new Comida(estaminaComida, tiempoParaConsumir, spriteComida);
-        texto = textoAccion.GetComponent<TextMeshProUGUI>();
+        UIZona.SetSliderMaxValue(tiempoPreparacion);
     }
 
     private void Update()
@@ -50,44 +47,34 @@ public class ZonaComida : MonoBehaviour
         if (GameManager.juegoPausado)
             return;
         RevisarEstado();
-        ActualizarUI();
     }
-    private void ActualizarUI()
-    {
-        if (sliderPreparacion.value < sliderPreparacion.maxValue / 3)
-            sliderFill.color = Color.red;
-        else if (sliderPreparacion.value < sliderPreparacion.maxValue * 2 / 3)
-            sliderFill.color = Color.yellow;
-        else
-            sliderFill.color = Color.green;
-    }
+
     private void RevisarEstado()
     {
         switch (estado)
         {
             // Inactivo
             case 0:
-                slider.SetActive(false);
-                if (!UIGameManager.instance.enZona)
-                    UIGameManager.instance.DesactivarMensajeAccion();
+                if (!GameManager.jugadorEnZona)
+                    UILevelManager.instance.DesactivarMensajeAccion();
                 break;
             // Esperando por orden
             case 1:
-                if (UIGameManager.instance.enZona)
-                    UIGameManager.instance.SetMensajeAccion("Ordenar");
+                if (GameManager.jugadorEnZona)
+                    UILevelManager.instance.SetMensajeAccion("Ordenar");
                 break;
             //Preparando comida
             case 2:
-                slider.SetActive(true);
-                sliderPreparacion.value += Time.deltaTime;
-                textoAccion.SetActive(true);
-                texto.text = "Preparando";
+                preparacion += Time.deltaTime;
+                UIZona.ActivarUI();
+                UIZona.ActualizarLabel("Preparando");
+                UIZona.ActualizarSlider(preparacion);
                 if (!audioSource.isPlaying)
                 {
                     audioSource.clip = clipCocinando;
                     audioSource.Play();
                 }
-                if (sliderPreparacion.value >= sliderPreparacion.maxValue)
+                if (preparacion > tiempoPreparacion)
                 {
                     audioSource.Stop();
                     audioSource.PlayOneShot(clipComidaLista);
@@ -96,14 +83,14 @@ public class ZonaComida : MonoBehaviour
                 break;
             //Esperando por que el jugador recoja comida
             case 3:
-                texto.text = "Listo";
+                UIZona.ActualizarLabel("Listo");
                 if (jugadorCerca)
-                    UIGameManager.instance.SetMensajeAccion("Recoger");
+                    UILevelManager.instance.SetMensajeAccion("Recoger");
                 break;
             // Tiempo de espera hasta poder pedir otra vez
             case 4:
-                sliderPreparacion.value = 0;
-                slider.SetActive(false);
+                preparacion = 0;
+                UIZona.DesactivarUI();
                 break;
         }
     }
@@ -114,7 +101,7 @@ public class ZonaComida : MonoBehaviour
             return;
 
         jugadorCerca = true;
-        UIGameManager.instance.enZona = true;
+        GameManager.jugadorEnZona = true;
 
     }
     private void OnTriggerExit(Collider other)
@@ -123,7 +110,7 @@ public class ZonaComida : MonoBehaviour
             return;
 
         jugadorCerca = false;
-        UIGameManager.instance.enZona = false;
-        UIGameManager.instance.DesactivarMensajeAccion();
+        GameManager.jugadorEnZona = false;
+        UILevelManager.instance.DesactivarMensajeAccion();
     }
 }

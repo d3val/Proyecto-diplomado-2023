@@ -37,8 +37,8 @@ public class ZonaReparacion : MonoBehaviour
         {
             case 0:
                 UIZona.DesactivarUI();
-                if (!UIGameManager.instance.enZona)
-                    UIGameManager.instance.DesactivarMensajeAccion();
+                if (!GameManager.jugadorEnZona)
+                    UILevelManager.instance.DesactivarMensajeAccion();
                 break;
             case 1:
                 UIZona.ActivarUI();
@@ -47,8 +47,8 @@ public class ZonaReparacion : MonoBehaviour
                 UIZona.ActualizarLabel("!!!!!!");
                 if (jugadorCerca)
                 {
-                    if (UIGameManager.instance.enZona)
-                        UIGameManager.instance.SetMensajeAccion("Reparar");
+                    if (GameManager.jugadorEnZona)
+                        UILevelManager.instance.SetMensajeAccion("Reparar");
                 }
 
                 if (condicion < 0)
@@ -58,7 +58,7 @@ public class ZonaReparacion : MonoBehaviour
             case 2:
                 UIZona.ActivarUI();
                 UIZona.ActualizarLabel("Reparando");
-                UIGameManager.instance.DesactivarMensajeAccion();
+                UILevelManager.instance.DesactivarMensajeAccion();
                 if (condicion < 100)
                 {
                     condicion += Time.deltaTime * velocidadReparacion;
@@ -91,7 +91,7 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = true;
-        UIGameManager.instance.enZona = true;
+        GameManager.jugadorEnZona = true;
         Debug.Log(gameObject);
     }
 
@@ -101,7 +101,7 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = false;
-        UIGameManager.instance.enZona = false;
-        UIGameManager.instance.DesactivarMensajeAccion();
+        GameManager.jugadorEnZona = false;
+        UILevelManager.instance.DesactivarMensajeAccion();
     }
 }

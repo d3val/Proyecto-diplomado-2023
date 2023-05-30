@@ -45,4 +45,9 @@ public class UIZona : MonoBehaviour
         sliderZona.SetActive(true);
         etiquetaZona.SetActive(true);
     }
+
+    public void SetSliderMaxValue(float value)
+    {
+        slider.maxValue = value;
+    }
 }

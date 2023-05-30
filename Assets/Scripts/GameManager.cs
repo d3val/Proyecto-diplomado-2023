@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     private int minutos;
     private int segundos;
 
+    public static bool jugadorEnZona;
+
     public static bool juegoPausado;
 
     // Start is called before the first frame update
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (juegoPausado)
                 ReanudarJuego();
@@ -66,8 +68,6 @@ public class GameManager : MonoBehaviour
 
     private void ActualizarUI()
     {
-        //tiempoSlider.value = tiempoNivel;
-
         minutos = (int)(tiempoNivel / 60);
         segundos = (int)(tiempoNivel - minutos * 60);
         contadorTiempo.text = String.Format("{0:00}:{1:00}", minutos, segundos);
