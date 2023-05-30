@@ -9,7 +9,7 @@ public class ZonaReparacion : MonoBehaviour
     [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
-    [HideInInspector]
+    //[HideInInspector]
     public int estado;
 
     private float timer;
@@ -65,25 +65,27 @@ public class ZonaReparacion : MonoBehaviour
                     UIZona.ActualizarSlider(condicion);
                 }
                 else
-                {
-                    estado = 3;
-                }
+                    StartCoroutine(Recover());
                 break;
             case 3:
                 UIZona.ActualizarLabel("Inmune");
-                if (timer < tiempoInmunidad)
-                    timer += Time.deltaTime;
-                else
-                {
-                    timer = 0;
-                    estado = 0;
-                }
+                break;
+            case 4:
+                UIZona.ActualizarLabel("Fuera de servicio");
+                break;
+            default:
+                Debug.Log("Este mensaje no debería aparecer");
                 break;
 
         }
     }
 
-
+    IEnumerator Recover()
+    {
+        estado = 3;
+        yield return new WaitForSeconds(tiempoInmunidad);
+        estado = 0;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
