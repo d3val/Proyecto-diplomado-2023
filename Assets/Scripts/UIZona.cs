@@ -12,7 +12,7 @@ public class UIZona : MonoBehaviour
     [SerializeField] GameObject etiquetaZona;
     TextMeshProUGUI textoZona;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         slider = sliderZona.GetComponent<Slider>();
         textoZona = etiquetaZona.GetComponent<TextMeshProUGUI>();
@@ -44,5 +44,10 @@ public class UIZona : MonoBehaviour
     {
         sliderZona.SetActive(true);
         etiquetaZona.SetActive(true);
+    }
+
+    public void SetSliderMaxValue(float value)
+    {
+        slider.maxValue = value;
     }
 }

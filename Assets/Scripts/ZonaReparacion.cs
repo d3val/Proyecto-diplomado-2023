@@ -9,7 +9,7 @@ public class ZonaReparacion : MonoBehaviour
     [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
-    [HideInInspector]
+    //[HideInInspector]
     public int estado;
 
     private float timer;
@@ -37,8 +37,8 @@ public class ZonaReparacion : MonoBehaviour
         {
             case 0:
                 UIZona.DesactivarUI();
-                if (!UIGameManager.instance.enZona)
-                    UIGameManager.instance.DesactivarMensajeAccion();
+                if (!GameManager.jugadorEnZona)
+                    UILevelManager.instance.SetActiveMensajeAccion(false);
                 break;
             case 1:
                 UIZona.ActivarUI();
@@ -47,8 +47,8 @@ public class ZonaReparacion : MonoBehaviour
                 UIZona.ActualizarLabel("!!!!!!");
                 if (jugadorCerca)
                 {
-                    if (UIGameManager.instance.enZona)
-                        UIGameManager.instance.SetMensajeAccion("Reparar");
+                    if (GameManager.jugadorEnZona)
+                        UILevelManager.instance.SetMensajeAccion("Reparar");
                 }
 
                 if (condicion < 0)
@@ -58,32 +58,34 @@ public class ZonaReparacion : MonoBehaviour
             case 2:
                 UIZona.ActivarUI();
                 UIZona.ActualizarLabel("Reparando");
-                UIGameManager.instance.DesactivarMensajeAccion();
+                UILevelManager.instance.SetActiveMensajeAccion(false);
                 if (condicion < 100)
                 {
                     condicion += Time.deltaTime * velocidadReparacion;
                     UIZona.ActualizarSlider(condicion);
                 }
                 else
-                {
-                    estado = 3;
-                }
+                    StartCoroutine(Recover());
                 break;
             case 3:
                 UIZona.ActualizarLabel("Inmune");
-                if (timer < tiempoInmunidad)
-                    timer += Time.deltaTime;
-                else
-                {
-                    timer = 0;
-                    estado = 0;
-                }
+                break;
+            case 4:
+                UIZona.ActualizarLabel("Fuera de servicio");
+                break;
+            default:
+                Debug.Log("Este mensaje no debería aparecer");
                 break;
 
         }
     }
 
-
+    IEnumerator Recover()
+    {
+        estado = 3;
+        yield return new WaitForSeconds(tiempoInmunidad);
+        estado = 0;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -91,7 +93,7 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = true;
-        UIGameManager.instance.enZona = true;
+        GameManager.jugadorEnZona = true;
         Debug.Log(gameObject);
     }
 
@@ -101,7 +103,7 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = false;
-        UIGameManager.instance.enZona = false;
-        UIGameManager.instance.DesactivarMensajeAccion();
+        GameManager.jugadorEnZona = false;
+        UILevelManager.instance.SetActiveMensajeAccion(false);
     }
 }
