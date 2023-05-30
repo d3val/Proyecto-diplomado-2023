@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    [SerializeField] float velocidadReparacion = 1f;
     public ZonaReparacion zonaReparacionActual;
 
     public Comida comidaActual = null;
@@ -67,6 +66,7 @@ public class Jugador : MonoBehaviour
                 if (Input.GetKey(KeyCode.E) && comidaActual == null)
                 {
                     comidaActual = zonaComidaActual.comidaServida;
+                    UILevelManager.instance.SetImagenComida(comidaActual.sprite);
                     zonaComidaActual.estado = 4;
                 }
                 break;

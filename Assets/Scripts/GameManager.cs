@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
@@ -12,20 +10,9 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance = null;
-    [SerializeField] float tiempoNivel;
-
-    //UI variables
-    [SerializeField] GameObject panelJuego;
-    [SerializeField] GameObject panelPausa;
-    [SerializeField] GameObject panelFin;
-    [SerializeField] Image imagenComida;
-    private TextMeshProUGUI contadorTiempo;
-    private Slider tiempoSlider;
-    private int minutos;
-    private int segundos;
+    public float tiempoNivel;
 
     public static bool jugadorEnZona;
-
     public static bool juegoPausado;
 
     // Start is called before the first frame update
@@ -35,11 +22,6 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         Instance = this;
-
-        contadorTiempo = GameObject.Find("Contador tiempo").GetComponent<TextMeshProUGUI>();
-        /*tiempoSlider = GameObject.Find("Tiempo slider").GetComponent<Slider>();
-        tiempoSlider.maxValue = tiempoNivel;
-        tiempoSlider.value = tiempoNivel;*/
     }
 
     // Update is called once per frame
@@ -55,46 +37,45 @@ public class GameManager : MonoBehaviour
         if (juegoPausado)
             return;
 
-        ActualizarUI();
-
         if (tiempoNivel < 0)
         {
-            Debug.Log("Se acabo el tiempo");
-            panelFin.SetActive(true);
+            GameOver();
             return;
         }
         tiempoNivel -= Time.deltaTime;
-    }
-
-    private void ActualizarUI()
-    {
-        minutos = (int)(tiempoNivel / 60);
-        segundos = (int)(tiempoNivel - minutos * 60);
-        contadorTiempo.text = String.Format("{0:00}:{1:00}", minutos, segundos);
-    }
-
-    public void SetImagenComida(Sprite spriteComida)
-    {
-        imagenComida.color = new Color(255, 255, 255, 1);
-        imagenComida.sprite = spriteComida;
     }
 
     public void PausarJuego()
     {
         Time.timeScale = 0;
         juegoPausado = true;
-        panelJuego.SetActive(false);
-        panelPausa.SetActive(true);
-
+        UILevelManager.instance.SetActivePanelJuego(false);
+        UILevelManager.instance.SetActivePanelPausa(true);
     }
 
     public void ReanudarJuego()
     {
         Time.timeScale = 1;
         juegoPausado = false;
-        panelJuego.SetActive(true);
-        panelPausa.SetActive(false);
+        UILevelManager.instance.SetActivePanelJuego(true);
+        UILevelManager.instance.SetActivePanelPausa(false);
     }
 
+    private void GameOver()
+    {
+        Debug.Log("Se acabo el tiempo");
+        UILevelManager.instance.SetActivePanelFinJuego(true);
+        Time.timeScale = 0;
+        juegoPausado = true;
+    }
 
+    public void CargarEscena(int indice)
+    {
+        SceneManager.LoadScene(indice);
+    }
+
+    public void RecargarEscenaActual()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

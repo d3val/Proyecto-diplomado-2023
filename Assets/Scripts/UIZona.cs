@@ -12,7 +12,7 @@ public class UIZona : MonoBehaviour
     [SerializeField] GameObject etiquetaZona;
     TextMeshProUGUI textoZona;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         slider = sliderZona.GetComponent<Slider>();
         textoZona = etiquetaZona.GetComponent<TextMeshProUGUI>();

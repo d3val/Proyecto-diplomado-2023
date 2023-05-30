@@ -56,7 +56,7 @@ public class ZonaComida : MonoBehaviour
             // Inactivo
             case 0:
                 if (!GameManager.jugadorEnZona)
-                    UILevelManager.instance.DesactivarMensajeAccion();
+                    UILevelManager.instance.SetActiveMensajeAccion(false);
                 break;
             // Esperando por orden
             case 1:
@@ -111,6 +111,6 @@ public class ZonaComida : MonoBehaviour
 
         jugadorCerca = false;
         GameManager.jugadorEnZona = false;
-        UILevelManager.instance.DesactivarMensajeAccion();
+        UILevelManager.instance.SetActiveMensajeAccion(false);
     }
 }

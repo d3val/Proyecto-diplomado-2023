@@ -1,10 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UILevelManager : MonoBehaviour
 {
+    [SerializeField] GameObject panelJuego;
+    [SerializeField] GameObject panelPausa;
+    [SerializeField] GameObject panelFin;
+    [SerializeField] TextMeshProUGUI contadorTiempo;
+    [SerializeField] Image imagenComida;
+    
+    private int minutos;
+    private int segundos;
+
     [Header("UI Acciones del jugador")]
     [SerializeField] GameObject mensajeAccion;
     [SerializeField] TextMeshProUGUI textoAccion;
@@ -12,7 +23,7 @@ public class UILevelManager : MonoBehaviour
     public static UILevelManager instance;
     public bool enZona;
 
-    private void Awake()
+    private void Start()
     {
         if (instance != null)
             Destroy(this.gameObject);
@@ -20,16 +31,51 @@ public class UILevelManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        if (GameManager.juegoPausado)
+            return;
+
+        ActualizarTimerUI();
+    }
+
+    private void ActualizarTimerUI()
+    {
+        minutos = (int)(GameManager.Instance.tiempoNivel / 60);
+        segundos = (int)(GameManager.Instance.tiempoNivel - minutos * 60);
+        contadorTiempo.text = String.Format("{0:00}:{1:00}", minutos, segundos);
+    }
+
+    public void SetImagenComida(Sprite spriteComida)
+    {
+        imagenComida.color = new Color(255, 255, 255, 1);
+        imagenComida.sprite = spriteComida;
+    }
+
     public void SetMensajeAccion(string mensaje)
     {
-        mensajeAccion.SetActive(true);
+        SetActiveMensajeAccion(true);
         textoAccion.text = mensaje;
         // Debug.Log("Se activo");
     }
 
-    public void DesactivarMensajeAccion()
+    public void SetActiveMensajeAccion(bool estado)
     {
-        mensajeAccion.SetActive(false);
-        //Debug.Log("Se desactivo");
+        mensajeAccion.SetActive(estado);
+    }
+
+    public void SetActivePanelPausa(bool estado)
+    {
+        panelPausa.SetActive(estado);
+    }
+
+    public void SetActivePanelJuego(bool estado)
+    {
+        panelJuego.SetActive(estado);
+    }
+
+    public void SetActivePanelFinJuego(bool estado)
+    {
+        panelFin.SetActive(estado);
     }
 }
