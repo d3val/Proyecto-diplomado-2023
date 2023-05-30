@@ -1,30 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class ZonaReparacion : MonoBehaviour
 {
-    public float condicion = 100;
-
+    [Header("Configuración zona reparación")]
+    [SerializeField] float condicion = 100;
+    [SerializeField] float tiempoInmune;
+    [SerializeField] float velocidadReparacion;
+    [SerializeField] float velocidadDeterioro;
+    [HideInInspector]
     public int estado;
-    public float tiempoInmune;
+
     private float timer;
-    public float velocidadReparacion;
-    public float velocidadDeterioro;
-    [SerializeField] GameObject sliderCondicion;
-    Slider slider;
-    public Image sliderFill;
+
     private bool jugadorCerca;
     public bool estaDanado;
-    public GameObject textoAccion;
-    private TextMeshProUGUI texto;
+    private UIZona UIZona;
     // Start is called before the first frame update
     void Start()
     {
-        slider = sliderCondicion.GetComponent<Slider>();
-        texto = textoAccion.GetComponent<TextMeshProUGUI>();
+        UIZona = GetComponent<UIZona>();
         timer = 0;
     }
 
@@ -35,49 +31,39 @@ public class ZonaReparacion : MonoBehaviour
             return;
         RevisarEstado();
     }
-    private void ActualizarUI()
-    {
-        slider.value = condicion;
-        if (slider.value < slider.maxValue / 3)
-            sliderFill.color = Color.red;
-        else if (slider.value < slider.maxValue * 2 / 3)
-            sliderFill.color = Color.yellow;
-        else
-            sliderFill.color = Color.green;
-    }
+
     private void RevisarEstado()
     {
         switch (estado)
         {
             case 0:
-                sliderCondicion.SetActive(false);
+                UIZona.DesactivarUI();
                 if (!UIGameManager.instance.enZona)
                     UIGameManager.instance.DesactivarMensajeAccion();
                 break;
             case 1:
-                sliderCondicion.SetActive(true);
+                UIZona.ActivarUI();
+                condicion -= Time.deltaTime * velocidadDeterioro;
+                UIZona.ActualizarSlider(condicion);
+                UIZona.ActualizarLabel("!!!!!!");
                 if (jugadorCerca)
                 {
                     if (UIGameManager.instance.enZona)
                         UIGameManager.instance.SetMensajeAccion("Reparar");
                 }
-                
-                condicion -= Time.deltaTime * velocidadDeterioro;
-                ActualizarUI();
 
                 if (condicion < 0)
-                {
                     estado = 4;
-                }
+
                 break;
             case 2:
-                textoAccion.SetActive(true);
-                texto.text = "Reparando";
+                UIZona.ActivarUI();
+                UIZona.ActualizarLabel("Reparando");
                 UIGameManager.instance.DesactivarMensajeAccion();
                 if (condicion < 100)
                 {
                     condicion += Time.deltaTime * velocidadReparacion;
-                    ActualizarUI();
+                    UIZona.ActualizarSlider(condicion);
                 }
                 else
                 {
@@ -85,14 +71,13 @@ public class ZonaReparacion : MonoBehaviour
                 }
                 break;
             case 3:
-                texto.text = "Inmune";
+                UIZona.ActualizarLabel("Inmune");
                 if (timer < tiempoInmune)
                     timer += Time.deltaTime;
                 else
                 {
                     timer = 0;
                     estado = 0;
-                    textoAccion.SetActive(false);
                 }
                 break;
 

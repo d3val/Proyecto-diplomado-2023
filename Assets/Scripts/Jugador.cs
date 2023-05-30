@@ -85,6 +85,7 @@ public class Jugador : MonoBehaviour
                     zonaReparacionActual.estado = 2;
                     martillo.SetActive(true);
                     animator.SetTrigger("trigger_reparando");
+                    movimientoJugador.FrenarMovimiento();
                     movimientoJugador.enabled = false;
                 }
                 break;
@@ -98,15 +99,7 @@ public class Jugador : MonoBehaviour
                 break;
         }
     }
-    private void Reparar()
-    {
-        if (zonaReparacionActual == null)
-            return;
-        if (zonaReparacionActual.condicion >= 100)
-            return;
-        zonaReparacionActual.estaDanado = false;
-        zonaReparacionActual.condicion += velocidadReparacion * Time.deltaTime;
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {

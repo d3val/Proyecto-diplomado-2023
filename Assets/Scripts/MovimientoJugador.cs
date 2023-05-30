@@ -93,4 +93,9 @@ public class MovimientoJugador : MonoBehaviour
     {
         estaminaSlider.value = estamina;
     }
+
+    public void FrenarMovimiento()
+    {
+        rb.velocity = Vector3.zero;
+    }
 }
