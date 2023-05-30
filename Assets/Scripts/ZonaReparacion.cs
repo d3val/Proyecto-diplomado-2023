@@ -6,7 +6,7 @@ public class ZonaReparacion : MonoBehaviour
 {
     [Header("Configuración zona reparación")]
     [SerializeField] float condicion = 100;
-    [SerializeField] float tiempoInmune;
+    [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
     [HideInInspector]
@@ -15,7 +15,6 @@ public class ZonaReparacion : MonoBehaviour
     private float timer;
 
     private bool jugadorCerca;
-    public bool estaDanado;
     private UIZona UIZona;
     // Start is called before the first frame update
     void Start()
@@ -72,7 +71,7 @@ public class ZonaReparacion : MonoBehaviour
                 break;
             case 3:
                 UIZona.ActualizarLabel("Inmune");
-                if (timer < tiempoInmune)
+                if (timer < tiempoInmunidad)
                     timer += Time.deltaTime;
                 else
                 {
@@ -83,6 +82,9 @@ public class ZonaReparacion : MonoBehaviour
 
         }
     }
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Player"))
