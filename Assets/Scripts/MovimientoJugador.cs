@@ -31,8 +31,14 @@ public class MovimientoJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoverJugador();
+        
         ActualizarUI();
+        Debug.Log(rb.velocity.magnitude);
+    }
+
+    private void FixedUpdate()
+    {
+        MoverJugador();
     }
 
 
