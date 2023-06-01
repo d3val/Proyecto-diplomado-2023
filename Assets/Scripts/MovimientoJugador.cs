@@ -18,6 +18,7 @@ public class MovimientoJugador : MonoBehaviour
     // Variables de animacion
     [SerializeField] private Animator animator;
     private bool enMovimiento;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +47,7 @@ public class MovimientoJugador : MonoBehaviour
         Vector2 valoresEjes = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (valoresEjes.x == 0 && valoresEjes.y == 0)
         {
-            rb.velocity = Vector3.zero;
+         //   rb.velocity = Vector3.zero;
             modificadorVelocidad = 1;
             enMovimiento = false;
             return;
@@ -78,7 +79,8 @@ public class MovimientoJugador : MonoBehaviour
         transform.forward = new Vector3(valoresEjes.x, 0, valoresEjes.y);
 
         // Movimiento del jugador
-        rb.velocity = modificadorVelocidad * velocidadMovimiento * transform.forward;
+        rb.AddForce(modificadorVelocidad * velocidadMovimiento * transform.forward);
+        //rb.velocity = modificadorVelocidad * velocidadMovimiento * transform.forward;
     }
 
     public void RecuperarEstamina(float estaminaRecuperada)

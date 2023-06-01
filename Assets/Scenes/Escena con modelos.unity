@@ -3149,7 +3149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6595682667493986436, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.965
       objectReference: {fileID: 0}
     - target: {fileID: 6595682667493986436, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3183,40 +3183,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6595682667493986437, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595682667493986438, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
-      propertyPath: m_Drag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595682667493986438, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6595682667493986437, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
 --- !u!1 &1059039659 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6595682667493986434, guid: 20ee36f6822116b42b3e8ca00c625615, type: 3}
   m_PrefabInstance: {fileID: 1059039658}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1059039667
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059039659}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1072532129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,7 +3602,7 @@ GameObject:
   - component: {fileID: 1578738916}
   m_Layer: 0
   m_Name: Collider (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3642,7 +3615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578738914}
   m_LocalRotation: {x: 0.16507083, y: -0.6875694, z: -0.16507082, w: 0.68756944}
-  m_LocalPosition: {x: 0.32857114, y: -0.15299797, z: -0.07852578}
+  m_LocalPosition: {x: 0.329, y: -0.185, z: -0.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3660,8 +3633,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 4.41, z: 4.68}
-  m_Center: {x: 0.000015227338, y: -0.039569687, z: 0.30881986}
+  m_Size: {x: 0.1, y: 4.6553035, z: 4.68}
+  m_Center: {x: 0.000016305552, y: 0.08308327, z: 0.30882004}
 --- !u!1001 &1599302145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28559,7 +28532,7 @@ GameObject:
   - component: {fileID: 7289929231793403202}
   m_Layer: 0
   m_Name: Pasto
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46547,7 +46520,7 @@ GameObject:
   - component: {fileID: 8509443156028480955}
   m_Layer: 0
   m_Name: Camino
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
