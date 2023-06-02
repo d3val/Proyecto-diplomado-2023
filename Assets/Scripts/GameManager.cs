@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance = null;
     public float tiempoNivel;
+    public int limiteAtraccionesRotas = 3;
 
     public static bool jugadorEnZona;
     public static bool juegoPausado;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
 
         Instance = this;
+        Instance.ReanudarJuego();
+        // ReanudarJuego();
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         tiempoNivel -= Time.deltaTime;
+
     }
 
     public void PausarJuego()
@@ -61,7 +65,7 @@ public class GameManager : MonoBehaviour
         UILevelManager.instance.SetActivePanelPausa(false);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Debug.Log("Se acabo el tiempo");
         UILevelManager.instance.SetActivePanelFinJuego(true);

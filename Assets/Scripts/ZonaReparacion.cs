@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZonaReparacion : MonoBehaviour
 {
     [Header("Configuración zona reparación")]
-    [SerializeField] float condicion = 100;
+    public float condicion = 100;
     [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
