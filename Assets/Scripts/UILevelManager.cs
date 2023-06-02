@@ -12,7 +12,8 @@ public class UILevelManager : MonoBehaviour
     [SerializeField] GameObject panelFin;
     [SerializeField] TextMeshProUGUI contadorTiempo;
     [SerializeField] Image imagenComida;
-    
+    [SerializeField] List<TextMeshProUGUI> condicionAtracciones;
+
     private int minutos;
     private int segundos;
 
@@ -23,7 +24,7 @@ public class UILevelManager : MonoBehaviour
     public static UILevelManager instance;
     public bool enZona;
 
-    private void Start()
+    private void Awake()
     {
         if (instance != null)
             Destroy(this.gameObject);
@@ -77,5 +78,13 @@ public class UILevelManager : MonoBehaviour
     public void SetActivePanelFinJuego(bool estado)
     {
         panelFin.SetActive(estado);
+    }
+
+    public void AtualizarCondiciones(List<float> valores)
+    {
+        for (int i = 0; i < condicionAtracciones.Count; i++)
+        {
+            condicionAtracciones[i].text = string.Format("{0}%", (int)valores[i]);
+        }
     }
 }

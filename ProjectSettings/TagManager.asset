@@ -7,6 +7,7 @@ TagManager:
   - Zona comida
   - Zona reparacion
   - Ground
+  - Instalacion
   layers:
   - Default
   - TransparentFX
