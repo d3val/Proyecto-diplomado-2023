@@ -87,6 +87,12 @@ public class ZonaReparacion : MonoBehaviour
         estado = 0;
     }
 
+    public void Fallar()
+    {
+        if (estado != 0)
+            return;
+        estado= 1;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Player"))

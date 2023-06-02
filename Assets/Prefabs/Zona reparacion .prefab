@@ -479,7 +479,7 @@ MonoBehaviour:
   tiempoInmunidad: 5
   velocidadReparacion: 25
   velocidadDeterioro: 5
-  estado: 1
+  estado: 0
 --- !u!114 &6651917757457364130
 MonoBehaviour:
   m_ObjectHideFlags: 0

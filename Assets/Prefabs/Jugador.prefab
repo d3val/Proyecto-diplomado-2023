@@ -839,7 +839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6595682667493986436}
-  - component: {fileID: 6595682667493986437}
+  - component: {fileID: 1059039675}
   - component: {fileID: 6595682667493986438}
   - component: {fileID: 6595682667493986439}
   - component: {fileID: 6595682667493986489}
@@ -868,8 +868,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6595682667493986437
-BoxCollider:
+--- !u!136 &1059039675
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -878,9 +878,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8273264, y: 0.9729665, z: 0.73914754}
-  m_Center: {x: -0.007746339, y: 0.48648325, z: 0.015324071}
+  m_Radius: 0.5
+  m_Height: 1.095975
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.50201243, z: 0}
 --- !u!54 &6595682667493986438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -889,13 +890,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6595682667493986434}
   serializedVersion: 2
-  m_Mass: 80
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 150
+  m_Drag: 2
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &6595682667493986439
 MonoBehaviour:
@@ -909,10 +910,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594b92712b7fac34b85e482447d1e72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 5
-  estamina: 15
+  velocidadMovimiento: 2000
+  estamina: 70
   estaminaMaxima: 100
-  aumentoVelocidad: 2.5
+  aumentoVelocidad: 1.9
   animator: {fileID: 5866666020184993150}
 --- !u!114 &6595682667493986489
 MonoBehaviour:
