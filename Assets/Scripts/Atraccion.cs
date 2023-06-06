@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class Atraccion : MonoBehaviour
 {
-    public List<ZonaReparacion> list;
-    public float condicionGeneral;/*{ private set; get; }*/
+    ZonaReparacion[] list;
+    public float condicionGeneral { private set; get; }/*{ private set; get; }*/
     // Start is called before the first frame update
     void Start()
     {
-
+        list = GetComponentsInChildren<ZonaReparacion>();
     }
 
     public float PromediarCondicion()
@@ -22,7 +22,7 @@ public class Atraccion : MonoBehaviour
         {
             promedio += zona.condicion;
         }
-        condicionGeneral = promedio / list.Count;
+        condicionGeneral = promedio / list.Length;
         return condicionGeneral;
     }
 }
