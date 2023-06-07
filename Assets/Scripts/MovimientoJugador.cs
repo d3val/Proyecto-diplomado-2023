@@ -120,5 +120,13 @@ public class MovimientoJugador : MonoBehaviour
         GetComponent<CapsuleCollider>().enabled = true;
         rb.isKinematic = false;
         enEspera = false;
+        animator.SetTrigger("trigger_comidaTerminada");
     }
+
+    public void EmpezarAComer()
+    {
+        PararFisicas();
+        animator.SetTrigger("trigger_comiendo");
+    }
+
 }

@@ -10,6 +10,7 @@ public class Jugador : MonoBehaviour
 
     private ZonaComida zonaComidaActual;
     private ZonaComedero zonaComederoActual;
+    private bool comiendo;
 
     private MovimientoJugador movimientoJugador;
 
@@ -106,12 +107,23 @@ public class Jugador : MonoBehaviour
         if (zonaComederoActual == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && comidaActual != null && !comiendo)
         {
-            movimientoJugador.PararFisicas();
-            transform.position = zonaComederoActual.wayPoint.position;
-            transform.rotation = zonaComederoActual.wayPoint.rotation;
+            StartCoroutine(Comer());
         }
+    }
+
+    IEnumerator Comer()
+    {
+        comiendo= true;
+        movimientoJugador.EmpezarAComer();
+        transform.position = zonaComederoActual.wayPoint.position;
+        transform.rotation = zonaComederoActual.wayPoint.rotation;
+        yield return new WaitForSeconds(comidaActual.tiempoDeConsumo);
+        movimientoJugador.ReanudarFisicas();
+        movimientoJugador.RecuperarEstamina(comidaActual.energia);
+        comidaActual = null;
+        comiendo= false;
     }
 
     private void OnTriggerEnter(Collider other)
