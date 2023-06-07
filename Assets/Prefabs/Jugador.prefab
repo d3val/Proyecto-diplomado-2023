@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadMovimiento: 2000
-  estamina: 70
+  estamina: 100
   estaminaMaxima: 100
   aumentoVelocidad: 1.9
   animator: {fileID: 5866666020184993150}
