@@ -37,8 +37,8 @@ public class ZonaReparacion : MonoBehaviour
         {
             case 0:
                 UIZona.DesactivarUI();
-                if (!GameManager.jugadorEnZona)
-                    UILevelManager.instance.SetActiveMensajeAccion(false);
+               /* if (!GameManager.jugadorEnZona)
+                    UILevelManager.instance.SetActiveMensajeAccion(false);*/
                 break;
             case 1:
                 UIZona.ActivarUI();

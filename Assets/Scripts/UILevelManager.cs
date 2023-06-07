@@ -57,12 +57,14 @@ public class UILevelManager : MonoBehaviour
     {
         SetActiveMensajeAccion(true);
         textoAccion.text = mensaje;
-        // Debug.Log("Se activo");
+         Debug.Log("Se activo");
     }
 
     public void SetActiveMensajeAccion(bool estado)
     {
         mensajeAccion.SetActive(estado);
+        Debug.Log("Se desactivo");
+
     }
 
     public void SetActivePanelPausa(bool estado)

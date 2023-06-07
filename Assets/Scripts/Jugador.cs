@@ -9,6 +9,7 @@ public class Jugador : MonoBehaviour
     public Comida comidaActual = null;
 
     private ZonaComida zonaComidaActual;
+    private ZonaComedero zonaComederoActual;
 
     private MovimientoJugador movimientoJugador;
 
@@ -17,7 +18,6 @@ public class Jugador : MonoBehaviour
 
     [Header("Herramientas del jugador")]
     [SerializeField] GameObject martillo;
-
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +44,7 @@ public class Jugador : MonoBehaviour
 
         AccionZonaComida();
         AccionZonaReparacion();
+        AccionZonaComedero();
     }
 
     private void AccionZonaComida()
@@ -100,6 +101,18 @@ public class Jugador : MonoBehaviour
         }
     }
 
+    private void AccionZonaComedero()
+    {
+        if (zonaComederoActual == null)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            movimientoJugador.PararFisicas();
+            transform.position = zonaComederoActual.wayPoint.position;
+            transform.rotation = zonaComederoActual.wayPoint.rotation;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -116,7 +129,11 @@ public class Jugador : MonoBehaviour
             zonaReparacionActual = other.GetComponent<ZonaReparacion>();
             return;
         }
-
+        if (other.gameObject.CompareTag("Zona comedero"))
+        {
+            zonaComederoActual = other.GetComponent<ZonaComedero>();
+            return;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -126,6 +143,12 @@ public class Jugador : MonoBehaviour
                 zonaComidaActual.estado = 0;
             //UILevelManager.instance.DesactivarMensajeAccion();
             zonaComidaActual = null;
+            return;
+        }
+
+        if (other.gameObject.CompareTag("Zona comedero"))
+        {
+            zonaComederoActual = null;
             return;
         }
     }
