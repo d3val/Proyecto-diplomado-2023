@@ -378,6 +378,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0f794c67e9233d468a38d165590d253, type: 3}
   - {fileID: 8300000, guid: 1a7741daba5446e46a40f8074aae75dc, type: 3}
   - {fileID: 8300000, guid: 0bc66974c41ff8c4fa15f46d21ad3548, type: 3}
+  metalHit: {fileID: 8300000, guid: da317e6b12bfa7e46b28f22ad040c29d, type: 3}
   audioSource: {fileID: 1059039665}
 --- !u!1 &2065424475628790792
 GameObject:
@@ -845,7 +846,6 @@ GameObject:
   - component: {fileID: 6595682667493986439}
   - component: {fileID: 6595682667493986489}
   - component: {fileID: 1059039665}
-  - component: {fileID: 1059039666}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -944,13 +944,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -988,7 +988,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1028,14 +1028,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &1059039666
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6595682667493986434}
-  m_Enabled: 1
 --- !u!1 &6634920164987830951
 GameObject:
   m_ObjectHideFlags: 0

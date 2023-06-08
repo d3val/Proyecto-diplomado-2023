@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManagerPasos : MonoBehaviour
 {
     public List<AudioClip> pasos = new List<AudioClip>();
+    public AudioClip metalHit;
     public AudioSource audioSource;
     private int indice;
     // Start is called before the first frame update
@@ -25,5 +26,10 @@ public class AudioManagerPasos : MonoBehaviour
         indice++;
         if (indice >= pasos.Count)
             indice = 0;
+    }
+
+    public void PlayHitSound()
+    {
+        audioSource.PlayOneShot(metalHit);
     }
 }
