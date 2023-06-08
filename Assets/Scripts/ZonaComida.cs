@@ -55,8 +55,7 @@ public class ZonaComida : MonoBehaviour
         {
             // Inactivo
             case 0:
-                if (!GameManager.jugadorEnZona)
-                    UILevelManager.instance.SetActiveMensajeAccion(false);
+                UIZona.DesactivarUI();
                 break;
             // Esperando por orden
             case 1:

@@ -15,6 +15,8 @@ public class MovimientoJugador : MonoBehaviour
 
     private Slider estaminaSlider;
 
+    private bool enEspera;
+
     // Variables de animacion
     [SerializeField] private Animator animator;
     private bool enMovimiento;
@@ -41,6 +43,9 @@ public class MovimientoJugador : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (enEspera)
+            return;
+
         MoverJugador();
     }
 
@@ -103,4 +108,25 @@ public class MovimientoJugador : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
     }
+
+    public void PararFisicas()
+    {
+        enEspera = true;
+        rb.isKinematic = true;
+        GetComponent<CapsuleCollider>().enabled = false;
+    }
+    public void ReanudarFisicas()
+    {
+        GetComponent<CapsuleCollider>().enabled = true;
+        rb.isKinematic = false;
+        enEspera = false;
+        animator.SetTrigger("trigger_comidaTerminada");
+    }
+
+    public void EmpezarAComer()
+    {
+        PararFisicas();
+        animator.SetTrigger("trigger_comiendo");
+    }
+
 }

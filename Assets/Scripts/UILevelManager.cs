@@ -53,16 +53,24 @@ public class UILevelManager : MonoBehaviour
         imagenComida.sprite = spriteComida;
     }
 
+    public void LimpiarImagenComida()
+    {
+        imagenComida.color = new Color(255, 255, 255, 0);
+        imagenComida.sprite = null;
+    }
+
     public void SetMensajeAccion(string mensaje)
     {
         SetActiveMensajeAccion(true);
         textoAccion.text = mensaje;
-        // Debug.Log("Se activo");
+        //Debug.Log("Se activo");
     }
 
     public void SetActiveMensajeAccion(bool estado)
     {
         mensajeAccion.SetActive(estado);
+        //Debug.Log("Se desactivo");
+
     }
 
     public void SetActivePanelPausa(bool estado)

@@ -57,7 +57,6 @@ public class AtraccionesManager : MonoBehaviour
     private void IniciarFallo()
     {
         RevisarZonas();
-        Debug.Log(zonasFuncionales.Count);
         if (zonasFuncionales.Count <= 0)
             return;
         int i = Random.Range(0, zonasFuncionales.Count);

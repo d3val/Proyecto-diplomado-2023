@@ -7,7 +7,7 @@ using TMPro;
 public class UIZona : MonoBehaviour
 {
     [SerializeField] GameObject sliderZona;
-    Slider slider;
+    public Slider slider;
     [SerializeField] Image sliderFill;
     [SerializeField] GameObject etiquetaZona;
     TextMeshProUGUI textoZona;

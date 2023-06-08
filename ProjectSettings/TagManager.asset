@@ -8,6 +8,7 @@ TagManager:
   - Zona reparacion
   - Ground
   - Instalacion
+  - Zona comedero
   layers:
   - Default
   - TransparentFX
