@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   estaminaComida: 50
-  tiempoParaConsumir: 10
+  tiempoParaConsumir: 6.5
   tiempoPreparacion: 10
   spriteComida: {fileID: 21300000, guid: ee9d21888dc21d343b60b2eb7b0bbd0c, type: 3}
   estado: 0
@@ -664,6 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderZona: {fileID: 9048697483928959424}
+  slider: {fileID: 0}
   sliderFill: {fileID: 9048697483227259801}
   etiquetaZona: {fileID: 31955305}
 --- !u!1 &9048697483926085085
