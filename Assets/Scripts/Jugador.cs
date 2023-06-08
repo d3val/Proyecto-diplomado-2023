@@ -19,6 +19,7 @@ public class Jugador : MonoBehaviour
 
     [Header("Herramientas del jugador")]
     [SerializeField] GameObject martillo;
+    [SerializeField] GameObject comida;
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +34,6 @@ public class Jugador : MonoBehaviour
     {
         if (GameManager.juegoPausado)
             return;
-        if (comidaActual == null)
-        {
-            Debug.Log("No hay comida");
-        }
-        else
-        {
-            Debug.Log("Tengo comida que recupera: " + comidaActual.energia +
-                "\nY me tardare " + comidaActual.tiempoDeConsumo + " en terminarlo");
-        }
 
         AccionZonaComida();
         AccionZonaReparacion();
@@ -69,6 +61,7 @@ public class Jugador : MonoBehaviour
                 {
                     comidaActual = zonaComidaActual.comidaServida;
                     UILevelManager.instance.SetImagenComida(comidaActual.sprite);
+                    UILevelManager.instance.SetActiveMensajeAccion(false);
                     zonaComidaActual.estado = 4;
                 }
                 break;
@@ -109,21 +102,26 @@ public class Jugador : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && comidaActual != null && !comiendo)
         {
+            UILevelManager.instance.SetActiveMensajeAccion(false);
             StartCoroutine(Comer());
         }
     }
 
     IEnumerator Comer()
     {
-        comiendo= true;
+        comiendo = true;
+        comida.SetActive(true);
         movimientoJugador.EmpezarAComer();
-        transform.position = zonaComederoActual.wayPoint.position;
-        transform.rotation = zonaComederoActual.wayPoint.rotation;
+        zonaComederoActual.IniciarEspera(comidaActual.tiempoDeConsumo);
+        transform.SetPositionAndRotation(zonaComederoActual.wayPoint.position, zonaComederoActual.wayPoint.rotation);
         yield return new WaitForSeconds(comidaActual.tiempoDeConsumo);
+        UILevelManager.instance.LimpiarImagenComida();
+        transform.SetLocalPositionAndRotation(zonaComederoActual.endPoint.position, zonaComederoActual.endPoint.rotation);
         movimientoJugador.ReanudarFisicas();
         movimientoJugador.RecuperarEstamina(comidaActual.energia);
+        comida.SetActive(false);
         comidaActual = null;
-        comiendo= false;
+        comiendo = false;
     }
 
     private void OnTriggerEnter(Collider other)

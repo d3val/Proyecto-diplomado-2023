@@ -37,8 +37,8 @@ public class ZonaReparacion : MonoBehaviour
         {
             case 0:
                 UIZona.DesactivarUI();
-               /* if (!GameManager.jugadorEnZona)
-                    UILevelManager.instance.SetActiveMensajeAccion(false);*/
+                /* if (!GameManager.jugadorEnZona)
+                     UILevelManager.instance.SetActiveMensajeAccion(false);*/
                 break;
             case 1:
                 UIZona.ActivarUI();
@@ -91,7 +91,7 @@ public class ZonaReparacion : MonoBehaviour
     {
         if (estado != 0)
             return;
-        estado= 1;
+        estado = 1;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -100,7 +100,6 @@ public class ZonaReparacion : MonoBehaviour
 
         jugadorCerca = true;
         GameManager.jugadorEnZona = true;
-        Debug.Log(gameObject);
     }
 
     private void OnTriggerExit(Collider other)
