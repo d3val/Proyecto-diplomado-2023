@@ -17,6 +17,6 @@ public class UISlider : MonoBehaviour
 
     public void ActualizarEtiqueta()
     {
-        etiqueta.text = slider.value.ToString();
+        etiqueta.text = string.Format("{0:0}", slider.value * 100);
     }
 }

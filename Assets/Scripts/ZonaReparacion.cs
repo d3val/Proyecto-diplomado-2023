@@ -26,7 +26,7 @@ public class ZonaReparacion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.juegoPausado)
+        if (LevelManager.juegoPausado)
             return;
         RevisarEstado();
     }
@@ -47,7 +47,7 @@ public class ZonaReparacion : MonoBehaviour
                 UIZona.ActualizarLabel("!!!!!!");
                 if (jugadorCerca)
                 {
-                    if (GameManager.jugadorEnZona)
+                    if (LevelManager.jugadorEnZona)
                         UILevelManager.instance.SetMensajeAccion("Reparar");
                 }
 
@@ -99,7 +99,7 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = true;
-        GameManager.jugadorEnZona = true;
+        LevelManager.jugadorEnZona = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -108,7 +108,7 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = false;
-        GameManager.jugadorEnZona = false;
+        LevelManager.jugadorEnZona = false;
         UILevelManager.instance.SetActiveMensajeAccion(false);
     }
 }

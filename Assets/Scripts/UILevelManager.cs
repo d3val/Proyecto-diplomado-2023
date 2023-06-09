@@ -34,7 +34,7 @@ public class UILevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.juegoPausado)
+        if (LevelManager.juegoPausado)
             return;
 
         ActualizarTimerUI();
@@ -42,8 +42,8 @@ public class UILevelManager : MonoBehaviour
 
     private void ActualizarTimerUI()
     {
-        minutos = (int)(GameManager.Instance.tiempoNivel / 60);
-        segundos = (int)(GameManager.Instance.tiempoNivel - minutos * 60);
+        minutos = (int)(LevelManager.Instance.tiempoNivel / 60);
+        segundos = (int)(LevelManager.Instance.tiempoNivel - minutos * 60);
         contadorTiempo.text = String.Format("{0:00}:{1:00}", minutos, segundos);
     }
 

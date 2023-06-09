@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    private static SoundManager instance;
+    public static SoundManager instance;
     [SerializeField] AudioSource soundtrackAudioSource;
+    float volumenOriginal;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(instance);
+            volumenOriginal = soundtrackAudioSource.volume;
+            SetVolume();
             return;
         }
         Destroy(this.gameObject);
     }
 
-    
+    public void SetVolume()
+    {
+        soundtrackAudioSource.volume = volumenOriginal * GameManager.musicVolume;
+    }
 }

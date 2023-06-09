@@ -1373,8 +1373,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ReanudarJuego
         m_Mode: 1
         m_Arguments:
@@ -1552,8 +1552,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ReanudarJuego
         m_Mode: 1
         m_Arguments:
@@ -1576,8 +1576,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: CargarEscena
         m_Mode: 3
         m_Arguments:
@@ -1679,8 +1679,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ReanudarJuego
         m_Mode: 1
         m_Arguments:
@@ -1703,8 +1703,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: RecargarEscenaActual
         m_Mode: 1
         m_Arguments:
@@ -1997,6 +1997,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642238138}
   m_CullTransparentMesh: 1
+--- !u!1 &651979769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3529626225303903199, guid: 23beb4b1835a3e34ab9136a0f71afc52, type: 3}
+  m_PrefabInstance: {fileID: 114399811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &651979771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651979769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe9783696b19344934d5be8db14883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &673026382
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,9 +3580,10 @@ GameObject:
   - component: {fileID: 892725394}
   - component: {fileID: 892725393}
   - component: {fileID: 892725396}
+  - component: {fileID: 892725397}
   m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
+  m_Name: UI
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3789,6 +3807,18 @@ MonoBehaviour:
   mensajeAccion: {fileID: 1613729864}
   textoAccion: {fileID: 1072532131}
   enZona: 0
+--- !u!114 &892725397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892725387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe9783696b19344934d5be8db14883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &900141250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,10 +3828,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 900141252}
-  - component: {fileID: 900141253}
+  - component: {fileID: 900141255}
   - component: {fileID: 900141254}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3822,20 +3852,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900141253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900141250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d91259f6c16764f8185b814701ead8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiempoNivel: 300
-  limiteAtraccionesRotas: 3
 --- !u!114 &900141254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3853,6 +3869,20 @@ MonoBehaviour:
   inicioFallos: 5
   zonasFuncionales: []
   atracciones: []
+--- !u!114 &900141255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900141250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da652b6226029842819b86cd0307a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoNivel: 300
+  limiteAtraccionesRotas: 3
 --- !u!1001 &908780965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5966,6 +5996,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3063359956297901098, guid: 45bee8819698e554d9061a136c609d1d, type: 3}
   m_PrefabInstance: {fileID: 1554245011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1582292839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3529626225303903199, guid: 23beb4b1835a3e34ab9136a0f71afc52, type: 3}
+  m_PrefabInstance: {fileID: 908780965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1582292841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582292839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe9783696b19344934d5be8db14883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1599302145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7091,8 +7138,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ReanudarJuego
         m_Mode: 1
         m_Arguments:
@@ -7115,8 +7162,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 900141253}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 900141255}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: CargarEscena
         m_Mode: 3
         m_Arguments:
@@ -7921,6 +7968,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012811788}
   m_CullTransparentMesh: 1
+--- !u!1 &2044661714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3529626225303903199, guid: 23beb4b1835a3e34ab9136a0f71afc52, type: 3}
+  m_PrefabInstance: {fileID: 9048697483747358422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2057127986
 GameObject:
   m_ObjectHideFlags: 0
@@ -32740,6 +32792,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3475884509730262440, guid: 23beb4b1835a3e34ab9136a0f71afc52, type: 3}
   m_PrefabInstance: {fileID: 9048697483747358422}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5597900536205163392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044661714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe9783696b19344934d5be8db14883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5599614992465859760
 Transform:
   m_ObjectHideFlags: 0

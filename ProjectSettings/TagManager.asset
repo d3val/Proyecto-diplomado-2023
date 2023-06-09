@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Instalacion
   - Zona comedero
+  - SFX
   layers:
   - Default
   - TransparentFX
