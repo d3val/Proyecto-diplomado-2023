@@ -32,7 +32,7 @@ public class Jugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.juegoPausado)
+        if (LevelManager.juegoPausado)
             return;
 
         AccionZonaComida();

@@ -33,7 +33,7 @@ public class AtraccionesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.juegoPausado)
+        if (LevelManager.juegoPausado)
             return;
         ActualizarStatus();
     }
@@ -78,9 +78,9 @@ public class AtraccionesManager : MonoBehaviour
         }
         UILevelManager.instance.AtualizarCondiciones(status);
 
-        if (atraccionesRotas >= GameManager.Instance.limiteAtraccionesRotas)
+        if (atraccionesRotas >= LevelManager.Instance.limiteAtraccionesRotas)
         {
-            GameManager.Instance.GameOver();
+            LevelManager.Instance.GameOver();
         }
     }
 }

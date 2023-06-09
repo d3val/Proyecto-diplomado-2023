@@ -5,81 +5,57 @@ using UnityEngine;
 using System;
 using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public static float musicVolume = 1f;
+    public static float sfxVolume = 1f;
+    public static GameManager instance = null;
 
-    public static GameManager Instance = null;
-    public float tiempoNivel;
-    public int limiteAtraccionesRotas = 3;
-
-    public static bool jugadorEnZona;
-    public static bool juegoPausado;
-
-    // Start is called before the first frame update
     private void Awake()
     {
-        if (Instance != null)
-            Destroy(this.gameObject);
+        if (instance != null)
+            Destroy(gameObject);
 
-        Instance = this;
-        Instance.ReanudarJuego();
-        // ReanudarJuego();
+        instance = this;
+        CargarDatos();
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        instance.SetSFXVolumes();
+        SoundManager.instance.SetVolume();
+    }
+
+    public void SetSFXVolumes()
+    {
+        GameObject[] SFXObjects = GameObject.FindGameObjectsWithTag("SFX");
+        foreach (GameObject item in SFXObjects)
         {
-            if (juegoPausado)
-                ReanudarJuego();
-            else
-                PausarJuego();
+            item.GetComponent<SFXElement>().SetVolume();
         }
-        if (juegoPausado)
-            return;
+    }
 
-        if (tiempoNivel < 0)
+    private void CargarDatos()
+    {
+        if (PlayerPrefs.HasKey("Volumen_Musica"))
         {
-            GameOver();
-            return;
+            //Debug.Log(PlayerPrefs.GetFloat("Volumen_Musica"));
+            musicVolume = PlayerPrefs.GetFloat("Volumen_Musica");
         }
-        tiempoNivel -= Time.deltaTime;
 
+        if (PlayerPrefs.HasKey("Volumen_Efectos"))
+        {
+            //Debug.Log(PlayerPrefs.GetFloat("Volumen_Efectos"));
+            sfxVolume = PlayerPrefs.GetFloat("Volumen_Efectos");
+        }
     }
 
-    public void PausarJuego()
+    public void GuardarDatos()
     {
-        Time.timeScale = 0;
-        juegoPausado = true;
-        UILevelManager.instance.SetActivePanelJuego(false);
-        UILevelManager.instance.SetActivePanelPausa(true);
-    }
-
-    public void ReanudarJuego()
-    {
-        Time.timeScale = 1;
-        juegoPausado = false;
-        UILevelManager.instance.SetActivePanelJuego(true);
-        UILevelManager.instance.SetActivePanelPausa(false);
-    }
-
-    public void GameOver()
-    {
-        Debug.Log("Se acabo el tiempo");
-        UILevelManager.instance.SetActivePanelFinJuego(true);
-        Time.timeScale = 0;
-        juegoPausado = true;
-    }
-
-    public void CargarEscena(int indice)
-    {
-        SceneManager.LoadScene(indice);
-    }
-
-    public void RecargarEscenaActual()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetFloat("Volumen_Musica", musicVolume);
+        PlayerPrefs.SetFloat("Volumen_Efectos", sfxVolume);
     }
 }
