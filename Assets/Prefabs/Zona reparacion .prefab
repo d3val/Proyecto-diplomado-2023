@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderZona: {fileID: 8987660854590951253}
+  slider: {fileID: 0}
   sliderFill: {fileID: 8987660855609561893}
   etiquetaZona: {fileID: 8987660854393022439}
 --- !u!1 &8987660855682505351
