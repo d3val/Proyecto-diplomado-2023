@@ -9,6 +9,8 @@ public class ZonaReparacion : MonoBehaviour
     [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
+    [SerializeField] ParticleSystem humo;
+    [SerializeField] List<ParticleSystem> chispas = new List<ParticleSystem>();
     //[HideInInspector]
     public int estado;
 
@@ -45,6 +47,7 @@ public class ZonaReparacion : MonoBehaviour
                 condicion -= Time.deltaTime * velocidadDeterioro;
                 UIZona.ActualizarSlider(condicion);
                 UIZona.ActualizarLabel("!!!!!!");
+                SetParticlesActive(true);
                 if (jugadorCerca)
                 {
                     if (LevelManager.jugadorEnZona)
@@ -80,9 +83,32 @@ public class ZonaReparacion : MonoBehaviour
         }
     }
 
+    private void SetParticlesActive(bool active)
+    {
+        if (active)
+        {
+            if (!humo.isPlaying)
+                humo.Play();
+
+            foreach (var item in chispas)
+            {
+                if (!item.isPlaying)
+                    item.Play();
+            }
+        }
+        else
+        {
+            humo.Stop();
+            foreach (var item in chispas)
+            {
+                item.Stop();
+            }
+        }
+    }
     IEnumerator Recover()
     {
         estado = 3;
+        SetParticlesActive(false);
         yield return new WaitForSeconds(tiempoInmunidad);
         estado = 0;
     }
