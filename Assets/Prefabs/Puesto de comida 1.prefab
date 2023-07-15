@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 842880182613642554}
   - component: {fileID: 5995177339893103272}
   - component: {fileID: 1689593795}
+  - component: {fileID: 9056508108382224584}
   m_Layer: 0
   m_Name: Puesto de comida 1
   m_TagString: SFX
@@ -343,6 +344,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfe9783696b19344934d5be8db14883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &9056508108382224584
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529626225303903199}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 1.5, z: 0.8}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.15, y: 0, z: 0.8}
+  m_TimeToStationary: 0.5
 --- !u!1 &9048697482305185814
 GameObject:
   m_ObjectHideFlags: 0

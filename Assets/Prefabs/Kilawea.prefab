@@ -1878,6 +1878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8064643612789463534}
   - component: {fileID: 8064643612789463533}
+  - component: {fileID: 2820021991043775428}
   m_Layer: 0
   m_Name: Kilawea
   m_TagString: Instalacion
@@ -1902,6 +1903,7 @@ Transform:
   - {fileID: 8306231693666862205}
   - {fileID: 8066028329162522725}
   - {fileID: 6324325121691275496}
+  - {fileID: 6271264620905576650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1917,6 +1919,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993aa43ff35b3ce4ea1924d35de4ae2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visitorInteractable: 1
+  destinationPoint: {fileID: 5347741049421274415}
+--- !u!208 &2820021991043775428
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108394268753583956}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.5, y: 2.5, z: 2.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: -5}
+  m_TimeToStationary: 0.5
 --- !u!1 &5158195434183762044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,6 +2034,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3000107, y: 0.4089287, z: 0.809727}
   m_Center: {x: 0.00000039593664, y: -0.21132831, z: 0.39215896}
+--- !u!1 &5347741049421274415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6271264620905576650}
+  m_Layer: 0
+  m_Name: Punto destino
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6271264620905576650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347741049421274415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.15, z: -7.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8064643612789463534}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6158601435756300879
 GameObject:
   m_ObjectHideFlags: 0

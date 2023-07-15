@@ -195,6 +195,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7984607570340097427, guid: 4508acdd49e63854882635cf66679c43, type: 3}
+--- !u!1 &1157433988289615873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6987926288638957743}
+  m_Layer: 0
+  m_Name: Punto destino
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6987926288638957743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157433988289615873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.57, y: 0.51, z: -4.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8382094403822041146}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1535092319543527928
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8382094403822041146}
   - component: {fileID: 4321634788728427196}
+  - component: {fileID: 5583571579442367364}
   m_Layer: 0
   m_Name: Rueda de la fortuna
   m_TagString: Instalacion
@@ -755,6 +787,7 @@ Transform:
   - {fileID: 9030424770191815072}
   - {fileID: 2360089396292942144}
   - {fileID: 2360089395421827288}
+  - {fileID: 6987926288638957743}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -770,6 +803,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993aa43ff35b3ce4ea1924d35de4ae2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visitorInteractable: 1
+  destinationPoint: {fileID: 1157433988289615873}
+--- !u!208 &5583571579442367364
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321634788728427197}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.5, y: 4, z: 2.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: -2}
+  m_TimeToStationary: 0.5
 --- !u!1 &6730149454127780419
 GameObject:
   m_ObjectHideFlags: 0

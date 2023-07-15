@@ -10,6 +10,7 @@ TagManager:
   - Instalacion
   - Zona comedero
   - SFX
+  - Visitante
   layers:
   - Default
   - TransparentFX
