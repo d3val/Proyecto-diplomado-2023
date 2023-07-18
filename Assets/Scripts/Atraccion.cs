@@ -10,8 +10,10 @@ public class Atraccion : MonoBehaviour
     ZonaReparacion[] list;
     public bool visitorInteractable = true;
     public GameObject destinationPoint;
-    public List<Transform> puntosAnclaje = new List<Transform>();
-    int indexAnclaje = 0;
+    [SerializeField] protected List<Transform> puntosAnclaje = new List<Transform>();
+    protected int indexAnclaje = 0;
+    protected Visitante visitante = null;
+    [SerializeField] protected float funTime = 5.0f;
     public float condicionGeneral { private set; get; }/*{ private set; get; }*/
     // Start is called before the first frame update
     void Start()
@@ -36,23 +38,23 @@ public class Atraccion : MonoBehaviour
         if (!other.CompareTag("Visitante"))
             return;
 
-        Visitante visitante = other.GetComponent<Visitante>();
+        visitante = other.GetComponent<Visitante>();
         if (indexAnclaje >= puntosAnclaje.Count)
             indexAnclaje = 0;
         if (visitante.currentAtraction == this)
         {
-            SubirVisitante(visitante);
+            SubirVisitante();
         }
     }
 
-    protected virtual void SubirVisitante(Visitante vis)
+    protected virtual void SubirVisitante()
     {
-        vis.DisableAgent();
-        vis.Subir(puntosAnclaje[indexAnclaje]);
+        visitante.Subir(puntosAnclaje[indexAnclaje]);
         indexAnclaje++;
+        IniciarRonda();
     }
 
-    protected virtual void Ronda()
+    protected virtual void IniciarRonda()
     {
     }
 }

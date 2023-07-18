@@ -7,7 +7,6 @@ public class Visitante : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform destination;
-    public GameObject cubo;
     public Atraccion currentAtraction;
     Animator animator;
     // Start is called before the first frame update
@@ -17,18 +16,14 @@ public class Visitante : MonoBehaviour
         animator = GetComponent<Animator>();
         SelectDestination();
     }
-    private void Update()
-    {
 
-    }
-    void SelectDestination()
+    public void SelectDestination()
     {
         List<Atraccion> atraccionesDisponibles = GameObject.Find("Level Manager").GetComponent<AtraccionesManager>().atraccionesVisitantes;
         int index = Random.Range(0, atraccionesDisponibles.Count);
         currentAtraction = atraccionesDisponibles[index];
         Debug.Log("Destino: " + currentAtraction.gameObject.name);
         agent.SetDestination(currentAtraction.destinationPoint.transform.position);
-        cubo.transform.position = currentAtraction.transform.position;
     }
 
     public void DisableAgent()
@@ -38,6 +33,7 @@ public class Visitante : MonoBehaviour
 
     public void Subir(Transform anclaje)
     {
+        agent.enabled = false;
         transform.position = anclaje.transform.position;
         transform.rotation = anclaje.transform.rotation;
         transform.SetParent(anclaje);
@@ -50,6 +46,7 @@ public class Visitante : MonoBehaviour
         agent.enabled = true;
         transform.position = currentAtraction.destinationPoint.transform.position;
         transform.rotation = currentAtraction.destinationPoint.transform.rotation;
+        SelectDestination();
         animator.SetBool("InAtraction", false);
     }
 }

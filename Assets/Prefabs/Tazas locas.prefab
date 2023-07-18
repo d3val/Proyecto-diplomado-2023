@@ -623,6 +623,7 @@ MonoBehaviour:
   - {fileID: 2100071132}
   - {fileID: 608012919}
   - {fileID: 1755276515}
+  funTime: 5
 --- !u!65 &7115743038237608934
 BoxCollider:
   m_ObjectHideFlags: 0

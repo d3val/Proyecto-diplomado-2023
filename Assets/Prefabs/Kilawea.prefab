@@ -831,7 +831,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6163830438193188105}
   - {fileID: 4797625019539531731}
   - {fileID: 6648109485943374674}
   - {fileID: 6348686467201926770}
@@ -870,7 +869,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6056769585055451749}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6178026828766276069
 MeshFilter:
@@ -1198,6 +1197,49 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3153134554437112673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3314982476290025471}
+  m_Layer: 0
+  m_Name: Puntos de anclaje
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3314982476290025471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153134554437112673}
+  m_LocalRotation: {x: -0, y: -0, z: 0.000000014901159, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2478835739324952867}
+  - {fileID: 8394281240038878939}
+  - {fileID: 5901039152256135894}
+  - {fileID: 2105426866566922165}
+  - {fileID: 3090275192228469842}
+  - {fileID: 6513514326588428838}
+  - {fileID: 3205133929380749722}
+  - {fileID: 5658245042857439814}
+  - {fileID: 1801093819585500699}
+  - {fileID: 4829446633512189808}
+  - {fileID: 1799782062251439133}
+  - {fileID: 607990019313822683}
+  m_Father: {fileID: 4797625019539531731}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3408419749709997518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1323,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3464741224463933471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801093819585500699}
+  m_Layer: 0
+  m_Name: Punto anclaje (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1801093819585500699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464741224463933471}
+  m_LocalRotation: {x: 0.69352, y: -0.13794972, z: -0.13794969, w: 0.6935199}
+  m_LocalPosition: {x: -1.8880708, y: -2.0260077, z: 0.07796621}
+  m_LocalScale: {x: 0.6969736, y: 1, z: 1.0712945}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3611412121694500771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2478835739324952867}
+  m_Layer: 0
+  m_Name: Punto anclaje
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2478835739324952867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3611412121694500771}
+  m_LocalRotation: {x: 0.13794963, y: 0.69351995, z: 0.69351995, w: 0.13794963}
+  m_LocalPosition: {x: 0.10350392, y: 2.7693634, z: 0.07442665}
+  m_LocalScale: {x: 0.6969738, y: 1, z: 1.0712948}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3804485629597616981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,6 +1468,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4017302933372077701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6513514326588428838}
+  m_Layer: 0
+  m_Name: Punto anclaje (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6513514326588428838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017302933372077701}
+  m_LocalRotation: {x: 0.58793783, y: 0.39284757, z: 0.39284745, w: 0.5879378}
+  m_LocalPosition: {x: 2.7609935, y: -0.100036494, z: 0.085960865}
+  m_LocalScale: {x: 0.6969737, y: 1, z: 1.0712948}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4132402911061587245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1582,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4209596531842987054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8394281240038878939}
+  m_Layer: 0
+  m_Name: Punto anclaje (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8394281240038878939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4209596531842987054}
+  m_LocalRotation: {x: 0.13794963, y: 0.69351995, z: 0.69351995, w: 0.13794963}
+  m_LocalPosition: {x: 0.9916754, y: 2.394115, z: 0.07543278}
+  m_LocalScale: {x: 0.6969738, y: 1, z: 1.0712948}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4265278240313947739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1710,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3000097, y: 0.4089283, z: 0.80972666}
   m_Center: {x: -0.0000039041042, y: -0.203333, z: 0.38729146}
+--- !u!1 &4503685606924289136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1799782062251439133}
+  m_Layer: 0
+  m_Name: Punto anclaje (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1799782062251439133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4503685606924289136}
+  m_LocalRotation: {x: -0.39284742, y: 0.58793783, z: 0.58793783, w: -0.39284742}
+  m_LocalPosition: {x: -2.3936324, y: 0.99147606, z: 0.08115816}
+  m_LocalScale: {x: 0.69697356, y: 1, z: 1.0712947}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4769698135108478933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,7 +1883,7 @@ Transform:
   - {fileID: 4543104750044048007}
   - {fileID: 4913731251818132051}
   m_Father: {fileID: 6056769585055451749}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4860354581336496179
 GameObject:
@@ -1877,8 +2074,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8064643612789463534}
-  - component: {fileID: 8064643612789463533}
   - component: {fileID: 2820021991043775428}
+  - component: {fileID: 4259356961322758822}
+  - component: {fileID: 8483508730252969648}
+  - component: {fileID: 6623087516061944417}
   m_Layer: 0
   m_Name: Kilawea
   m_TagString: Instalacion
@@ -1893,7 +2092,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5108394268753583956}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -16.795115, y: 7.812834, z: -3.6232295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1906,21 +2105,7 @@ Transform:
   - {fileID: 6271264620905576650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8064643612789463533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108394268753583956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 993aa43ff35b3ce4ea1924d35de4ae2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visitorInteractable: 1
-  destinationPoint: {fileID: 5347741049421274415}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!208 &2820021991043775428
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1937,6 +2122,101 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -5}
   m_TimeToStationary: 0.5
+--- !u!114 &4259356961322758822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108394268753583956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bc777ceeff5534dbcc3f2c17b5f756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visitorInteractable: 1
+  destinationPoint: {fileID: 5347741049421274415}
+  puntosAnclaje:
+  - {fileID: 3205133929380749722}
+  - {fileID: 5658245042857439814}
+  - {fileID: 1801093819585500699}
+  - {fileID: 2105426866566922165}
+  - {fileID: 3090275192228469842}
+  - {fileID: 6513514326588428838}
+  - {fileID: 4829446633512189808}
+  - {fileID: 1799782062251439133}
+  - {fileID: 607990019313822683}
+  - {fileID: 2478835739324952867}
+  - {fileID: 8394281240038878939}
+  - {fileID: 5901039152256135894}
+  funTime: 5
+  launchWaitTime: 5
+  places: 12
+  animator: {fileID: 0}
+--- !u!65 &8483508730252969648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108394268753583956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 3, z: 1}
+  m_Center: {x: 0, y: -4.83, z: -7.3}
+--- !u!95 &6623087516061944417
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108394268753583956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d570d740bf04a14d824d185222d78b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &5132646151254336698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4829446633512189808}
+  m_Layer: 0
+  m_Name: Punto anclaje (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4829446633512189808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5132646151254336698}
+  m_LocalRotation: {x: -0.39284742, y: 0.58793783, z: 0.58793783, w: -0.39284742}
+  m_LocalPosition: {x: -2.0246623, y: 1.882248, z: 0.08115816}
+  m_LocalScale: {x: 0.69697356, y: 1, z: 1.0712947}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5158195434183762044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,6 +2428,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6169861713934379413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3205133929380749722}
+  m_Layer: 0
+  m_Name: Punto anclaje (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3205133929380749722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169861713934379413}
+  m_LocalRotation: {x: 0.69352, y: -0.13794972, z: -0.13794969, w: 0.6935199}
+  m_LocalPosition: {x: -0.09978448, y: -2.7667403, z: 0.07796621}
+  m_LocalScale: {x: 0.6969736, y: 1, z: 1.0712945}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6503753488571272190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2411,6 +2722,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3000097, y: 0.4089283, z: 0.80972666}
   m_Center: {x: -0.0000019967556, y: -0.203333, z: 0.38729146}
+--- !u!1 &7061218898016671255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5901039152256135894}
+  m_Layer: 0
+  m_Name: Punto anclaje (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5901039152256135894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061218898016671255}
+  m_LocalRotation: {x: 0.13794963, y: 0.69351995, z: 0.69351995, w: 0.13794963}
+  m_LocalPosition: {x: 1.8824475, y: 2.0251448, z: 0.07543278}
+  m_LocalScale: {x: 0.6969738, y: 1, z: 1.0712948}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7077422811781718441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2836,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7808161312799874477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3090275192228469842}
+  m_Layer: 0
+  m_Name: Punto anclaje (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3090275192228469842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7808161312799874477}
+  m_LocalRotation: {x: 0.58793783, y: 0.39284757, z: 0.39284745, w: 0.5879378}
+  m_LocalPosition: {x: 2.3920236, y: -0.99080855, z: 0.085960865}
+  m_LocalScale: {x: 0.6969737, y: 1, z: 1.0712948}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7896929563442232320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105426866566922165}
+  m_Layer: 0
+  m_Name: Punto anclaje (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105426866566922165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7896929563442232320}
+  m_LocalRotation: {x: 0.58793783, y: 0.39284757, z: 0.39284745, w: 0.5879378}
+  m_LocalPosition: {x: 2.023053, y: -1.8815815, z: 0.085960865}
+  m_LocalScale: {x: 0.6969737, y: 1, z: 1.0712948}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8099081831615779400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2981,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8401503222863729172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 607990019313822683}
+  m_Layer: 0
+  m_Name: Punto anclaje (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &607990019313822683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401503222863729172}
+  m_LocalRotation: {x: -0.39284742, y: 0.58793783, z: 0.58793783, w: -0.39284742}
+  m_LocalPosition: {x: -2.7626028, y: 0.10070307, z: 0.08115816}
+  m_LocalScale: {x: 0.69697356, y: 1, z: 1.0712947}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8868253281167005452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5658245042857439814}
+  m_Layer: 0
+  m_Name: Punto anclaje (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5658245042857439814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868253281167005452}
+  m_LocalRotation: {x: 0.69352, y: -0.13794972, z: -0.13794969, w: 0.6935199}
+  m_LocalPosition: {x: -0.9972988, y: -2.3949776, z: 0.07796621}
+  m_LocalScale: {x: 0.6969736, y: 1, z: 1.0712945}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3314982476290025471}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9067301468350347066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,9 +3066,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067301468350347066}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.0534396}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.19509041, w: 0.98078525}
+  m_LocalPosition: {x: 0, y: 0, z: 0.52463484}
+  m_LocalScale: {x: 1.0712948, y: 1.0712947, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7044629253962615910}
@@ -2617,8 +3083,8 @@ Transform:
   - {fileID: 2920280362199258945}
   - {fileID: 1485193022966196913}
   - {fileID: 6822871836757890182}
-  m_Father: {fileID: 6056769585055451749}
-  m_RootOrder: 0
+  m_Father: {fileID: 4797625019539531731}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9094175721971107839
 GameObject:
@@ -2847,8 +3313,10 @@ Transform:
   - {fileID: 5451537004800818989}
   - {fileID: 4625379319295052392}
   - {fileID: 6041718094362805280}
+  - {fileID: 6163830438193188105}
+  - {fileID: 3314982476290025471}
   m_Father: {fileID: 6056769585055451749}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4464960036108720094
 MeshFilter:
