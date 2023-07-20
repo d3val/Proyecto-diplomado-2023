@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
-public class Kilawea : Atraccion
+public class Kilawea : MonoBehaviour
 {
-    [SerializeField] float launchWaitTime = 5.0f;
+   /*[SerializeField] float launchWaitTime = 5.0f;
     float timer = 0;
     bool isLaunching = false;
     List<Visitante> visOnBoard = new List<Visitante>();
@@ -67,5 +67,5 @@ public class Kilawea : Atraccion
         visOnBoard.Clear();
         isLaunching = false;
     }
-
+   */
 }

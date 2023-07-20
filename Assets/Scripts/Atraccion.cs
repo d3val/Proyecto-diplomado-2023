@@ -13,15 +13,29 @@ public class Atraccion : MonoBehaviour
     [SerializeField] protected List<Transform> puntosAnclaje = new List<Transform>();
     protected int indexAnclaje = 0;
     protected Visitante visitante = null;
-    [SerializeField] protected float funTime = 5.0f;
+    float timer;
+    [SerializeField] float startingWaitTime;
+
+    public int avaiblePlaces;
+    public List<Visitante> visitorsOnBoard = new List<Visitante>();
+    protected bool isStarting = false;
+    protected Animator animator;
+    string idleClipName;
     public float condicionGeneral { private set; get; }/*{ private set; get; }*/
     // Start is called before the first frame update
     void Start()
     {
         list = GetComponentsInChildren<ZonaReparacion>();
         indexAnclaje = 0;
+        avaiblePlaces = puntosAnclaje.Count;
+        if (visitorInteractable)
+            InitializeAnimator();
     }
-
+    protected virtual void InitializeAnimator()
+    {
+        animator = GetComponent<Animator>();
+        idleClipName = animator.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+    }
     public float PromediarCondicion()
     {
         float promedio = 0;
@@ -35,6 +49,8 @@ public class Atraccion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!visitorInteractable)
+            return;
         if (!other.CompareTag("Visitante"))
             return;
 
@@ -49,12 +65,62 @@ public class Atraccion : MonoBehaviour
 
     protected virtual void SubirVisitante()
     {
+        if (avaiblePlaces <= 0)
+            return;
+
         visitante.Subir(puntosAnclaje[indexAnclaje]);
         indexAnclaje++;
-        IniciarRonda();
+        visitorsOnBoard.Add(visitante);
+        avaiblePlaces--;
+        timer = 0;
+        StartCoroutine(StartLaunching());
+        /*visitante.Subir(puntosAnclaje[indexAnclaje]);
+        indexAnclaje++;
+        IniciarRonda();*/
     }
 
     protected virtual void IniciarRonda()
     {
+    }
+    IEnumerator StartLaunching()
+    {
+        if (!isStarting)
+        {
+            Debug.Log("Este mensaje solo debe salir una vez");
+            isStarting = true;
+            while (timer < startingWaitTime)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            Debug.Log("Fuego");
+            StartCoroutine(Ronda());
+            timer = 0;
+        }
+    }
+
+
+
+    protected virtual IEnumerator Ronda()
+    {
+        animator.SetTrigger("Start");
+        yield return new WaitForSeconds(3);
+        while (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != idleClipName)
+        {
+            yield return null;
+        }
+
+        TerminarRonda();
+    }
+
+    protected void TerminarRonda()
+    {
+        foreach (Visitante visitor in visitorsOnBoard)
+        {
+            visitor.Bajar();
+            avaiblePlaces++;
+        }
+        visitorsOnBoard.Clear();
+        isStarting = false;
     }
 }

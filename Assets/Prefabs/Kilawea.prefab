@@ -2075,9 +2075,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8064643612789463534}
   - component: {fileID: 2820021991043775428}
-  - component: {fileID: 4259356961322758822}
   - component: {fileID: 8483508730252969648}
   - component: {fileID: 6623087516061944417}
+  - component: {fileID: 6418982887662536332}
   m_Layer: 0
   m_Name: Kilawea
   m_TagString: Instalacion
@@ -2122,37 +2122,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -5}
   m_TimeToStationary: 0.5
---- !u!114 &4259356961322758822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5108394268753583956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bc777ceeff5534dbcc3f2c17b5f756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visitorInteractable: 1
-  destinationPoint: {fileID: 5347741049421274415}
-  puntosAnclaje:
-  - {fileID: 3205133929380749722}
-  - {fileID: 5658245042857439814}
-  - {fileID: 1801093819585500699}
-  - {fileID: 2105426866566922165}
-  - {fileID: 3090275192228469842}
-  - {fileID: 6513514326588428838}
-  - {fileID: 4829446633512189808}
-  - {fileID: 1799782062251439133}
-  - {fileID: 607990019313822683}
-  - {fileID: 2478835739324952867}
-  - {fileID: 8394281240038878939}
-  - {fileID: 5901039152256135894}
-  funTime: 5
-  launchWaitTime: 5
-  places: 12
-  animator: {fileID: 0}
 --- !u!65 &8483508730252969648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2186,6 +2155,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6418982887662536332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108394268753583956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993aa43ff35b3ce4ea1924d35de4ae2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visitorInteractable: 1
+  destinationPoint: {fileID: 5347741049421274415}
+  puntosAnclaje:
+  - {fileID: 1801093819585500699}
+  - {fileID: 5658245042857439814}
+  - {fileID: 3205133929380749722}
+  - {fileID: 2105426866566922165}
+  - {fileID: 3090275192228469842}
+  - {fileID: 6513514326588428838}
+  - {fileID: 4829446633512189808}
+  - {fileID: 1799782062251439133}
+  - {fileID: 607990019313822683}
+  - {fileID: 2478835739324952867}
+  - {fileID: 8394281240038878939}
+  - {fileID: 5901039152256135894}
+  startingWaitTime: 5
+  avaiblePlaces: 0
+  visitorsOnBoard: []
 --- !u!1 &5132646151254336698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,14 +2336,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5347741049421274415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071064, y: -0, z: -0, w: 0.70710725}
   m_LocalPosition: {x: 0, y: -4.15, z: -7.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8064643612789463534}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &6158601435756300879
 GameObject:
   m_ObjectHideFlags: 0

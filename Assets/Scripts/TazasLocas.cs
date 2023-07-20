@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class TazasLocas : Atraccion
 {
+    [SerializeField] Spin mainSpin;
+    [SerializeField] List<Spin> secondarySpins;
+    [SerializeField] float funTime = 30f;
 
-    // Update is called once per frame
-    void Update()
+    protected override void InitializeAnimator()
     {
-        
+        animator = null;
     }
 
-    protected override void IniciarRonda()
+    protected override IEnumerator Ronda()
     {
-        StartCoroutine(Fun(visitante));
-    }
-
-    IEnumerator Fun(Visitante vis)
-    {
-        
+        mainSpin.enabled= true;
+        foreach(Spin spin in secondarySpins)
+        {
+            spin.enabled = true;
+        }
         yield return new WaitForSeconds(funTime);
-        vis.Bajar();
+        mainSpin.enabled = false;
+        foreach (Spin spin in secondarySpins)
+        {
+            spin.enabled = false;
+        }
+        foreach (Visitante visitor in visitorsOnBoard)
+        {
+            visitor.Bajar();
+            avaiblePlaces++;
+        }
+        visitorsOnBoard.Clear();
+        isStarting = false;
     }
 }

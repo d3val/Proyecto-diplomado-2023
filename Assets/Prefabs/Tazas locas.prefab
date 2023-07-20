@@ -341,12 +341,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992398395300316161}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306f7ec77f9694a448d57b948dbf76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRange: {x: 10, y: 15}
+  speedRange: {x: 55, y: 60}
 --- !u!1 &1879103055243901232
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,12 +440,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879103055243901232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306f7ec77f9694a448d57b948dbf76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRange: {x: 10, y: 15}
+  speedRange: {x: 55, y: 60}
 --- !u!1 &2282812594185640423
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,12 +539,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2282812594185640423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306f7ec77f9694a448d57b948dbf76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRange: {x: 10, y: 15}
+  speedRange: {x: 55, y: 60}
 --- !u!1 &4470902659446499394
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +623,16 @@ MonoBehaviour:
   - {fileID: 2100071132}
   - {fileID: 608012919}
   - {fileID: 1755276515}
-  funTime: 5
+  startingWaitTime: 5
+  avaiblePlaces: 0
+  visitorsOnBoard: []
+  mainSpin: {fileID: 95653514}
+  secondarySpins:
+  - {fileID: 2065753477}
+  - {fileID: 284731839}
+  - {fileID: 2121388080}
+  - {fileID: 1223086461}
+  funTime: 30
 --- !u!65 &7115743038237608934
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -730,12 +739,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5174491350617821565}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306f7ec77f9694a448d57b948dbf76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRange: {x: 10, y: 15}
+  speedRange: {x: 55, y: 60}
 --- !u!1 &5306467627856407737
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,12 +854,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5306467627856407737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306f7ec77f9694a448d57b948dbf76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRange: {x: 5, y: 5}
+  speedRange: {x: 30, y: 40}
 --- !u!1 &5656852834107876492
 GameObject:
   m_ObjectHideFlags: 0
