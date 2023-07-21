@@ -48419,6 +48419,7 @@ MonoBehaviour:
   startingWaitTime: 0
   avaiblePlaces: 0
   visitorsOnBoard: []
+  isWorking: 1
 --- !u!1 &8291371282909681618
 GameObject:
   m_ObjectHideFlags: 0

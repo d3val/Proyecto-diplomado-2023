@@ -22,6 +22,7 @@ public class Atraccion : MonoBehaviour
     protected Animator animator;
     string idleClipName;
     public float condicionGeneral { private set; get; }/*{ private set; get; }*/
+    public bool isWorking = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,14 +87,12 @@ public class Atraccion : MonoBehaviour
     {
         if (!isStarting)
         {
-            Debug.Log("Este mensaje solo debe salir una vez");
             isStarting = true;
             while (timer < startingWaitTime)
             {
                 timer += Time.deltaTime;
                 yield return null;
             }
-            Debug.Log("Fuego");
             StartCoroutine(Ronda());
             timer = 0;
         }
@@ -113,7 +112,7 @@ public class Atraccion : MonoBehaviour
         TerminarRonda();
     }
 
-    protected void TerminarRonda()
+    protected virtual void TerminarRonda()
     {
         foreach (Visitante visitor in visitorsOnBoard)
         {
@@ -122,5 +121,15 @@ public class Atraccion : MonoBehaviour
         }
         visitorsOnBoard.Clear();
         isStarting = false;
+    }
+    public void CerrarAtraccion()
+    {
+        isWorking = false;
+        StopAllCoroutines();
+        TerminarRonda();
+        BoxCollider collider = GetComponent<BoxCollider>();
+        if (collider != null)
+            GetComponent<BoxCollider>().enabled = false;
+        this.enabled = false;
     }
 }

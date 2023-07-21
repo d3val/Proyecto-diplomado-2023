@@ -14,7 +14,12 @@ public class RuedaFortuna : Atraccion
     {
         spiner.enabled = true;
         yield return new WaitForSeconds(gameTime);
-        spiner.enabled = false;
         TerminarRonda();
+    }
+
+    protected override void TerminarRonda()
+    {
+        base.TerminarRonda();
+        spiner.enabled = false;
     }
 }

@@ -76,8 +76,10 @@ public class AtraccionesManager : MonoBehaviour
             status.Add(atraccion.PromediarCondicion());
 
             if (atraccion.condicionGeneral <= 0)
+            {
+                atraccion.CerrarAtraccion();
                 atraccionesRotas++;
-
+            }
         }
         UILevelManager.instance.AtualizarCondiciones(status);
 
@@ -86,4 +88,6 @@ public class AtraccionesManager : MonoBehaviour
             LevelManager.Instance.GameOver();
         }
     }
+
+
 }

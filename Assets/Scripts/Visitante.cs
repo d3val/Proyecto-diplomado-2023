@@ -10,6 +10,7 @@ public class Visitante : MonoBehaviour
     public Atraccion currentAtraction;
     public Atraccion previousAtraction;
     Animator animator;
+    List<Atraccion> atraccionesDisponibles;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +21,11 @@ public class Visitante : MonoBehaviour
 
     public void SelectDestination()
     {
-        List<Atraccion> atraccionesDisponibles = GameObject.Find("Level Manager").GetComponent<AtraccionesManager>().atraccionesVisitantes;
+        atraccionesDisponibles = GameObject.Find("Level Manager").GetComponent<AtraccionesManager>().atraccionesVisitantes;
         int index = Random.Range(0, atraccionesDisponibles.Count);
         currentAtraction = atraccionesDisponibles[index];
-        if (previousAtraction == currentAtraction)
+        if (previousAtraction == currentAtraction || !currentAtraction.isWorking)
             SelectDestination();
-        Debug.Log("Destino: " + currentAtraction.gameObject.name);
         agent.SetDestination(currentAtraction.destinationPoint.transform.position);
     }
 
