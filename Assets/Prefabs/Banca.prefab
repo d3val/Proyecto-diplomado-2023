@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 3063359956297901101}
   - component: {fileID: 3063359956297901100}
   - component: {fileID: 3063359956297901103}
+  - component: {fileID: 3508469422887382410}
   m_Layer: 0
   m_Name: Banca
   m_TagString: Zona comedero
@@ -914,6 +915,22 @@ MonoBehaviour:
   slider: {fileID: 0}
   sliderFill: {fileID: 3063359955158525664}
   etiquetaZona: {fileID: 3063359955816529291}
+--- !u!208 &3508469422887382410
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063359956297901099}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 0.455, z: 0.4}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.4, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &3063359956536052405
 GameObject:
   m_ObjectHideFlags: 0

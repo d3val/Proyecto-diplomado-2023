@@ -9,10 +9,11 @@ public class AtraccionesManager : MonoBehaviour
     [SerializeField] float inicioFallos = 3f;
     public List<ZonaReparacion> zonasFuncionales;
     public List<Atraccion> atracciones;
+    public List<Atraccion> atraccionesVisitantes;
     List<float> status = new List<float>();
     public static int atraccionesRotas { private set; get; }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameObject[] zonas = GameObject.FindGameObjectsWithTag("Zona reparacion");
         foreach (GameObject zona in zonas)
@@ -24,7 +25,10 @@ public class AtraccionesManager : MonoBehaviour
         zonas = GameObject.FindGameObjectsWithTag("Instalacion");
         foreach (GameObject atraccion in zonas)
         {
-            atracciones.Add(atraccion.GetComponent<Atraccion>());
+            Atraccion aux = atraccion.GetComponent<Atraccion>();
+            atracciones.Add(aux);
+            if (aux.visitorInteractable)
+                atraccionesVisitantes.Add(aux);
         }
         atraccionesRotas = 0;
         InvokeRepeating("IniciarFallo", inicioFallos, intervaloFallos);
@@ -70,11 +74,12 @@ public class AtraccionesManager : MonoBehaviour
         foreach (Atraccion atraccion in atracciones)
         {
             status.Add(atraccion.PromediarCondicion());
-            //Debug.Log(atraccion.transform.name + " " + atraccion.condicionGeneral.ToString());
 
             if (atraccion.condicionGeneral <= 0)
+            {
+                atraccion.CerrarAtraccion();
                 atraccionesRotas++;
-
+            }
         }
         UILevelManager.instance.AtualizarCondiciones(status);
 
@@ -83,4 +88,6 @@ public class AtraccionesManager : MonoBehaviour
             LevelManager.Instance.GameOver();
         }
     }
+
+
 }
