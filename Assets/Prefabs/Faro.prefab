@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9157568583053212937}
   - component: {fileID: 6332066644875675357}
   - component: {fileID: 4070747213682281576}
-  - component: {fileID: 4194996809565588797}
   m_Layer: 0
   m_Name: Faro
   m_TagString: Untagged
@@ -98,19 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14303881, y: 2.8295429, z: 0.17303352}
   m_Center: {x: -0.0125608165, y: 1.4143127, z: 0.0051500495}
---- !u!208 &4194996809565588797
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6309448521429739029}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.125, y: 1, z: 0.125}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1, z: 0}
-  m_TimeToStationary: 0.5

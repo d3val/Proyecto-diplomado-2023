@@ -959,7 +959,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2717441914051540042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306f7ec77f9694a448d57b948dbf76d5, type: 3}
   m_Name: 
@@ -1438,9 +1438,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 2.5, y: 4, z: 2.5}
+  m_Extents: {x: 1.5, y: 4, z: 2.5}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: -2}
   m_TimeToStationary: 0.5
@@ -1491,6 +1491,9 @@ MonoBehaviour:
   startingWaitTime: 10
   avaiblePlaces: 0
   visitorsOnBoard: []
+  isWorking: 1
+  spiner: {fileID: 876264397}
+  gameTime: 20
 --- !u!1 &4416210229112642576
 GameObject:
   m_ObjectHideFlags: 0

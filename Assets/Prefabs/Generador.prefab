@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1102422263406150346
 Transform:
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3735539550107801001}
-  m_LocalRotation: {x: -0.49999982, y: 0.49999976, z: 0.50000024, w: 0.5000002}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -109,13 +109,13 @@ NavMeshObstacle:
   m_GameObject: {fileID: 3735539550107801001}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1, y: 1.5, z: 0.70000005}
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.037, z: 0.70000005}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0
 --- !u!1001 &4503628509971890186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,6 +126,10 @@ PrefabInstance:
     - target: {fileID: 2213773889699828009, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
       propertyPath: m_Name
       value: Chispa (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213773889699828009, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2293130939628771864, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
       propertyPath: m_RootOrder
@@ -188,6 +192,10 @@ PrefabInstance:
     - target: {fileID: 2213773889699828009, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
       propertyPath: m_Name
       value: Chispa
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213773889699828009, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2293130939628771864, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
       propertyPath: m_RootOrder
@@ -319,6 +327,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.12
       objectReference: {fileID: 0}
+    - target: {fileID: 7583039064682614655, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987660853876669271, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987660854393022439, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8987660854590951252, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 396
@@ -331,6 +351,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8987660854590951253, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987660855602807033, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8987660855609561898, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.01
@@ -338,6 +366,10 @@ PrefabInstance:
     - target: {fileID: 8987660855609561898, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987660855609561899, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8987660855678832521, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: humo
@@ -415,6 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Zona reparacion '
       objectReference: {fileID: 0}
+    - target: {fileID: 8987660855678832525, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8987660855682505350, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -442,6 +478,10 @@ PrefabInstance:
     - target: {fileID: 8987660855682505350, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987660855682505351, guid: 9499427d947590245a84c3f4731df57b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9030321578446886686, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_Size.x
@@ -485,6 +525,10 @@ PrefabInstance:
     - target: {fileID: 2213773889699828009, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
       propertyPath: m_Name
       value: Chispa (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213773889699828009, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2293130939628771864, guid: 3f62143f7a7e14c48998bbcef7270e13, type: 3}
       propertyPath: m_RootOrder
@@ -591,6 +635,10 @@ PrefabInstance:
     - target: {fileID: 6150530259954593671, guid: cbac23714589a3f43ae42a38401c5fbe, type: 3}
       propertyPath: m_Name
       value: Humo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150530259954593671, guid: cbac23714589a3f43ae42a38401c5fbe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbac23714589a3f43ae42a38401c5fbe, type: 3}

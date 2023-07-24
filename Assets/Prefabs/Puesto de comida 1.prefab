@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &31955306
 RectTransform:
@@ -150,12 +150,13 @@ GameObject:
   - component: {fileID: 5995177339893103272}
   - component: {fileID: 1689593795}
   - component: {fileID: 9056508108382224584}
+  - component: {fileID: 5597900536205163392}
   m_Layer: 0
   m_Name: Puesto de comida 1
   m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3475884509730262440
 Transform:
@@ -353,13 +354,25 @@ NavMeshObstacle:
   m_GameObject: {fileID: 3529626225303903199}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.5, y: 1.5, z: 0.8}
+  m_Shape: 0
+  m_Extents: {x: 1, y: 0.5, z: 1}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0.15, y: 0, z: 0.8}
-  m_TimeToStationary: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0
+--- !u!114 &5597900536205163392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529626225303903199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfe9783696b19344934d5be8db14883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9048697482305185814
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +390,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &9048697482305185815
 RectTransform:
@@ -477,7 +490,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &9048697483132419695
 RectTransform:
@@ -553,7 +566,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &9048697483227259800
 RectTransform:
@@ -630,7 +643,7 @@ GameObject:
   m_TagString: Zona comida
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &9048697483743923542
 Transform:
@@ -711,7 +724,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &9048697483926085082
 RectTransform:
@@ -749,7 +762,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &9048697483928959425
 RectTransform:
