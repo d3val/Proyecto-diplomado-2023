@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlaySoundFromList : MonoBehaviour
 {
     [SerializeField] List<AudioClip> list;
-    AudioSource audioSource;
+    [SerializeField] float volume = 1.0f;
+    [SerializeField] AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = volume;
     }
 
     public void PlayOneByIndex(int index)
@@ -21,6 +22,6 @@ public class PlaySoundFromList : MonoBehaviour
             return;
         }
 
-        audioSource.PlayOneShot(list[index]);
+        audioSource.PlayOneShot(list[index], volume);
     }
 }
