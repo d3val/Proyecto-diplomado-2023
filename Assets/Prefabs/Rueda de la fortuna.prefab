@@ -1,5 +1,142 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1159555661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1159555662}
+  - component: {fileID: 1159555663}
+  m_Layer: 0
+  m_Name: Sonido_Rueda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1159555662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159555661}
+  m_LocalRotation: {x: 0.49999982, y: 0.5000002, z: 0.49999955, w: 0.5000005}
+  m_LocalPosition: {x: 2.52, y: -0.22, z: -4.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8382094403822041146}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!82 &1159555663
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159555661}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2f576a17d094ddf47bae2e67bbd14740, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.23333333
+      value: 1
+      inSlope: -3.7801507
+      outSlope: -3.7801507
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.20903216
+    - serializedVersion: 3
+      time: 0.4839214
+      value: 0.4167328
+      inSlope: -1.3066622
+      outSlope: -1.3066622
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4273551
+      outWeight: 0.16956174
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.7068047
+      outSlope: -0.7068047
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.28834668
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &131727563373419237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,6 +1539,7 @@ GameObject:
   - component: {fileID: 5583571579442367364}
   - component: {fileID: 6485387214698931149}
   - component: {fileID: 3998301099848962524}
+  - component: {fileID: 2893847893842260690}
   m_Layer: 0
   m_Name: Rueda de la fortuna
   m_TagString: Instalacion
@@ -1425,6 +1563,7 @@ Transform:
   - {fileID: 2360089396292942144}
   - {fileID: 2360089395421827288}
   - {fileID: 6987926288638957743}
+  - {fileID: 1159555662}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -106.852}
@@ -1494,6 +1633,22 @@ MonoBehaviour:
   isWorking: 1
   spiner: {fileID: 876264397}
   gameTime: 20
+  playSoundFromList: {fileID: 2893847893842260690}
+--- !u!114 &2893847893842260690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321634788728427197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b6530bb534f9c4e8e24ba91e83f9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1159555663}
+  list:
+  - {fileID: 8300000, guid: 2f576a17d094ddf47bae2e67bbd14740, type: 3}
 --- !u!1 &4416210229112642576
 GameObject:
   m_ObjectHideFlags: 0

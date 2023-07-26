@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class SFXElement : MonoBehaviour
 {
-    AudioSource audioSource;
-    float volumenOriginal;
+    [SerializeField] protected AudioSource audioSource;
+    protected float volumenOriginal;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         volumenOriginal = audioSource.volume;
         SetVolume();
     }
 
     public void SetVolume()
     {
+        Debug.Log(gameObject.name);
         audioSource.volume = volumenOriginal * GameManager.sfxVolume;
     }
 

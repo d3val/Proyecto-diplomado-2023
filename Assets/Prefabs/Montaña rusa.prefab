@@ -2742,6 +2742,7 @@ GameObject:
   - component: {fileID: 7886855047810595126}
   - component: {fileID: 4615166799185904651}
   - component: {fileID: 2844869895240136792}
+  - component: {fileID: 1212362816}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -2828,6 +2829,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3909233067320746374, guid: 4508acdd49e63854882635cf66679c43, type: 3}
+--- !u!65 &1212362816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2844869895240136795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.895052, y: 2.05, z: 3.1247828}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!1 &2924512011782112309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4001,9 +4015,10 @@ GameObject:
   - component: {fileID: 3454344515925277073}
   - component: {fileID: 5052094318541061601}
   - component: {fileID: 3454344515925277078}
+  - component: {fileID: 835745365}
   m_Layer: 0
   m_Name: Carrito delantero
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4088,6 +4103,111 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4000006, y: 1.4669135, z: 1.1548247}
   m_Center: {x: -0.000003806644, y: -0.01654242, z: 0.4664101}
+--- !u!82 &835745365
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3686994093356625482}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.23333333
+      value: 1
+      inSlope: -3.7801507
+      outSlope: -3.7801507
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.20903216
+    - serializedVersion: 3
+      time: 0.4839214
+      value: 0.4167328
+      inSlope: -1.3066622
+      outSlope: -1.3066622
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4273551
+      outWeight: 0.16956174
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.7068047
+      outSlope: -0.7068047
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.28834668
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3816408733384337567
 GameObject:
   m_ObjectHideFlags: 0
@@ -7665,6 +7785,7 @@ GameObject:
   - component: {fileID: 7203086203641608473}
   - component: {fileID: 701579412119229679}
   - component: {fileID: 2035205011280903101}
+  - component: {fileID: 4158215590862407574}
   m_Layer: 0
   m_Name: "Monta\xF1a rusa"
   m_TagString: Instalacion
@@ -7713,6 +7834,7 @@ MonoBehaviour:
   startingWaitTime: 5
   avaiblePlaces: 0
   visitorsOnBoard: []
+  isWorking: 1
 --- !u!65 &701579412119229679
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7746,6 +7868,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4158215590862407574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668392944854211177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b6530bb534f9c4e8e24ba91e83f9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 835745365}
+  list:
+  - {fileID: 8300000, guid: 33d0b5400af564a44834444920833c52, type: 3}
+  - {fileID: 8300000, guid: c526037c04b51ac419bfa66449a2e310, type: 3}
+  - {fileID: 8300000, guid: dc50ebc8062eca54a8a34eb350186d4e, type: 3}
 --- !u!1 &7691293924098568076
 GameObject:
   m_ObjectHideFlags: 0

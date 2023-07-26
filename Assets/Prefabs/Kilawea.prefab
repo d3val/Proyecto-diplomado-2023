@@ -1,5 +1,142 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1795382031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795382032}
+  - component: {fileID: 1795382034}
+  m_Layer: 0
+  m_Name: Audio_kilawea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795382032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795382031}
+  m_LocalRotation: {x: -0, y: -0, z: -0.19509041, w: 0.98078525}
+  m_LocalPosition: {x: 0, y: 0, z: -0.42192554}
+  m_LocalScale: {x: 1.0712948, y: 1.0712947, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4797625019539531731}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1795382034
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795382031}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ade2f98527f671f47a9e5838d8b29409, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1.2
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.4464315
+      value: 0.5266762
+      inSlope: -2.9589622
+      outSlope: -2.9589622
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.35184157
+    - serializedVersion: 3
+      time: 0.60714215
+      value: 0.2501831
+      inSlope: -0.9146069
+      outSlope: -0.9146069
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.56411994
+      outWeight: 0.31818306
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.33346638
+      outSlope: -0.33346638
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.53055555
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &50738988663473488
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +231,6 @@ GameObject:
   - component: {fileID: 3304170368352461437}
   - component: {fileID: 6570412376999977529}
   - component: {fileID: 7483539782246852877}
-  - component: {fileID: 7483539782246852876}
   m_Layer: 0
   m_Name: Abrazadera005
   m_TagString: Untagged
@@ -167,19 +303,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7483539782246852876
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471274010200815523}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000107, y: 0.4089287, z: 0.809727}
-  m_Center: {x: 0.0000008727738, y: -0.21132784, z: 0.39215896}
 --- !u!1 &481254782604295438
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +314,6 @@ GameObject:
   - component: {fileID: 7044629253962615910}
   - component: {fileID: 2359223004518471688}
   - component: {fileID: 8397085152226043150}
-  - component: {fileID: 8397085152226043149}
   m_Layer: 0
   m_Name: Abrazadera
   m_TagString: Untagged
@@ -264,19 +386,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8397085152226043149
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481254782604295438}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000103, y: 0.40892872, z: 0.80972713}
-  m_Center: {x: -0.000000029802393, y: -0.19979423, z: 0.38370213}
 --- !u!1 &863291431163949600
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +563,6 @@ GameObject:
   - component: {fileID: 2920280362199258945}
   - component: {fileID: 7920226559321360706}
   - component: {fileID: 702860763491809370}
-  - component: {fileID: 7920226559321360705}
   m_Layer: 0
   m_Name: Abrazadera009
   m_TagString: Untagged
@@ -527,19 +635,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7920226559321360705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458722158488030471}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000101, y: 0.40892848, z: 0.8097267}
-  m_Center: {x: -0.000000008429091, y: -0.206525, z: 0.3905318}
 --- !u!1 &1475296166896943190
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +812,6 @@ GameObject:
   - component: {fileID: 6822871836757890182}
   - component: {fileID: 1792838762581757664}
   - component: {fileID: 6692725487386362690}
-  - component: {fileID: 6692725487386362689}
   m_Layer: 0
   m_Name: Abrazadera011
   m_TagString: Untagged
@@ -790,19 +884,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6692725487386362689
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977284250084883758}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000101, y: 0.40892848, z: 0.8097267}
-  m_Center: {x: -0.000000008429091, y: -0.20652524, z: 0.3905318}
 --- !u!1 &2491650363776845963
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6056769585055451749}
+  - component: {fileID: 1500492147}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -837,6 +919,20 @@ Transform:
   m_Father: {fileID: 8064643612789463534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1500492147
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491650363776845963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.6
+  m_Height: 20
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2628191012109874101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1124,6 @@ GameObject:
   - component: {fileID: 3717070820096943959}
   - component: {fileID: 1098380530551207207}
   - component: {fileID: 4728464249518833972}
-  - component: {fileID: 4728464249518833979}
   m_Layer: 0
   m_Name: Abrazadera001
   m_TagString: Untagged
@@ -1101,19 +1196,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4728464249518833979
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3014034079591948259}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000103, y: 0.40892875, z: 0.8097272}
-  m_Center: {x: -0.000000029802393, y: -0.20079978, z: 0.39004475}
 --- !u!1 &3055027333083940612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1706,6 @@ GameObject:
   - component: {fileID: 1850558684050417040}
   - component: {fileID: 7751128525455598768}
   - component: {fileID: 4511151006918812428}
-  - component: {fileID: 7751128525455598775}
   m_Layer: 0
   m_Name: Abrazadera007
   m_TagString: Untagged
@@ -1697,19 +1778,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7751128525455598775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4265278240313947739}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000097, y: 0.4089283, z: 0.80972666}
-  m_Center: {x: -0.0000039041042, y: -0.203333, z: 0.38729146}
 --- !u!1 &4503685606924289136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1820,6 @@ GameObject:
   - component: {fileID: 1485193022966196913}
   - component: {fileID: 6614885797002351285}
   - component: {fileID: 5902028771225751354}
-  - component: {fileID: 5902028771225751353}
   m_Layer: 0
   m_Name: Abrazadera010
   m_TagString: Untagged
@@ -1825,19 +1892,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5902028771225751353
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4769698135108478933}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000101, y: 0.40892848, z: 0.8097267}
-  m_Center: {x: -0.00000048526624, y: -0.20652512, z: 0.3905318}
 --- !u!1 &4854592884185024759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,7 +2033,6 @@ GameObject:
   - component: {fileID: 4773680131770943972}
   - component: {fileID: 8994607542674479793}
   - component: {fileID: 4735529458344417827}
-  - component: {fileID: 8994607542674479792}
   m_Layer: 0
   m_Name: Abrazadera008
   m_TagString: Untagged
@@ -2052,19 +2105,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8994607542674479792
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5077309454425373390}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000097, y: 0.4089283, z: 0.80972666}
-  m_Center: {x: -0.0000019967556, y: -0.203333, z: 0.38729158}
 --- !u!1 &5108394268753583956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,6 +2118,7 @@ GameObject:
   - component: {fileID: 8483508730252969648}
   - component: {fileID: 6623087516061944417}
   - component: {fileID: 6418982887662536332}
+  - component: {fileID: 6923267349654608968}
   m_Layer: 0
   m_Name: Kilawea
   m_TagString: Instalacion
@@ -2185,6 +2226,26 @@ MonoBehaviour:
   startingWaitTime: 5
   avaiblePlaces: 0
   visitorsOnBoard: []
+  isWorking: 1
+--- !u!114 &6923267349654608968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108394268753583956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b6530bb534f9c4e8e24ba91e83f9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 8300000, guid: 41fe389abc552ae4ea67e78dcfbfa9fb, type: 3}
+  - {fileID: 8300000, guid: 224ee63c63407fb459226043aa1af954, type: 3}
+  - {fileID: 8300000, guid: c526037c04b51ac419bfa66449a2e310, type: 3}
+  - {fileID: 8300000, guid: f171015c5900c5245b23c6f3f59f240d, type: 3}
+  volume: 0.5
+  audioSource: {fileID: 1795382034}
 --- !u!1 &5132646151254336698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2288,6 @@ GameObject:
   - component: {fileID: 8691652840725914473}
   - component: {fileID: 6977189923638121500}
   - component: {fileID: 468571078864276677}
-  - component: {fileID: 8691652840725914472}
   m_Layer: 0
   m_Name: Abrazadera004
   m_TagString: Untagged
@@ -2300,19 +2360,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8691652840725914472
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5158195434183762044}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000107, y: 0.4089287, z: 0.809727}
-  m_Center: {x: 0.00000039593664, y: -0.21132831, z: 0.39215896}
 --- !u!1 &5347741049421274415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,7 +2682,6 @@ GameObject:
   - component: {fileID: 369796321623731266}
   - component: {fileID: 3891751862563991427}
   - component: {fileID: 7638025169668512275}
-  - component: {fileID: 6934831485243961346}
   m_Layer: 0
   m_Name: Abrazadera006
   m_TagString: Untagged
@@ -2708,19 +2754,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6934831485243961346
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6934831485243961347}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000097, y: 0.4089283, z: 0.80972666}
-  m_Center: {x: -0.0000019967556, y: -0.203333, z: 0.38729146}
 --- !u!1 &7061218898016671255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3096,7 +3129,6 @@ GameObject:
   - component: {fileID: 5651216906975912984}
   - component: {fileID: 3594647481287942745}
   - component: {fileID: 2776846362159842828}
-  - component: {fileID: 9094175721971107838}
   m_Layer: 0
   m_Name: Abrazadera002
   m_TagString: Untagged
@@ -3169,19 +3201,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9094175721971107838
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9094175721971107839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000103, y: 0.40892875, z: 0.8097272}
-  m_Center: {x: -0.000000029802393, y: -0.20079978, z: 0.39004523}
 --- !u!1 &9096454055130978794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3212,6 @@ GameObject:
   - component: {fileID: 5059282064167249324}
   - component: {fileID: 3679320333140642448}
   - component: {fileID: 5325211880388120075}
-  - component: {fileID: 9096454055130978793}
   m_Layer: 0
   m_Name: Abrazadera003
   m_TagString: Untagged
@@ -3266,19 +3284,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9096454055130978793
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9096454055130978794}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3000107, y: 0.4089287, z: 0.809727}
-  m_Center: {x: 0.00000039593664, y: -0.21132831, z: 0.39215896}
 --- !u!1 &9107769193665552835
 GameObject:
   m_ObjectHideFlags: 0
@@ -3314,6 +3319,7 @@ Transform:
   - {fileID: 6041718094362805280}
   - {fileID: 6163830438193188105}
   - {fileID: 3314982476290025471}
+  - {fileID: 1795382032}
   m_Father: {fileID: 6056769585055451749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

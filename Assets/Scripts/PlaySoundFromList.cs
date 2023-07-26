@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySoundFromList : MonoBehaviour
+public class PlaySoundFromList : SFXElement
 {
     [SerializeField] List<AudioClip> list;
-    [SerializeField] float volume = 1.0f;
-    [SerializeField] AudioSource audioSource;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        audioSource.volume = volume;
-    }
 
     public void PlayOneByIndex(int index)
     {
@@ -22,6 +14,25 @@ public class PlaySoundFromList : MonoBehaviour
             return;
         }
 
-        audioSource.PlayOneShot(list[index], volume);
+        audioSource.PlayOneShot(list[index], audioSource.volume);
+    }
+
+    public void PlayByIndex(int index)
+    {
+        if (index > list.Count)
+        {
+            Debug.Log("No se pude reproducir. Index fuera de rango");
+            return;
+        }
+
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+        audioSource.clip = list[index];
+        audioSource.Play();
+    }
+
+    public void StopPlaying()
+    {
+        audioSource.Stop();
     }
 }
