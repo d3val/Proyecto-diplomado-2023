@@ -22,6 +22,8 @@ public class UIPanelFin : MonoBehaviour
         {
             if (condiciones[i] < 0)
                 condiciones[i] = 0;
+            if (condiciones[i] > 100)
+                condiciones[i] = 100;
             limites[i] = condiciones[i] * 100;
             StartCoroutine(Calcular(scoreLabels[i], limites[i]));
         }
