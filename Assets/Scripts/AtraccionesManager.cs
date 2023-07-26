@@ -8,7 +8,7 @@ public class AtraccionesManager : MonoBehaviour
     [SerializeField] float intervaloFallos = 5f;
     [SerializeField] float inicioFallos = 3f;
     public List<ZonaReparacion> zonasFuncionales;
-    public List<Atraccion> atracciones;
+    public  List<Atraccion> atracciones;
     public List<Atraccion> atraccionesVisitantes;
     List<float> status = new List<float>();
     public static int atraccionesRotas { private set; get; }
@@ -89,5 +89,14 @@ public class AtraccionesManager : MonoBehaviour
         }
     }
 
+    public  List<float> GetCondiciones()
+    {
+        List<float> ret = new List<float>();
+        foreach (var item in atracciones)
+        {
+            ret.Add(item.condicionGeneral);
+        }
+        return ret;
+    }
 
 }
