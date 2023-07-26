@@ -6,6 +6,8 @@ public class RuedaFortuna : Atraccion
 {
     [SerializeField] Spin spiner;
     [SerializeField] float gameTime = 20;
+    [SerializeField] PlaySoundFromList playSoundFromList;
+
     protected override void InitializeAnimator()
     {
         animator = null;
@@ -13,6 +15,8 @@ public class RuedaFortuna : Atraccion
     protected override IEnumerator Ronda()
     {
         spiner.enabled = true;
+        //   audioSource.Play();
+        playSoundFromList.PlayByIndex(0);
         yield return new WaitForSeconds(gameTime);
         TerminarRonda();
     }
@@ -21,5 +25,7 @@ public class RuedaFortuna : Atraccion
     {
         base.TerminarRonda();
         spiner.enabled = false;
+        //  audioSource.Stop();
+        playSoundFromList.StopPlaying();
     }
 }

@@ -7,6 +7,8 @@ public class TazasLocas : Atraccion
     [SerializeField] Spin mainSpin;
     [SerializeField] List<Spin> secondarySpins;
     [SerializeField] float funTime = 30f;
+    // [SerializeField] AudioSource audioSource;
+    [SerializeField] PlaySoundFromList playSoundFromList;
 
     protected override void InitializeAnimator()
     {
@@ -15,8 +17,9 @@ public class TazasLocas : Atraccion
 
     protected override IEnumerator Ronda()
     {
-        mainSpin.enabled= true;
-        foreach(Spin spin in secondarySpins)
+        mainSpin.enabled = true;
+        playSoundFromList.PlayByIndex(0);
+        foreach (Spin spin in secondarySpins)
         {
             spin.enabled = true;
         }
@@ -26,12 +29,12 @@ public class TazasLocas : Atraccion
         {
             spin.enabled = false;
         }
-        foreach (Visitante visitor in visitorsOnBoard)
-        {
-            visitor.Bajar();
-            avaiblePlaces++;
-        }
-        visitorsOnBoard.Clear();
-        isStarting = false;
+        TerminarRonda();
+    }
+
+    protected override void TerminarRonda()
+    {
+        base.TerminarRonda();
+        playSoundFromList.StopPlaying();
     }
 }

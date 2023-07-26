@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
-  offset: {x: 0, y: 3.471, z: -3.82}
+  offset: {x: 0, y: 4, z: -5}
 --- !u!81 &1481804033
 AudioListener:
   m_ObjectHideFlags: 0

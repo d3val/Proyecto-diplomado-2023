@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
 
     public void SetSFXVolumes()
     {
-        GameObject[] SFXObjects = GameObject.FindGameObjectsWithTag("SFX");
-        foreach (GameObject item in SFXObjects)
+        SFXElement[] SFXObjects = GameObject.FindObjectsOfType<SFXElement>();
+        foreach (var item in SFXObjects)
         {
             item.GetComponent<SFXElement>().SetVolume();
         }
