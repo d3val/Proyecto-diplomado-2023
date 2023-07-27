@@ -15,7 +15,6 @@ public class SFXElement : MonoBehaviour
 
     public void SetVolume()
     {
-        Debug.Log(gameObject.name);
         audioSource.volume = volumenOriginal * GameManager.sfxVolume;
     }
 

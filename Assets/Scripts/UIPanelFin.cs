@@ -13,9 +13,13 @@ public class UIPanelFin : MonoBehaviour
     public List<float> condiciones;
     float[] limites;
     int labelsCompletas = 0;
+    AudioSource audioSource;
+    [SerializeField] AudioClip countingSound;
+    [SerializeField] AudioClip completedSound;
 
     private void OnEnable()
     {
+        audioSource = GetComponent<AudioSource>();
         condiciones = GameObject.FindObjectOfType<AtraccionesManager>().GetCondiciones();
         limites = new float[scoreLabels.Count];
         for (int i = 0; i < scoreLabels.Count; i++)
@@ -27,6 +31,8 @@ public class UIPanelFin : MonoBehaviour
             limites[i] = condiciones[i] * 100;
             StartCoroutine(Calcular(scoreLabels[i], limites[i]));
         }
+        audioSource.clip = countingSound;
+        audioSource.Play();
     }
 
     IEnumerator Calcular(TextMeshProUGUI label, float limit)
@@ -45,19 +51,20 @@ public class UIPanelFin : MonoBehaviour
         labelsCompletas++;
         if (labelsCompletas == scoreLabels.Count)
         {
+            audioSource.PlayOneShot(completedSound);
             StartCoroutine(CalcularTotal());
         }
     }
 
     IEnumerator CalcularTotal()
     {
+        audioSource.pitch *= 1.25f;
         float totalScore = 0;
         increasingSpeed *= 2.5f;
         foreach (TextMeshProUGUI text in scoreLabels)
         {
             totalScore += int.Parse(text.text);
         }
-        Debug.Log(totalScore);
         float currentScore = int.Parse(totalScoreLabel.text);
         while (currentScore != totalScore)
         {
@@ -70,5 +77,8 @@ public class UIPanelFin : MonoBehaviour
             totalScoreLabel.text = string.Format("{0:00000}", currentScore);
             yield return null;
         }
+        audioSource.Stop();
+        audioSource.pitch /= 1.25f;
+        audioSource.PlayOneShot(completedSound);
     }
 }
