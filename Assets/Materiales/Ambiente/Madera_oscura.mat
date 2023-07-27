@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Puesto_azar
+  m_Name: Madera_oscura
   m_Shader: {fileID: -6465566751694194690, guid: 6d46ca5d26e7fc44ea7509f3767a7aaf, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
