@@ -23,6 +23,7 @@ public class Visitante : MonoBehaviour
     {
         atraccionesDisponibles = GameObject.Find("Level Manager").GetComponent<AtraccionesManager>().atraccionesVisitantes;
         int index = Random.Range(0, atraccionesDisponibles.Count);
+        Debug.Log(atraccionesDisponibles.Count);
         currentAtraction = atraccionesDisponibles[index];
         if (previousAtraction == currentAtraction || !currentAtraction.isWorking)
             SelectDestination();

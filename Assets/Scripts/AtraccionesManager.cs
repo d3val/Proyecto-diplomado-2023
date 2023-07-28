@@ -22,13 +22,10 @@ public class AtraccionesManager : MonoBehaviour
         }
         zonasFuncionales = zonasReparacion;
 
-        zonas = GameObject.FindGameObjectsWithTag("Instalacion");
-        foreach (GameObject atraccion in zonas)
+        foreach (Atraccion atraccion in atracciones)
         {
-            Atraccion aux = atraccion.GetComponent<Atraccion>();
-            atracciones.Add(aux);
-            if (aux.visitorInteractable)
-                atraccionesVisitantes.Add(aux);
+            if (atraccion.visitorInteractable)
+                atraccionesVisitantes.Add(atraccion);
         }
         atraccionesRotas = 0;
         InvokeRepeating("IniciarFallo", inicioFallos, intervaloFallos);
