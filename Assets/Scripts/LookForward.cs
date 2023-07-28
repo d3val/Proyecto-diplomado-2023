@@ -5,7 +5,7 @@ using UnityEngine;
 public class LookForward : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         transform.forward = Vector3.forward * -1;
     }
