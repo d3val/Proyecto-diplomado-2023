@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class AtraccionesManager : MonoBehaviour
 {
+    public static AtraccionesManager Instance;
     public List<ZonaReparacion> zonasReparacion;
     [SerializeField] float intervaloFallos = 5f;
     [SerializeField] float inicioFallos = 3f;
-    public List<ZonaReparacion> zonasFuncionales;
-    public  List<Atraccion> atracciones;
+    public int zonasFuncionales;
+    public List<Atraccion> atracciones;
     public List<Atraccion> atraccionesVisitantes;
     List<float> status = new List<float>();
     public static int atraccionesRotas { private set; get; }
     // Start is called before the first frame update
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         GameObject[] zonas = GameObject.FindGameObjectsWithTag("Zona reparacion");
         foreach (GameObject zona in zonas)
         {
             zonasReparacion.Add(zona.GetComponent<ZonaReparacion>());
         }
-        zonasFuncionales = zonasReparacion;
+        zonasFuncionales = zonasReparacion.Count;
 
         foreach (Atraccion atraccion in atracciones)
         {
@@ -41,27 +50,28 @@ public class AtraccionesManager : MonoBehaviour
 
     private void RevisarZonas()
     {
-        List<ZonaReparacion> zonasInutiles = new List<ZonaReparacion>();
-        foreach (ZonaReparacion zona in zonasFuncionales)
+        zonasFuncionales = zonasReparacion.Count;
+        //List<ZonaReparacion> zonasInutiles = new List<ZonaReparacion>();
+        foreach (ZonaReparacion zona in zonasReparacion)
         {
-            if (zona.estado == 4)
+            if (!zona.isFunctional)
             {
-                zonasInutiles.Add(zona);
+                zonasFuncionales--;
             }
         }
-        foreach (ZonaReparacion zonaInutil in zonasInutiles)
+        /*foreach (ZonaReparacion zonaInutil in zonasInutiles)
         {
             zonasFuncionales.Remove(zonaInutil);
-        }
+        }*/
     }
 
     private void IniciarFallo()
     {
-        RevisarZonas();
-        if (zonasFuncionales.Count <= 0)
+        // RevisarZonas();
+        if (zonasFuncionales <= 0)
             return;
-        int i = Random.Range(0, zonasFuncionales.Count);
-        zonasFuncionales[i].Fallar();
+        int i = Random.Range(0, zonasReparacion.Count);
+        zonasReparacion[i].Fallar();
     }
 
     private void ActualizarStatus()
@@ -77,6 +87,10 @@ public class AtraccionesManager : MonoBehaviour
                 atraccion.CerrarAtraccion();
                 atraccionesRotas++;
             }
+            else
+            {
+                atraccion.ReabrirAtraccion();
+            }
         }
         UILevelManager.instance.AtualizarCondiciones(status);
 
@@ -86,7 +100,7 @@ public class AtraccionesManager : MonoBehaviour
         }
     }
 
-    public  List<float> GetCondiciones()
+    public List<float> GetCondiciones()
     {
         List<float> ret = new List<float>();
         foreach (var item in atracciones)

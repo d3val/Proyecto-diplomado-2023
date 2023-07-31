@@ -20,6 +20,8 @@ public class UILevelManager : MonoBehaviour
     [Header("UI Acciones del jugador")]
     [SerializeField] GameObject mensajeAccion;
     [SerializeField] TextMeshProUGUI textoAccion;
+    [SerializeField] List<Image> goldWrenchs;
+    int wrenchIndex = 0;
 
     public static UILevelManager instance;
     public bool enZona;
@@ -30,6 +32,7 @@ public class UILevelManager : MonoBehaviour
             Destroy(this.gameObject);
 
         instance = this;
+        wrenchIndex = goldWrenchs.Count-1;
     }
 
     private void Update()
@@ -64,6 +67,14 @@ public class UILevelManager : MonoBehaviour
         SetActiveMensajeAccion(true);
         textoAccion.text = mensaje;
         //Debug.Log("Se activo");
+    }
+
+    public void RemoveWrench()
+    {
+        if (wrenchIndex < 0) return;
+
+        goldWrenchs[wrenchIndex].color = Color.black;
+        wrenchIndex--;
     }
 
     public void SetActiveMensajeAccion(bool estado)

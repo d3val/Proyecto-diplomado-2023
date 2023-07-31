@@ -18,6 +18,7 @@ public class ZonaReparacion : MonoBehaviour
 
     private bool jugadorCerca;
     private UIZona UIZona;
+    public bool isFunctional = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +76,12 @@ public class ZonaReparacion : MonoBehaviour
                 break;
             case 4:
                 UIZona.ActualizarLabel("Fuera de servicio");
+                isFunctional = false;
+                if (jugadorCerca)
+                {
+                    if (LevelManager.jugadorEnZona)
+                        UILevelManager.instance.SetMensajeAccion("Usar llave");
+                }
                 break;
             default:
                 Debug.Log("Este mensaje no debería aparecer");

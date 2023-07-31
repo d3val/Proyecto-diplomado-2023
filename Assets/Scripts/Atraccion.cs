@@ -66,7 +66,7 @@ public class Atraccion : MonoBehaviour
 
     protected virtual void SubirVisitante()
     {
-        if (avaiblePlaces <= 0)
+        if (avaiblePlaces <= 0 || !isWorking)
             return;
 
         visitante.Subir(puntosAnclaje[indexAnclaje]);
@@ -122,14 +122,19 @@ public class Atraccion : MonoBehaviour
         visitorsOnBoard.Clear();
         isStarting = false;
     }
+
+    public void ReabrirAtraccion()
+    {
+        isWorking = true;
+    }
     public void CerrarAtraccion()
     {
         isWorking = false;
         StopAllCoroutines();
         TerminarRonda();
-        BoxCollider collider = GetComponent<BoxCollider>();
+        /*BoxCollider collider = GetComponent<BoxCollider>();
         if (collider != null)
             GetComponent<BoxCollider>().enabled = false;
-        this.enabled = false;
+        this.enabled = false;*/
     }
 }

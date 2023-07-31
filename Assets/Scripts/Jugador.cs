@@ -20,6 +20,7 @@ public class Jugador : MonoBehaviour
     [Header("Herramientas del jugador")]
     [SerializeField] GameObject martillo;
     [SerializeField] GameObject comida;
+    [SerializeField] int goldKeys = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +90,18 @@ public class Jugador : MonoBehaviour
                 martillo.SetActive(false);
                 movimientoJugador.enabled = true;
                 zonaReparacionActual = null;
+                break;
+            case 4:
+                if (Input.GetKey(KeyCode.E) && goldKeys > 0)
+                {
+                    zonaReparacionActual.estado = 2;
+                    martillo.SetActive(true);
+                    animator.SetTrigger("trigger_reparando");
+                    movimientoJugador.FrenarMovimiento();
+                    movimientoJugador.enabled = false;
+                    goldKeys--;
+                    UILevelManager.instance.RemoveWrench();
+                }
                 break;
             default:
                 break;
