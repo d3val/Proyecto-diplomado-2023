@@ -478,6 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f15b33a8f27d904c8538ed7e2b6c534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 4205798853804170975}
+  animator: {fileID: 4205798853804170968}
   destination: {fileID: 0}
   currentAtraction: {fileID: 0}
   previousAtraction: {fileID: 0}

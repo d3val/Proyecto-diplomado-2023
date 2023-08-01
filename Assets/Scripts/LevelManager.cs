@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public static bool jugadorEnZona;
     public static bool juegoPausado;
+    public Transform exitPoint;
 
     // Start is called before the first frame update
     private void Awake()

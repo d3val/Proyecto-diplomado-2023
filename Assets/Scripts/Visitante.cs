@@ -5,26 +5,34 @@ using UnityEngine.AI;
 
 public class Visitante : MonoBehaviour
 {
-    NavMeshAgent agent;
-    public Transform destination;
-    public Atraccion currentAtraction;
-    public Atraccion previousAtraction;
-    Animator animator;
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator animator;
+    private Transform destination;
+    public Atraccion currentAtraction { get; private set; }
+    Atraccion previousAtraction;
     int intentos = 0;
+    public bool goingOut { private set; get; }
+    int seguro = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        SelectDestination();
+        if (seguro > 0)
+        {
+            SelectDestination();
+            goingOut = false;
+            agent.speed = Random.Range(1f, 1.5f);
+        }
+        seguro++;
     }
 
     public void SelectDestination()
     {
-        if (intentos > 3)
+        if (intentos > 2)
         {
             Debug.Log("Ya fue mucho");
+            goingOut = true;
+            currentAtraction = null;
+            agent.SetDestination(LevelManager.Instance.exitPoint.position);
             return;
         }
 
@@ -32,8 +40,11 @@ public class Visitante : MonoBehaviour
         int index = Random.Range(0, AtraccionesManager.Instance.atraccionesVisitantes.Count);
         Debug.Log(AtraccionesManager.Instance.atraccionesVisitantes.Count);
         currentAtraction = AtraccionesManager.Instance.atraccionesVisitantes[index];
-        if (previousAtraction == currentAtraction || !currentAtraction.isWorking)
+        if (previousAtraction == currentAtraction || !currentAtraction.isWorking || currentAtraction.isRunning)
             SelectDestination();
+
+        if (currentAtraction == null)
+            return;
         agent.SetDestination(currentAtraction.destinationPoint.transform.position);
     }
 
@@ -55,8 +66,8 @@ public class Visitante : MonoBehaviour
     {
         transform.SetParent(null);
         agent.enabled = true;
-        transform.position = currentAtraction.destinationPoint.transform.position;
-        transform.rotation = currentAtraction.destinationPoint.transform.rotation;
+        if (currentAtraction == null) return;
+        transform.SetPositionAndRotation(currentAtraction.destinationPoint.transform.position, currentAtraction.destinationPoint.transform.rotation);
         previousAtraction = currentAtraction;
         SelectDestination();
         animator.SetBool("InAtraction", false);
