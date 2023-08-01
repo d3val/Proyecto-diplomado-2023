@@ -23,6 +23,7 @@ public class Atraccion : MonoBehaviour
     string idleClipName;
     public float condicionGeneral { private set; get; }/*{ private set; get; }*/
     public bool isWorking = true;
+    public bool isRunning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,8 +67,11 @@ public class Atraccion : MonoBehaviour
 
     protected virtual void SubirVisitante()
     {
-        if (avaiblePlaces <= 0 || !isWorking)
+        if (avaiblePlaces <= 0 || !isWorking || isRunning)
+        {
+            visitante.SelectDestination();
             return;
+        }
 
         visitante.Subir(puntosAnclaje[indexAnclaje]);
         indexAnclaje++;
@@ -102,6 +106,7 @@ public class Atraccion : MonoBehaviour
 
     protected virtual IEnumerator Ronda()
     {
+        isRunning = true;
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(3);
         while (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != idleClipName)
@@ -121,6 +126,7 @@ public class Atraccion : MonoBehaviour
         }
         visitorsOnBoard.Clear();
         isStarting = false;
+        isRunning = false;
     }
 
     public void ReabrirAtraccion()
