@@ -143,5 +143,6 @@ public class ZonaReparacion : MonoBehaviour
         jugadorCerca = false;
         LevelManager.jugadorEnZona = false;
         UILevelManager.instance.SetActiveMensajeAccion(false);
+        other.GetComponent<Jugador>().zonaReparacionActual = null;
     }
 }

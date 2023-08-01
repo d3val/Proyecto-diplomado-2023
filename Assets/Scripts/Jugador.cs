@@ -174,5 +174,6 @@ public class Jugador : MonoBehaviour
             zonaComederoActual = null;
             return;
         }
+
     }
 }
