@@ -287,7 +287,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f4051325dce933645a482af2c26994cf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.02
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7135,7 +7135,8 @@ MonoBehaviour:
   rightButton: {fileID: 1201737375}
   messagges:
   - message: "Bienvenido al parque Ultimaventura. Tu misi\xF3n ser\xE1 reparar todos
-      los fallos que surjan a lo largo de tu turno laboral."
+      los fallos que surjan a lo largo de tu turno laboral.\n\nUtiliza las teclas
+      WASD para moverte por el escenario."
     imageMessage: {fileID: 21300000, guid: 0d9cca67bc05e2843a584a784dc7001a, type: 3}
   - message: "Apres\xFArate a reparar los fallos antes de que afecten las atracciones
       y est\xE1s tengan que ser cerradas.\r\n\nAc\xE9rcate al fallo y presiona la

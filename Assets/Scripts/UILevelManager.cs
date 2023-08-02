@@ -12,7 +12,8 @@ public class UILevelManager : MonoBehaviour
     [SerializeField] GameObject panelFin;
     [SerializeField] TextMeshProUGUI contadorTiempo;
     [SerializeField] Image imagenComida;
-    [SerializeField] List<TextMeshProUGUI> condicionAtracciones;
+    //[SerializeField] List<TextMeshProUGUI> condicionAtracciones;
+    [SerializeField] List<statusInfo> statusInfoList;
 
     private int minutos;
     private int segundos;
@@ -32,7 +33,7 @@ public class UILevelManager : MonoBehaviour
             Destroy(this.gameObject);
 
         instance = this;
-        wrenchIndex = goldWrenchs.Count-1;
+        wrenchIndex = goldWrenchs.Count - 1;
     }
 
     private void Update()
@@ -101,9 +102,17 @@ public class UILevelManager : MonoBehaviour
 
     public void AtualizarCondiciones(List<float> valores)
     {
-        for (int i = 0; i < condicionAtracciones.Count; i++)
+        for (int i = 0; i < statusInfoList.Count; i++)
         {
-            condicionAtracciones[i].text = string.Format("{0}%", (int)valores[i]);
+            statusInfoList[i].textMesh.text = string.Format("{0}%", (int)valores[i]);
+            statusInfoList[i].slider.value = valores[i];
         }
+    }
+
+    [Serializable]
+    public class statusInfo
+    {
+        public TextMeshProUGUI textMesh;
+        public Slider slider;
     }
 }
