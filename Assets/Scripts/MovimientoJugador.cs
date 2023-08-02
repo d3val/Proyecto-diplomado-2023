@@ -96,7 +96,6 @@ public class MovimientoJugador : MonoBehaviour
         estamina += estaminaRecuperada;
         if (estamina > estaminaMaxima)
             estamina = estaminaMaxima;
-        Debug.Log("Se recupero " + estaminaRecuperada + " puntos de estamina");
     }
 
     private void ActualizarUI()
