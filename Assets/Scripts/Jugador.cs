@@ -69,6 +69,24 @@ public class Jugador : MonoBehaviour
 
         }
     }
+
+    IEnumerator Reparando()
+    {
+        martillo.SetActive(true);
+        animator.SetTrigger("trigger_reparando");
+        movimientoJugador.FrenarMovimiento();
+        movimientoJugador.enabled = false;
+        while (zonaReparacionActual.estado == 2)
+        {
+
+            yield return null;
+        }
+        animator.SetTrigger("trigger_reparadoFinalizado");
+        martillo.SetActive(false);
+        movimientoJugador.enabled = true;
+        zonaReparacionActual = null;
+    }
+
     private void AccionZonaReparacion()
     {
         if (zonaReparacionActual == null) return;
@@ -76,31 +94,21 @@ public class Jugador : MonoBehaviour
         switch (zonaReparacionActual.estado)
         {
             case 1:
-                if (Input.GetKey(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     zonaReparacionActual.estado = 2;
-                    martillo.SetActive(true);
-                    animator.SetTrigger("trigger_reparando");
-                    movimientoJugador.FrenarMovimiento();
-                    movimientoJugador.enabled = false;
+                    StopAllCoroutines();
+                    StartCoroutine(Reparando());
                 }
                 break;
-            case 3:
-                animator.SetTrigger("trigger_reparadoFinalizado");
-                martillo.SetActive(false);
-                movimientoJugador.enabled = true;
-                zonaReparacionActual = null;
-                break;
             case 4:
-                if (Input.GetKey(KeyCode.E) && goldKeys > 0)
+                if (Input.GetKeyDown(KeyCode.E) && goldKeys > 0)
                 {
                     zonaReparacionActual.estado = 2;
-                    martillo.SetActive(true);
-                    animator.SetTrigger("trigger_reparando");
-                    movimientoJugador.FrenarMovimiento();
-                    movimientoJugador.enabled = false;
                     goldKeys--;
                     UILevelManager.instance.RemoveWrench();
+                    StopAllCoroutines();
+                    StartCoroutine(Reparando());
                 }
                 break;
             default:
