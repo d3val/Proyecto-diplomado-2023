@@ -87,7 +87,7 @@ public class MovimientoJugador : MonoBehaviour
         transform.forward = new Vector3(valoresEjes.x, 0, valoresEjes.y);
 
         // Movimiento del jugador
-        rb.AddForce(modificadorVelocidad * velocidadMovimiento * transform.forward.normalized);
+        rb.AddForce(Time.deltaTime * modificadorVelocidad * velocidadMovimiento * transform.forward.normalized);
         //rb.velocity = modificadorVelocidad * velocidadMovimiento * transform.forward;
     }
 

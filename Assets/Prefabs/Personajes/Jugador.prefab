@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594b92712b7fac34b85e482447d1e72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 2000
+  velocidadMovimiento: 94000
   estamina: 100
   estaminaMaxima: 100
   aumentoVelocidad: 1.9
@@ -1060,6 +1060,7 @@ MonoBehaviour:
   animator: {fileID: 5866666020184993150}
   martillo: {fileID: 1828242670}
   comida: {fileID: 2373489463738032592}
+  goldKeys: 5
 --- !u!1 &6634920164987830951
 GameObject:
   m_ObjectHideFlags: 0
