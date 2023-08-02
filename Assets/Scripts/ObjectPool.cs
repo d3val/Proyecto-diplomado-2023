@@ -17,7 +17,6 @@ public class ObjectPool : MonoBehaviour
             PooledObject.SetActive(false);
             objects.Add(PooledObject);
         }
-        Debug.Log(objects.Count);
     }
 
     public GameObject GetPooledObject()

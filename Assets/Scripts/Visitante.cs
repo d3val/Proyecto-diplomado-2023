@@ -29,7 +29,6 @@ public class Visitante : MonoBehaviour
     {
         if (intentos > 2)
         {
-            Debug.Log("Ya fue mucho");
             currentAtraction = null;
             agent.SetDestination(LevelManager.Instance.exitPoint.position);
             return;
@@ -37,7 +36,6 @@ public class Visitante : MonoBehaviour
 
         intentos++;
         int index = Random.Range(0, AtraccionesManager.Instance.atraccionesVisitantes.Count);
-        Debug.Log(AtraccionesManager.Instance.atraccionesVisitantes.Count);
         currentAtraction = AtraccionesManager.Instance.atraccionesVisitantes[index];
         if (previousAtraction == currentAtraction || !currentAtraction.isWorking || currentAtraction.isRunning)
             SelectDestination();

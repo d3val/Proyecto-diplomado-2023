@@ -632,6 +632,7 @@ MonoBehaviour:
   avaiblePlaces: 0
   visitorsOnBoard: []
   isWorking: 1
+  isRunning: 0
   mainSpin: {fileID: 95653514}
   secondarySpins:
   - {fileID: 2065753477}
@@ -864,7 +865,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5306467627856407737}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 49bc920240328ee4fb489f9e820a3bf9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
