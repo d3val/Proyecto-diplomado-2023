@@ -7141,11 +7141,11 @@ MonoBehaviour:
   - message: "Apres\xFArate a reparar los fallos antes de que afecten las atracciones
       y est\xE1s tengan que ser cerradas.\r\n\nAc\xE9rcate al fallo y presiona la
       tecla indicada para comenzar a reparar. "
-    imageMessage: {fileID: 21300000, guid: 0d9cca67bc05e2843a584a784dc7001a, type: 3}
+    imageMessage: {fileID: 21300000, guid: 052082b3d3cef514d932210faf0a59d0, type: 3}
   - message: "Cuando el tiempo para reparar un fallo llegue a 0, tendr\xE1s que usar
       una de tus llaves doradas para repararlo. Tienes un numero limitado de llaves,
       as\xED que usalas con cabeza."
-    imageMessage: {fileID: 21300000, guid: 052082b3d3cef514d932210faf0a59d0, type: 3}
+    imageMessage: {fileID: 21300000, guid: 74c640eaf58031b44b92765486845a9b, type: 3}
   - message: "No pierdas de vista el estado de las atracciones. Cuando 3 atracciones
       cierren se terminar\xE1 el juego.\r\n\r\nTrata de aguantar toda la jornada
       y alcanzar la mayor puntuaci\xF3n."
@@ -7158,7 +7158,8 @@ MonoBehaviour:
       y recoge la comida.\r\n\r\nTen en cuenta que solo podr\xE1s pedir una vez en
       cada puesto de comida. Los visitantes tambi\xE9n est\xE1n hambrientos."
     imageMessage: {fileID: 21300000, guid: 606fd97b07fd9604a9975f6eb74fa367, type: 3}
-  - message: "Busca una banca para sentarte a disfrutar tu comida y reponer energ\xEDa."
+  - message: "Busca una banca para sentarte a disfrutar tu comida y reponer energ\xEDa.\n\nBuena
+      suerte!"
     imageMessage: {fileID: 21300000, guid: c018436fc0be41646bc6f9112f63c413, type: 3}
 --- !u!1 &1803435184
 GameObject:

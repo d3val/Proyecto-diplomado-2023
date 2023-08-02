@@ -12,6 +12,8 @@ public class AtraccionesManager : MonoBehaviour
     public List<Atraccion> atracciones;
     public List<Atraccion> atraccionesVisitantes;
     List<float> status = new List<float>();
+    int intentosFallo;
+    ZonaReparacion previousZona = null;
     public static int atraccionesRotas { private set; get; }
     // Start is called before the first frame update
     void Awake()
@@ -68,10 +70,23 @@ public class AtraccionesManager : MonoBehaviour
     private void IniciarFallo()
     {
         // RevisarZonas();
+        if (intentosFallo > 2)
+        {
+            intentosFallo = 0;
+            return;
+        }
         if (zonasFuncionales <= 0)
             return;
         int i = Random.Range(0, zonasReparacion.Count);
-        zonasReparacion[i].Fallar();
+        if (previousZona == zonasReparacion[i])
+        {
+            intentosFallo++;
+            inicioFallos++;
+        }
+        else
+        {
+            zonasReparacion[i].Fallar();
+        }
     }
 
     private void ActualizarStatus()
