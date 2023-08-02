@@ -665,15 +665,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030321578446886686, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_Size.x
-      value: 0.53261393
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9030321578446886686, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_Size.y
-      value: 2.0730119
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9030321578446886686, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_Center.x
-      value: 0.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9030321578446886686, guid: 9499427d947590245a84c3f4731df57b, type: 3}
       propertyPath: m_Center.y
