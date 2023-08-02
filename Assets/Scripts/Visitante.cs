@@ -11,15 +11,15 @@ public class Visitante : MonoBehaviour
     public Atraccion currentAtraction { get; private set; }
     Atraccion previousAtraction;
     int intentos = 0;
-    public bool goingOut { private set; get; }
     int seguro = 0;
 
     private void OnEnable()
     {
         if (seguro > 0)
         {
+            intentos = 0;
+            previousAtraction = null;
             SelectDestination();
-            goingOut = false;
             agent.speed = Random.Range(1f, 1.5f);
         }
         seguro++;
@@ -30,7 +30,6 @@ public class Visitante : MonoBehaviour
         if (intentos > 2)
         {
             Debug.Log("Ya fue mucho");
-            goingOut = true;
             currentAtraction = null;
             agent.SetDestination(LevelManager.Instance.exitPoint.position);
             return;
