@@ -183,5 +183,10 @@ public class Jugador : MonoBehaviour
             return;
         }
 
+        zonaReparacionActual = null;
+        movimientoJugador.enabled = true;
+        animator.Play("Movimiento.Idle");
+        StopAllCoroutines();
+
     }
 }

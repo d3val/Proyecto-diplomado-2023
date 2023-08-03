@@ -46090,6 +46090,30 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 119
       objectReference: {fileID: 0}
+    - target: {fileID: 2389168953579561426, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389168953579561426, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389168953579561426, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.z
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389168954594314314, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389168954594314314, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389168954594314314, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.z
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2717441914051540042, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -46145,6 +46169,14 @@ PrefabInstance:
     - target: {fileID: 3956293379175744063, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
       propertyPath: m_LightProbeUsage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992930728689362958, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992930728689362958, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
+      propertyPath: m_Size.y
+      value: 5.34
       objectReference: {fileID: 0}
     - target: {fileID: 4204492806921591668, guid: 0d0edb2d57353bb408ece9bf6cb2056e, type: 3}
       propertyPath: m_CastShadows

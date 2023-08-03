@@ -72,7 +72,7 @@ public class ZonaReparacion : MonoBehaviour
                     StartCoroutine(Recover());
                 break;
             case 3:
-                UIZona.ActualizarLabel("Inmune");
+                UIZona.ActualizarLabel("Listo!");
                 break;
             case 4:
                 UIZona.ActualizarLabel("Fuera de servicio");
