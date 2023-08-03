@@ -10,6 +10,7 @@ public class UILevelManager : MonoBehaviour
     [SerializeField] GameObject panelJuego;
     [SerializeField] GameObject panelPausa;
     [SerializeField] GameObject panelFin;
+    public GameObject panelFracaso;
     [SerializeField] TextMeshProUGUI contadorTiempo;
     [SerializeField] Image imagenComida;
     //[SerializeField] List<TextMeshProUGUI> condicionAtracciones;

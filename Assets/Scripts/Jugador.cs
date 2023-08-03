@@ -35,10 +35,12 @@ public class Jugador : MonoBehaviour
     {
         if (LevelManager.juegoPausado)
             return;
-
-        AccionZonaComida();
-        AccionZonaReparacion();
-        AccionZonaComedero();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AccionZonaComida();
+            AccionZonaReparacion();
+            AccionZonaComedero();
+        }
     }
 
     private void AccionZonaComida()
@@ -50,15 +52,14 @@ public class Jugador : MonoBehaviour
         {
             //Cuando se va a realizar la orden
             case 1:
-                if (Input.GetKey(KeyCode.E))
-                {
-                    zonaComidaActual.estado = 2;
-                    animator.SetTrigger("trigger_ordenar");
-                }
+
+                zonaComidaActual.estado = 2;
+                animator.SetTrigger("trigger_ordenar");
+
                 break;
             // Cuando se va a recoger la orden
             case 3:
-                if (Input.GetKey(KeyCode.E) && comidaActual == null)
+                if (comidaActual == null)
                 {
                     comidaActual = zonaComidaActual.comidaServida;
                     UILevelManager.instance.SetImagenComida(comidaActual.sprite);
@@ -94,15 +95,13 @@ public class Jugador : MonoBehaviour
         switch (zonaReparacionActual.estado)
         {
             case 1:
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    zonaReparacionActual.estado = 2;
-                    StopAllCoroutines();
-                    StartCoroutine(Reparando());
-                }
+                zonaReparacionActual.estado = 2;
+                StopAllCoroutines();
+                StartCoroutine(Reparando());
+
                 break;
             case 4:
-                if (Input.GetKeyDown(KeyCode.E) && goldKeys > 0)
+                if (goldKeys > 0)
                 {
                     zonaReparacionActual.estado = 2;
                     goldKeys--;
@@ -183,7 +182,6 @@ public class Jugador : MonoBehaviour
             return;
         }
 
-        zonaReparacionActual = null;
         movimientoJugador.enabled = true;
         animator.Play("Movimiento.Idle");
         StopAllCoroutines();

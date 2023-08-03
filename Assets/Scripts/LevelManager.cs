@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
 
         if (tiempoNivel < 0)
         {
-            GameOver();
+            GameOverBueno();
             return;
         }
         tiempoNivel -= Time.deltaTime;
@@ -63,9 +63,16 @@ public class LevelManager : MonoBehaviour
         UILevelManager.instance.SetActivePanelPausa(false);
     }
 
-    public void GameOver()
+    public void GameOverBueno()
     {
         UILevelManager.instance.SetActivePanelFinJuego(true);
+        Time.timeScale = 0;
+        juegoPausado = true;
+    }
+
+    public void GameOverMalo()
+    {
+        UILevelManager.instance.panelFracaso.SetActive(true);
         Time.timeScale = 0;
         juegoPausado = true;
     }

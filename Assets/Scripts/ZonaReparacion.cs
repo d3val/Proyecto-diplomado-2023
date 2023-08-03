@@ -60,6 +60,11 @@ public class ZonaReparacion : MonoBehaviour
 
                 break;
             case 2:
+                if (!jugadorCerca)
+                {
+                    estado = 1;
+                    break;
+                }
                 UIZona.ActivarUI();
                 UIZona.ActualizarLabel("Reparando");
                 UILevelManager.instance.SetActiveMensajeAccion(false);

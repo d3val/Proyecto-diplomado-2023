@@ -111,7 +111,7 @@ public class AtraccionesManager : MonoBehaviour
 
         if (atraccionesRotas >= LevelManager.Instance.limiteAtraccionesRotas)
         {
-            LevelManager.Instance.GameOver();
+            LevelManager.Instance.GameOverMalo();
         }
     }
 

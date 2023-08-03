@@ -79,7 +79,6 @@ public class MovimientoJugador : MonoBehaviour
         }
         else
         {
-            Debug.Log("No queda estamina");
             modificadorVelocidad = 1;
         }
 
