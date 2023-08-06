@@ -20,6 +20,7 @@ public class Jugador : MonoBehaviour
     [Header("Herramientas del jugador")]
     [SerializeField] GameObject martillo;
     [SerializeField] GameObject comida;
+    [SerializeField] int goldKeys = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +35,12 @@ public class Jugador : MonoBehaviour
     {
         if (LevelManager.juegoPausado)
             return;
-
-        AccionZonaComida();
-        AccionZonaReparacion();
-        AccionZonaComedero();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AccionZonaComida();
+            AccionZonaReparacion();
+            AccionZonaComedero();
+        }
     }
 
     private void AccionZonaComida()
@@ -49,15 +52,14 @@ public class Jugador : MonoBehaviour
         {
             //Cuando se va a realizar la orden
             case 1:
-                if (Input.GetKey(KeyCode.E))
-                {
-                    zonaComidaActual.estado = 2;
-                    animator.SetTrigger("trigger_ordenar");
-                }
+
+                zonaComidaActual.estado = 2;
+                animator.SetTrigger("trigger_ordenar");
+
                 break;
             // Cuando se va a recoger la orden
             case 3:
-                if (Input.GetKey(KeyCode.E) && comidaActual == null)
+                if (comidaActual == null)
                 {
                     comidaActual = zonaComidaActual.comidaServida;
                     UILevelManager.instance.SetImagenComida(comidaActual.sprite);
@@ -68,6 +70,24 @@ public class Jugador : MonoBehaviour
 
         }
     }
+
+    IEnumerator Reparando()
+    {
+        martillo.SetActive(true);
+        animator.SetTrigger("trigger_reparando");
+        movimientoJugador.FrenarMovimiento();
+        movimientoJugador.enabled = false;
+        while (zonaReparacionActual.estado == 2)
+        {
+
+            yield return null;
+        }
+        animator.SetTrigger("trigger_reparadoFinalizado");
+        martillo.SetActive(false);
+        movimientoJugador.enabled = true;
+        zonaReparacionActual = null;
+    }
+
     private void AccionZonaReparacion()
     {
         if (zonaReparacionActual == null) return;
@@ -75,20 +95,20 @@ public class Jugador : MonoBehaviour
         switch (zonaReparacionActual.estado)
         {
             case 1:
-                if (Input.GetKey(KeyCode.E))
+                zonaReparacionActual.estado = 2;
+                StopAllCoroutines();
+                StartCoroutine(Reparando());
+
+                break;
+            case 4:
+                if (goldKeys > 0)
                 {
                     zonaReparacionActual.estado = 2;
-                    martillo.SetActive(true);
-                    animator.SetTrigger("trigger_reparando");
-                    movimientoJugador.FrenarMovimiento();
-                    movimientoJugador.enabled = false;
+                    goldKeys--;
+                    UILevelManager.instance.RemoveWrench();
+                    StopAllCoroutines();
+                    StartCoroutine(Reparando());
                 }
-                break;
-            case 3:
-                animator.SetTrigger("trigger_reparadoFinalizado");
-                martillo.SetActive(false);
-                movimientoJugador.enabled = true;
-                zonaReparacionActual = null;
                 break;
             default:
                 break;
@@ -161,5 +181,10 @@ public class Jugador : MonoBehaviour
             zonaComederoActual = null;
             return;
         }
+
+        movimientoJugador.enabled = true;
+        animator.Play("Movimiento.Idle");
+        StopAllCoroutines();
+
     }
 }

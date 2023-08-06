@@ -18,6 +18,7 @@ public class ZonaReparacion : MonoBehaviour
 
     private bool jugadorCerca;
     private UIZona UIZona;
+    public bool isFunctional = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +60,11 @@ public class ZonaReparacion : MonoBehaviour
 
                 break;
             case 2:
+                if (!jugadorCerca)
+                {
+                    estado = 1;
+                    break;
+                }
                 UIZona.ActivarUI();
                 UIZona.ActualizarLabel("Reparando");
                 UILevelManager.instance.SetActiveMensajeAccion(false);
@@ -71,10 +77,16 @@ public class ZonaReparacion : MonoBehaviour
                     StartCoroutine(Recover());
                 break;
             case 3:
-                UIZona.ActualizarLabel("Inmune");
+                UIZona.ActualizarLabel("Listo!");
                 break;
             case 4:
                 UIZona.ActualizarLabel("Fuera de servicio");
+                isFunctional = false;
+                if (jugadorCerca)
+                {
+                    if (LevelManager.jugadorEnZona)
+                        UILevelManager.instance.SetMensajeAccion("Usar llave");
+                }
                 break;
             default:
                 Debug.Log("Este mensaje no debería aparecer");
@@ -136,5 +148,6 @@ public class ZonaReparacion : MonoBehaviour
         jugadorCerca = false;
         LevelManager.jugadorEnZona = false;
         UILevelManager.instance.SetActiveMensajeAccion(false);
+        other.GetComponent<Jugador>().zonaReparacionActual = null;
     }
 }

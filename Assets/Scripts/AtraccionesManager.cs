@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class AtraccionesManager : MonoBehaviour
 {
+    public static AtraccionesManager Instance;
     public List<ZonaReparacion> zonasReparacion;
     [SerializeField] float intervaloFallos = 5f;
     [SerializeField] float inicioFallos = 3f;
-    public List<ZonaReparacion> zonasFuncionales;
-    public  List<Atraccion> atracciones;
+    public int zonasFuncionales;
+    public List<Atraccion> atracciones;
     public List<Atraccion> atraccionesVisitantes;
     List<float> status = new List<float>();
+    int intentosFallo;
+    ZonaReparacion previousZona = null;
     public static int atraccionesRotas { private set; get; }
     // Start is called before the first frame update
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         GameObject[] zonas = GameObject.FindGameObjectsWithTag("Zona reparacion");
         foreach (GameObject zona in zonas)
         {
             zonasReparacion.Add(zona.GetComponent<ZonaReparacion>());
         }
-        zonasFuncionales = zonasReparacion;
+        zonasFuncionales = zonasReparacion.Count;
 
-        zonas = GameObject.FindGameObjectsWithTag("Instalacion");
-        foreach (GameObject atraccion in zonas)
+        foreach (Atraccion atraccion in atracciones)
         {
-            Atraccion aux = atraccion.GetComponent<Atraccion>();
-            atracciones.Add(aux);
-            if (aux.visitorInteractable)
-                atraccionesVisitantes.Add(aux);
+            if (atraccion.visitorInteractable)
+                atraccionesVisitantes.Add(atraccion);
         }
         atraccionesRotas = 0;
         InvokeRepeating("IniciarFallo", inicioFallos, intervaloFallos);
@@ -44,27 +52,41 @@ public class AtraccionesManager : MonoBehaviour
 
     private void RevisarZonas()
     {
-        List<ZonaReparacion> zonasInutiles = new List<ZonaReparacion>();
-        foreach (ZonaReparacion zona in zonasFuncionales)
+        zonasFuncionales = zonasReparacion.Count;
+        //List<ZonaReparacion> zonasInutiles = new List<ZonaReparacion>();
+        foreach (ZonaReparacion zona in zonasReparacion)
         {
-            if (zona.estado == 4)
+            if (!zona.isFunctional)
             {
-                zonasInutiles.Add(zona);
+                zonasFuncionales--;
             }
         }
-        foreach (ZonaReparacion zonaInutil in zonasInutiles)
+        /*foreach (ZonaReparacion zonaInutil in zonasInutiles)
         {
             zonasFuncionales.Remove(zonaInutil);
-        }
+        }*/
     }
 
     private void IniciarFallo()
     {
-        RevisarZonas();
-        if (zonasFuncionales.Count <= 0)
+        // RevisarZonas();
+        if (intentosFallo > 2)
+        {
+            intentosFallo = 0;
             return;
-        int i = Random.Range(0, zonasFuncionales.Count);
-        zonasFuncionales[i].Fallar();
+        }
+        if (zonasFuncionales <= 0)
+            return;
+        int i = Random.Range(0, zonasReparacion.Count);
+        if (previousZona == zonasReparacion[i])
+        {
+            intentosFallo++;
+            inicioFallos++;
+        }
+        else
+        {
+            zonasReparacion[i].Fallar();
+        }
     }
 
     private void ActualizarStatus()
@@ -80,16 +102,20 @@ public class AtraccionesManager : MonoBehaviour
                 atraccion.CerrarAtraccion();
                 atraccionesRotas++;
             }
+            else
+            {
+                atraccion.ReabrirAtraccion();
+            }
         }
         UILevelManager.instance.AtualizarCondiciones(status);
 
         if (atraccionesRotas >= LevelManager.Instance.limiteAtraccionesRotas)
         {
-            LevelManager.Instance.GameOver();
+            LevelManager.Instance.GameOverMalo();
         }
     }
 
-    public  List<float> GetCondiciones()
+    public List<float> GetCondiciones()
     {
         List<float> ret = new List<float>();
         foreach (var item in atracciones)

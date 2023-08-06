@@ -17,6 +17,7 @@ public class TazasLocas : Atraccion
 
     protected override IEnumerator Ronda()
     {
+        isRunning= true;
         mainSpin.enabled = true;
         playSoundFromList.PlayByIndex(0);
         foreach (Spin spin in secondarySpins)

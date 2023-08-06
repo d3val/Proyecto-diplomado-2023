@@ -14,6 +14,7 @@ public class RuedaFortuna : Atraccion
     }
     protected override IEnumerator Ronda()
     {
+        isRunning = true;
         spiner.enabled = true;
         //   audioSource.Play();
         playSoundFromList.PlayByIndex(0);

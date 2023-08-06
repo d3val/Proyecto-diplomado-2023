@@ -79,7 +79,6 @@ public class MovimientoJugador : MonoBehaviour
         }
         else
         {
-            Debug.Log("No queda estamina");
             modificadorVelocidad = 1;
         }
 
@@ -87,7 +86,7 @@ public class MovimientoJugador : MonoBehaviour
         transform.forward = new Vector3(valoresEjes.x, 0, valoresEjes.y);
 
         // Movimiento del jugador
-        rb.AddForce(modificadorVelocidad * velocidadMovimiento * transform.forward.normalized);
+        rb.AddForce(Time.deltaTime * modificadorVelocidad * velocidadMovimiento * transform.forward.normalized);
         //rb.velocity = modificadorVelocidad * velocidadMovimiento * transform.forward;
     }
 
@@ -96,7 +95,6 @@ public class MovimientoJugador : MonoBehaviour
         estamina += estaminaRecuperada;
         if (estamina > estaminaMaxima)
             estamina = estaminaMaxima;
-        Debug.Log("Se recupero " + estaminaRecuperada + " puntos de estamina");
     }
 
     private void ActualizarUI()
