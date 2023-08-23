@@ -14,16 +14,15 @@ public class ZonaReparacion : MonoBehaviour
     //[HideInInspector]
     public int estado;
 
-    private float timer;
-
-    private bool jugadorCerca;
+    public bool jugadorCerca;
     private UIZona UIZona;
     public bool isFunctional = true;
+    const int REPOSO = 0, DANADO = 1, REPARANDO = 2, LISTO = 3, INUTIL = 4;
+
     // Start is called before the first frame update
     void Start()
     {
         UIZona = GetComponent<UIZona>();
-        timer = 0;
     }
 
     // Update is called once per frame
@@ -34,52 +33,48 @@ public class ZonaReparacion : MonoBehaviour
         RevisarEstado();
     }
 
+    public IEnumerator Reparar()
+    {
+        UIZona.ActivarUI();
+        UIZona.ActualizarLabel("Reparando");
+        UILevelManager.instance.SetActiveMensajeAccion(false);
+
+
+        while (condicion < 100)
+        {
+            Debug.Log(condicion);
+            yield return null;
+            if (!jugadorCerca)
+            {
+                estado = 1;
+                Debug.Log("Se fue");
+                StopCoroutine(Reparar());
+            }
+            condicion += Time.deltaTime * velocidadReparacion;
+            UIZona.ActualizarSlider(condicion);
+        }
+        StartCoroutine(Recover());
+    }
     private void RevisarEstado()
     {
         switch (estado)
         {
-            case 0:
+            case REPOSO:
                 UIZona.DesactivarUI();
                 /* if (!GameManager.jugadorEnZona)
                      UILevelManager.instance.SetActiveMensajeAccion(false);*/
                 break;
-            case 1:
-                UIZona.ActivarUI();
-                condicion -= Time.deltaTime * velocidadDeterioro;
-                UIZona.ActualizarSlider(condicion);
-                UIZona.ActualizarLabel("!!!!!!");
-                SetParticlesActive(true);
-                if (jugadorCerca)
-                {
-                    if (LevelManager.jugadorEnZona)
-                        UILevelManager.instance.SetMensajeAccion("Reparar");
-                }
+            case DANADO:
 
-                if (condicion < 0)
-                    estado = 4;
 
                 break;
-            case 2:
-                if (!jugadorCerca)
-                {
-                    estado = 1;
-                    break;
-                }
-                UIZona.ActivarUI();
-                UIZona.ActualizarLabel("Reparando");
-                UILevelManager.instance.SetActiveMensajeAccion(false);
-                if (condicion < 100)
-                {
-                    condicion += Time.deltaTime * velocidadReparacion;
-                    UIZona.ActualizarSlider(condicion);
-                }
-                else
-                    StartCoroutine(Recover());
+            case REPARANDO:
+
                 break;
-            case 3:
+            case LISTO:
                 UIZona.ActualizarLabel("Listo!");
                 break;
-            case 4:
+            case INUTIL:
                 UIZona.ActualizarLabel("Fuera de servicio");
                 isFunctional = false;
                 if (jugadorCerca)
@@ -92,6 +87,28 @@ public class ZonaReparacion : MonoBehaviour
                 Debug.Log("Este mensaje no debería aparecer");
                 break;
 
+        }
+    }
+
+    public IEnumerator Danar()
+    {
+        while (estado == DANADO)
+        {
+            UIZona.ActivarUI();
+            condicion -= Time.deltaTime * velocidadDeterioro;
+            UIZona.ActualizarSlider(condicion);
+            UIZona.ActualizarLabel("!!!!!!");
+            SetParticlesActive(true);
+            if (jugadorCerca)
+            {
+                if (LevelManager.jugadorEnZona)
+                    UILevelManager.instance.SetMensajeAccion("Reparar");
+            }
+
+            if (condicion < 0)
+                estado = 4;
+
+            yield return null;
         }
     }
 
@@ -127,9 +144,10 @@ public class ZonaReparacion : MonoBehaviour
 
     public void Fallar()
     {
-        if (estado != 0)
+        if (estado != REPOSO)
             return;
-        estado = 1;
+        estado = DANADO;
+        StartCoroutine(Danar());
     }
     private void OnTriggerEnter(Collider other)
     {

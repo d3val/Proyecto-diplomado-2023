@@ -97,6 +97,7 @@ public class Jugador : MonoBehaviour
             case 1:
                 zonaReparacionActual.estado = 2;
                 StopAllCoroutines();
+                StartCoroutine(zonaReparacionActual.Reparar());
                 StartCoroutine(Reparando());
 
                 break;
@@ -107,6 +108,7 @@ public class Jugador : MonoBehaviour
                     goldKeys--;
                     UILevelManager.instance.RemoveWrench();
                     StopAllCoroutines();
+                    StartCoroutine(zonaReparacionActual.Reparar());
                     StartCoroutine(Reparando());
                 }
                 break;
