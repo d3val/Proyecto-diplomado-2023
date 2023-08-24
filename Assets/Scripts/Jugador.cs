@@ -53,8 +53,8 @@ public class Jugador : MonoBehaviour
             //Cuando se va a realizar la orden
             case 1:
 
-                zonaComidaActual.estado = 2;
                 animator.SetTrigger("trigger_ordenar");
+                StartCoroutine(zonaComidaActual.Preparar());
 
                 break;
             // Cuando se va a recoger la orden
@@ -64,7 +64,7 @@ public class Jugador : MonoBehaviour
                     comidaActual = zonaComidaActual.comidaServida;
                     UILevelManager.instance.SetImagenComida(comidaActual.sprite);
                     UILevelManager.instance.SetActiveMensajeAccion(false);
-                    zonaComidaActual.estado = 4;
+                    StartCoroutine(zonaComidaActual.Limpiar());
                 }
                 break;
 
@@ -79,7 +79,6 @@ public class Jugador : MonoBehaviour
         movimientoJugador.enabled = false;
         while (zonaReparacionActual.estado == 2)
         {
-
             yield return null;
         }
         animator.SetTrigger("trigger_reparadoFinalizado");
