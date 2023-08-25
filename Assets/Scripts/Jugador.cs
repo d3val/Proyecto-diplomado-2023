@@ -133,7 +133,7 @@ public class Jugador : MonoBehaviour
         comiendo = true;
         comida.SetActive(true);
         movimientoJugador.EmpezarAComer();
-        zonaComederoActual.IniciarEspera(comidaActual.tiempoDeConsumo);
+        StartCoroutine(zonaComederoActual.IniciarEspera(comidaActual.tiempoDeConsumo));
         transform.SetPositionAndRotation(zonaComederoActual.wayPoint.position, zonaComederoActual.wayPoint.rotation);
         yield return new WaitForSeconds(comidaActual.tiempoDeConsumo);
         UILevelManager.instance.LimpiarImagenComida();

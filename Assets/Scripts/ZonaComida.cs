@@ -68,14 +68,16 @@ public class ZonaComida : MonoBehaviour
     {
         estado = LIMPIANDO;
         UIZona.ActualizarLabel("Limpiando");
-        while (preparacion > 0)
+        preparacion = 0;
+        while (preparacion < tiempoPreparacion)
         {
-            preparacion -= Time.deltaTime;
+            preparacion += Time.deltaTime;
             UIZona.ActualizarSlider(preparacion);
             yield return null;
         }
         preparacion = 0;
         estado = ESPERA;
+        UIZona.DesactivarUI();
     }
 
     private void OnTriggerEnter(Collider other)
