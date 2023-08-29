@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    public ZonaReparacion zonaReparacionActual;
+    ZonaReparacion zonaReparacionActual;
 
-    public Comida comidaActual = null;
+    public Comida comidaActual;
 
     private ZonaComida zonaComidaActual;
     private ZonaComedero zonaComederoActual;
@@ -94,7 +94,6 @@ public class Jugador : MonoBehaviour
         switch (zonaReparacionActual.estado)
         {
             case 1:
-                zonaReparacionActual.estado = 2;
                 StopAllCoroutines();
                 StartCoroutine(zonaReparacionActual.Reparar());
                 StartCoroutine(Reparando());
@@ -103,7 +102,6 @@ public class Jugador : MonoBehaviour
             case 4:
                 if (goldKeys > 0)
                 {
-                    zonaReparacionActual.estado = 2;
                     goldKeys--;
                     UILevelManager.instance.RemoveWrench();
                     StopAllCoroutines();
@@ -150,8 +148,6 @@ public class Jugador : MonoBehaviour
         if (other.gameObject.CompareTag("Zona comida"))
         {
             zonaComidaActual = other.GetComponent<ZonaComida>();
-            if (zonaComidaActual.estado == 0)
-                zonaComidaActual.estado = 1;
             return;
 
         }
@@ -168,11 +164,14 @@ public class Jugador : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Zona reparacion"))
+        {
+            zonaComidaActual = null;
+            return;
+        }
+
         if (other.gameObject.CompareTag("Zona comida"))
         {
-            if (zonaComidaActual.estado == 1)
-                zonaComidaActual.estado = 0;
-            //UILevelManager.instance.DesactivarMensajeAccion();
             zonaComidaActual = null;
             return;
         }

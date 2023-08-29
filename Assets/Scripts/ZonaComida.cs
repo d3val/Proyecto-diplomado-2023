@@ -10,20 +10,17 @@ public class ZonaComida : MonoBehaviour
     [SerializeField] private float estaminaComida = 50f;
     [SerializeField] private float tiempoParaConsumir = 10f;
     [SerializeField] private float tiempoPreparacion = 10f;
-    float preparacion = 0f;
+    float preparacion;
     [SerializeField] private Sprite spriteComida = null;
     public Comida comidaServida { private set; get; }
 
     private UIZona UIZona;
 
-    const int INACTIVO = 0;
+    public int estado { private set; get; }
     const int ESPERA = 1;
     const int PREPARANDO = 2;
     const int LISTO = 3;
     const int LIMPIANDO = 4;
-
-    public int estado = 0;
-    private bool jugadorCerca;
 
     //Varibales de audio
     [Header("Ajustes del audio")]
@@ -85,8 +82,6 @@ public class ZonaComida : MonoBehaviour
         if (!other.gameObject.CompareTag("Player"))
             return;
 
-        jugadorCerca = true;
-        LevelManager.jugadorEnZona = true;
 
         if (estado == ESPERA)
             UILevelManager.instance.SetMensajeAccion("Ordenar");
@@ -99,8 +94,6 @@ public class ZonaComida : MonoBehaviour
         if (!other.gameObject.CompareTag("Player"))
             return;
 
-        jugadorCerca = false;
-        LevelManager.jugadorEnZona = false;
         UILevelManager.instance.SetActiveMensajeAccion(false);
     }
 

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ZonaReparacion : MonoBehaviour
 {
+    
+    public float condicion { get; private set; }
     [Header("Configuración zona reparación")]
-    public float condicion = 100;
     [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
     [SerializeField] ParticleSystem humo;
     [SerializeField] List<ParticleSystem> chispas = new List<ParticleSystem>();
     //[HideInInspector]
-    public int estado;
+    public int estado { private set; get; }
 
     public bool jugadorCerca;
     private UIZona UIZona;
@@ -22,6 +23,7 @@ public class ZonaReparacion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        condicion = 100;
         UIZona = GetComponent<UIZona>();
     }
 
@@ -35,9 +37,8 @@ public class ZonaReparacion : MonoBehaviour
 
         while (condicion < 100)
         {
-            Debug.Log(condicion);
             yield return null;
-            
+
             condicion += Time.deltaTime * velocidadReparacion;
             UIZona.ActualizarSlider(condicion);
         }
@@ -56,8 +57,7 @@ public class ZonaReparacion : MonoBehaviour
             SetParticlesActive(true);
             if (jugadorCerca)
             {
-                if (LevelManager.jugadorEnZona)
-                    UILevelManager.instance.SetMensajeAccion("Reparar");
+                UILevelManager.instance.SetMensajeAccion("Reparar");
             }
 
             if (condicion < 0)
@@ -115,12 +115,10 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = true;
-        LevelManager.jugadorEnZona = true;
 
         if (estado == INUTIL)
         {
-            if (LevelManager.jugadorEnZona)
-                UILevelManager.instance.SetMensajeAccion("Usar llave");
+            UILevelManager.instance.SetMensajeAccion("Usar llave");
         }
     }
 
@@ -130,12 +128,9 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = false;
-        LevelManager.jugadorEnZona = false;
         UILevelManager.instance.SetActiveMensajeAccion(false);
-        other.GetComponent<Jugador>().zonaReparacionActual = null;
         if (estado == REPARANDO)
         {
-            Debug.Log("HD");
             StopAllCoroutines();
             StartCoroutine(Danar());
         }

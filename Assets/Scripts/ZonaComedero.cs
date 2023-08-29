@@ -9,9 +9,7 @@ public class ZonaComedero : MonoBehaviour
     private Jugador jugador;
     private float tiempoEspera;
     private float timer;
-    private bool jugadorCerca;
     private UIZona UIZona;
-    public int estado;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +20,6 @@ public IEnumerator IniciarEspera(float tiempo)
         tiempoEspera = tiempo;
         UIZona.slider.maxValue = tiempoEspera;
         timer = 0;
-        estado = 1;
         UIZona.ActivarUI();
         UIZona.ActualizarLabel("Comiendo...");
         while (timer < tiempoEspera)

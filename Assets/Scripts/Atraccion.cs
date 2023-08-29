@@ -16,12 +16,12 @@ public class Atraccion : MonoBehaviour
     float timer;
     [SerializeField] float startingWaitTime;
 
-    public int avaiblePlaces;
+    private int avaiblePlaces;
     public List<Visitante> visitorsOnBoard = new List<Visitante>();
     protected bool isStarting = false;
     protected Animator animator;
     string idleClipName;
-    public float condicionGeneral { private set; get; }/*{ private set; get; }*/
+    public float condicionGeneral { private set; get; }
     public bool isWorking = true;
     public bool isRunning = false;
     // Start is called before the first frame update
@@ -79,9 +79,6 @@ public class Atraccion : MonoBehaviour
         avaiblePlaces--;
         timer = 0;
         StartCoroutine(StartLaunching());
-        /*visitante.Subir(puntosAnclaje[indexAnclaje]);
-        indexAnclaje++;
-        IniciarRonda();*/
     }
 
     protected virtual void IniciarRonda()
@@ -101,8 +98,6 @@ public class Atraccion : MonoBehaviour
             timer = 0;
         }
     }
-
-
 
     protected virtual IEnumerator Ronda()
     {
@@ -138,9 +133,5 @@ public class Atraccion : MonoBehaviour
         isWorking = false;
         StopAllCoroutines();
         TerminarRonda();
-        /*BoxCollider collider = GetComponent<BoxCollider>();
-        if (collider != null)
-            GetComponent<BoxCollider>().enabled = false;
-        this.enabled = false;*/
     }
 }

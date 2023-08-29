@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public float tiempoNivel;
     public int limiteAtraccionesRotas = 3;
 
-    public static bool jugadorEnZona;
+    //public static bool jugadorEnZona;
     public static bool juegoPausado;
     public Transform exitPoint;
 
