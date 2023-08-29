@@ -9,31 +9,26 @@ public class ZonaComedero : MonoBehaviour
     private Jugador jugador;
     private float tiempoEspera;
     private float timer;
-    private bool jugadorCerca;
     private UIZona UIZona;
-    public int estado;
     // Start is called before the first frame update
     void Start()
     {
         UIZona = GetComponent<UIZona>();
     }
-
-    private void Update()
+public IEnumerator IniciarEspera(float tiempo)
     {
-        if (estado == 0)
-        {
-            UIZona.DesactivarUI();
-            return;
-        }
-
+        tiempoEspera = tiempo;
+        UIZona.slider.maxValue = tiempoEspera;
+        timer = 0;
         UIZona.ActivarUI();
-        timer += Time.deltaTime;
-        UIZona.ActualizarSlider(timer);
-        if (timer >= tiempoEspera)
+        UIZona.ActualizarLabel("Comiendo...");
+        while (timer < tiempoEspera)
         {
-            estado = 0;
-            UIZona.DesactivarUI();
+            timer+= Time.deltaTime;
+            UIZona.ActualizarSlider(timer);
+            yield return null;
         }
+        UIZona.DesactivarUI();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,14 +43,7 @@ public class ZonaComedero : MonoBehaviour
         UILevelManager.instance.SetMensajeAccion("Comer");
     }
 
-    public void IniciarEspera(float tiempo)
-    {
-        tiempoEspera = tiempo;
-        UIZona.slider.maxValue = tiempoEspera;
-        timer = 0;
-        estado = 1;
-        UIZona.ActualizarLabel("Comiendo...");
-    }
+    
 
     private void OnTriggerExit(Collider other)
     {
@@ -63,5 +51,6 @@ public class ZonaComedero : MonoBehaviour
             return;
         jugador = null;
         UILevelManager.instance.SetActiveMensajeAccion(false);
+        UIZona.DesactivarUI();
     }
 }

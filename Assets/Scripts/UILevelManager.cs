@@ -26,7 +26,6 @@ public class UILevelManager : MonoBehaviour
     int wrenchIndex = 0;
 
     public static UILevelManager instance;
-    public bool enZona;
 
     private void Awake()
     {

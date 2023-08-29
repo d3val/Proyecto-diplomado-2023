@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    public ZonaReparacion zonaReparacionActual;
+    ZonaReparacion zonaReparacionActual;
 
-    public Comida comidaActual = null;
+    public Comida comidaActual;
 
     private ZonaComida zonaComidaActual;
     private ZonaComedero zonaComederoActual;
@@ -53,8 +53,8 @@ public class Jugador : MonoBehaviour
             //Cuando se va a realizar la orden
             case 1:
 
-                zonaComidaActual.estado = 2;
                 animator.SetTrigger("trigger_ordenar");
+                StartCoroutine(zonaComidaActual.Preparar());
 
                 break;
             // Cuando se va a recoger la orden
@@ -64,7 +64,7 @@ public class Jugador : MonoBehaviour
                     comidaActual = zonaComidaActual.comidaServida;
                     UILevelManager.instance.SetImagenComida(comidaActual.sprite);
                     UILevelManager.instance.SetActiveMensajeAccion(false);
-                    zonaComidaActual.estado = 4;
+                    StartCoroutine(zonaComidaActual.Limpiar());
                 }
                 break;
 
@@ -79,7 +79,6 @@ public class Jugador : MonoBehaviour
         movimientoJugador.enabled = false;
         while (zonaReparacionActual.estado == 2)
         {
-
             yield return null;
         }
         animator.SetTrigger("trigger_reparadoFinalizado");
@@ -95,18 +94,18 @@ public class Jugador : MonoBehaviour
         switch (zonaReparacionActual.estado)
         {
             case 1:
-                zonaReparacionActual.estado = 2;
                 StopAllCoroutines();
+                StartCoroutine(zonaReparacionActual.Reparar());
                 StartCoroutine(Reparando());
 
                 break;
             case 4:
                 if (goldKeys > 0)
                 {
-                    zonaReparacionActual.estado = 2;
                     goldKeys--;
                     UILevelManager.instance.RemoveWrench();
                     StopAllCoroutines();
+                    StartCoroutine(zonaReparacionActual.Reparar());
                     StartCoroutine(Reparando());
                 }
                 break;
@@ -132,7 +131,7 @@ public class Jugador : MonoBehaviour
         comiendo = true;
         comida.SetActive(true);
         movimientoJugador.EmpezarAComer();
-        zonaComederoActual.IniciarEspera(comidaActual.tiempoDeConsumo);
+        StartCoroutine(zonaComederoActual.IniciarEspera(comidaActual.tiempoDeConsumo));
         transform.SetPositionAndRotation(zonaComederoActual.wayPoint.position, zonaComederoActual.wayPoint.rotation);
         yield return new WaitForSeconds(comidaActual.tiempoDeConsumo);
         UILevelManager.instance.LimpiarImagenComida();
@@ -149,8 +148,6 @@ public class Jugador : MonoBehaviour
         if (other.gameObject.CompareTag("Zona comida"))
         {
             zonaComidaActual = other.GetComponent<ZonaComida>();
-            if (zonaComidaActual.estado == 0)
-                zonaComidaActual.estado = 1;
             return;
 
         }
@@ -167,11 +164,14 @@ public class Jugador : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Zona reparacion"))
+        {
+            zonaComidaActual = null;
+            return;
+        }
+
         if (other.gameObject.CompareTag("Zona comida"))
         {
-            if (zonaComidaActual.estado == 1)
-                zonaComidaActual.estado = 0;
-            //UILevelManager.instance.DesactivarMensajeAccion();
             zonaComidaActual = null;
             return;
         }

@@ -4,94 +4,69 @@ using UnityEngine;
 
 public class ZonaReparacion : MonoBehaviour
 {
+    
+    public float condicion { get; private set; }
     [Header("Configuración zona reparación")]
-    public float condicion = 100;
     [SerializeField] float tiempoInmunidad;
     [SerializeField] float velocidadReparacion;
     [SerializeField] float velocidadDeterioro;
     [SerializeField] ParticleSystem humo;
     [SerializeField] List<ParticleSystem> chispas = new List<ParticleSystem>();
     //[HideInInspector]
-    public int estado;
+    public int estado { private set; get; }
 
-    private float timer;
-
-    private bool jugadorCerca;
+    public bool jugadorCerca;
     private UIZona UIZona;
     public bool isFunctional = true;
+    const int REPOSO = 0, DANADO = 1, REPARANDO = 2, LISTO = 3, INUTIL = 4;
+
     // Start is called before the first frame update
     void Start()
     {
+        condicion = 100;
         UIZona = GetComponent<UIZona>();
-        timer = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator Reparar()
     {
-        if (LevelManager.juegoPausado)
-            return;
-        RevisarEstado();
-    }
+        estado = REPARANDO;
+        UIZona.ActivarUI();
+        UIZona.ActualizarLabel("Reparando");
+        UILevelManager.instance.SetActiveMensajeAccion(false);
 
-    private void RevisarEstado()
-    {
-        switch (estado)
+
+        while (condicion < 100)
         {
-            case 0:
-                UIZona.DesactivarUI();
-                /* if (!GameManager.jugadorEnZona)
-                     UILevelManager.instance.SetActiveMensajeAccion(false);*/
-                break;
-            case 1:
-                UIZona.ActivarUI();
-                condicion -= Time.deltaTime * velocidadDeterioro;
-                UIZona.ActualizarSlider(condicion);
-                UIZona.ActualizarLabel("!!!!!!");
-                SetParticlesActive(true);
-                if (jugadorCerca)
-                {
-                    if (LevelManager.jugadorEnZona)
-                        UILevelManager.instance.SetMensajeAccion("Reparar");
-                }
+            yield return null;
 
-                if (condicion < 0)
-                    estado = 4;
+            condicion += Time.deltaTime * velocidadReparacion;
+            UIZona.ActualizarSlider(condicion);
+        }
+        StartCoroutine(Recover());
+    }
 
-                break;
-            case 2:
-                if (!jugadorCerca)
-                {
-                    estado = 1;
-                    break;
-                }
-                UIZona.ActivarUI();
-                UIZona.ActualizarLabel("Reparando");
-                UILevelManager.instance.SetActiveMensajeAccion(false);
-                if (condicion < 100)
-                {
-                    condicion += Time.deltaTime * velocidadReparacion;
-                    UIZona.ActualizarSlider(condicion);
-                }
-                else
-                    StartCoroutine(Recover());
-                break;
-            case 3:
-                UIZona.ActualizarLabel("Listo!");
-                break;
-            case 4:
+    public IEnumerator Danar()
+    {
+        estado = DANADO;
+        while (estado == DANADO)
+        {
+            UIZona.ActivarUI();
+            condicion -= Time.deltaTime * velocidadDeterioro;
+            UIZona.ActualizarSlider(condicion);
+            UIZona.ActualizarLabel("!!!!!!");
+            SetParticlesActive(true);
+            if (jugadorCerca)
+            {
+                UILevelManager.instance.SetMensajeAccion("Reparar");
+            }
+
+            if (condicion < 0)
+            {
                 UIZona.ActualizarLabel("Fuera de servicio");
                 isFunctional = false;
-                if (jugadorCerca)
-                {
-                    if (LevelManager.jugadorEnZona)
-                        UILevelManager.instance.SetMensajeAccion("Usar llave");
-                }
-                break;
-            default:
-                Debug.Log("Este mensaje no debería aparecer");
-                break;
-
+                estado = 4;
+            }
+            yield return null;
         }
     }
 
@@ -119,17 +94,20 @@ public class ZonaReparacion : MonoBehaviour
     }
     IEnumerator Recover()
     {
-        estado = 3;
+        UIZona.ActualizarLabel("Listo!");
+        estado = LISTO;
         SetParticlesActive(false);
         yield return new WaitForSeconds(tiempoInmunidad);
-        estado = 0;
+        estado = REPOSO;
+        UIZona.DesactivarUI();
     }
 
     public void Fallar()
     {
-        if (estado != 0)
+        if (estado != REPOSO)
             return;
-        estado = 1;
+        estado = DANADO;
+        StartCoroutine(Danar());
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -137,7 +115,11 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = true;
-        LevelManager.jugadorEnZona = true;
+
+        if (estado == INUTIL)
+        {
+            UILevelManager.instance.SetMensajeAccion("Usar llave");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -146,8 +128,11 @@ public class ZonaReparacion : MonoBehaviour
             return;
 
         jugadorCerca = false;
-        LevelManager.jugadorEnZona = false;
         UILevelManager.instance.SetActiveMensajeAccion(false);
-        other.GetComponent<Jugador>().zonaReparacionActual = null;
+        if (estado == REPARANDO)
+        {
+            StopAllCoroutines();
+            StartCoroutine(Danar());
+        }
     }
 }
