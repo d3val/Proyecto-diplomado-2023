@@ -6868,15 +6868,15 @@ MonoBehaviour:
     imageMessage: {fileID: 21300000, guid: 937261bec8419d843a670156a8e39b70, type: 3}
   - message: "Acelera el paso manteniendo presionado Ctrl sin perder de vista tu
       barra de energ\xEDa."
-    imageMessage: {fileID: 21300000, guid: 937261bec8419d843a670156a8e39b70, type: 3}
+    imageMessage: {fileID: 21300000, guid: 606fd97b07fd9604a9975f6eb74fa367, type: 3}
   - message: "Recupera energ\xEDa con los productos de los puestos de comida.\r\n\r\nAc\xE9rcate
       a uno, presiona la tecla indicada para ordenar, espera a que termine de prepararse
       y recoge la comida.\r\n\r\nTen en cuenta que solo podr\xE1s pedir una vez en
       cada puesto de comida. Los visitantes tambi\xE9n est\xE1n hambrientos."
-    imageMessage: {fileID: 21300000, guid: 606fd97b07fd9604a9975f6eb74fa367, type: 3}
+    imageMessage: {fileID: 21300000, guid: c018436fc0be41646bc6f9112f63c413, type: 3}
   - message: "Busca una banca para sentarte a disfrutar tu comida y reponer energ\xEDa.\n\nBuena
       suerte!"
-    imageMessage: {fileID: 21300000, guid: c018436fc0be41646bc6f9112f63c413, type: 3}
+    imageMessage: {fileID: 21300000, guid: e6ce88eefa61e954796c260b1a3c2674, type: 3}
 --- !u!1 &1803435184
 GameObject:
   m_ObjectHideFlags: 0
