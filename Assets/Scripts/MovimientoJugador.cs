@@ -33,9 +33,9 @@ public class MovimientoJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.Space))
             modificadorVelocidad = aumentoVelocidad;
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.Space))
             modificadorVelocidad = 1;
 
         ActualizarUI();
@@ -71,7 +71,7 @@ public class MovimientoJugador : MonoBehaviour
         if (estamina > 0)
         {
             // La estamina se reduce con el paso del tiempo
-            if (Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetKey(KeyCode.Space))
             {
                 estamina -= Time.deltaTime;
                 // Debug.Log("Estamina restante: " + estamina);
