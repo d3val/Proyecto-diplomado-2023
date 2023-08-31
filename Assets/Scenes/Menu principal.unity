@@ -6865,7 +6865,7 @@ MonoBehaviour:
   - message: "No pierdas de vista el estado de las atracciones. Cuando 3 atracciones
       cierren se terminar\xE1 el juego.\r\n\r\nTrata de aguantar toda la jornada
       y alcanzar la mayor puntuaci\xF3n."
-    imageMessage: {fileID: 21300000, guid: 219704183825f794bae07f03eea402f0, type: 3}
+    imageMessage: {fileID: 21300000, guid: 937261bec8419d843a670156a8e39b70, type: 3}
   - message: "Acelera el paso manteniendo presionado Ctrl sin perder de vista tu
       barra de energ\xEDa."
     imageMessage: {fileID: 21300000, guid: 937261bec8419d843a670156a8e39b70, type: 3}
