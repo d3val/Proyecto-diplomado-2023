@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 986d1ef535ea4e04ab4eebcdf69bbc72, type: 3}
+        m_Texture: {fileID: 2800000, guid: cfcf310b3a61af54f9a081925e2f33d8, type: 3}
         m_Scale: {x: 0.75, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -148,10 +148,10 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Offset: {r: 1, g: 1, b: 0, a: 0}
+    - _Offset: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _TextureTiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Tint: {r: 0.7169812, g: 0.52420795, b: 0.52420795, a: 0}
+    - _Tiling: {r: 5, g: 0.4, b: 0, a: 0}
+    - _Tint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
