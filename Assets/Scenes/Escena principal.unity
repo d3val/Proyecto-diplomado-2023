@@ -55962,6 +55962,10 @@ PrefabInstance:
       propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1639461318023817438, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fab378960a7ef68458dc32ae9bc183b4, type: 2}
     - target: {fileID: 1879103055243901232, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -56026,6 +56030,10 @@ PrefabInstance:
       propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6388982046673556283, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08a9d7443c264f945a086909ad925cdd, type: 2}
     - target: {fileID: 6543332592222290891, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -56050,6 +56058,10 @@ PrefabInstance:
       propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7565245344354024302, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08a9d7443c264f945a086909ad925cdd, type: 2}
     - target: {fileID: 8806927471707278566, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -56058,6 +56070,10 @@ PrefabInstance:
       propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8806927471707278566, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fab378960a7ef68458dc32ae9bc183b4, type: 2}
     - target: {fileID: 9203534576078525343, guid: 14e5a662e9f76f84a89fdb70b844109c, type: 3}
       propertyPath: m_TagString
       value: SFX
