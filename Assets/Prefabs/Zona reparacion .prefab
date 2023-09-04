@@ -175,7 +175,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fuera de servicio
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c914cf00ec5a70e47bf01f4a5358e07f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: daff18b6672703d43b0794eb5411e79a, type: 2}
   m_sharedMaterial: {fileID: 3261633193852479782, guid: c914cf00ec5a70e47bf01f4a5358e07f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8987660854590951253
@@ -507,7 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bde09b473d48164b879c9b5ee38f597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  condicion: 100
   tiempoInmunidad: 5
   velocidadReparacion: 25
   velocidadDeterioro: 5
@@ -516,7 +515,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  estado: 0
+  jugadorCerca: 0
   isFunctional: 1
 --- !u!114 &6651917757457364130
 MonoBehaviour:

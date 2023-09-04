@@ -651,8 +651,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reparando
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c914cf00ec5a70e47bf01f4a5358e07f, type: 2}
-  m_sharedMaterial: {fileID: 3261633193852479782, guid: c914cf00ec5a70e47bf01f4a5358e07f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: daff18b6672703d43b0794eb5411e79a, type: 2}
+  m_sharedMaterial: {fileID: -5641001606688312047, guid: daff18b6672703d43b0794eb5411e79a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
+  m_fontSize: 190.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -898,7 +898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wayPoint: {fileID: 3063359955790069777}
   endPoint: {fileID: 3063359955004411387}
-  estado: 0
 --- !u!114 &3063359956297901103
 MonoBehaviour:
   m_ObjectHideFlags: 0

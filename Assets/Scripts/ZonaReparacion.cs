@@ -31,7 +31,7 @@ public class ZonaReparacion : MonoBehaviour
     {
         estado = REPARANDO;
         UIZona.ActivarUI();
-        UIZona.ActualizarLabel("Reparando");
+        UIZona.ActualizarLabel("Reparando...");
         UILevelManager.instance.SetActiveMensajeAccion(false);
 
 
@@ -94,7 +94,7 @@ public class ZonaReparacion : MonoBehaviour
     }
     IEnumerator Recover()
     {
-        UIZona.ActualizarLabel("Listo!");
+        UIZona.ActualizarLabel("¡Listo!");
         estado = LISTO;
         SetParticlesActive(false);
         yield return new WaitForSeconds(tiempoInmunidad);

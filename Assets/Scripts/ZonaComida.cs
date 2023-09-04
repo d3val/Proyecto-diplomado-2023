@@ -42,7 +42,7 @@ public class ZonaComida : MonoBehaviour
     {
         estado = PREPARANDO;
         UIZona.ActivarUI();
-        UIZona.ActualizarLabel("Preparando");
+        UIZona.ActualizarLabel("Preparando...");
         if (!audioSource.isPlaying)
         {
             audioSource.clip = clipCocinando;
@@ -58,13 +58,13 @@ public class ZonaComida : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(clipComidaLista);
         estado = LISTO;
-        UIZona.ActualizarLabel("Listo");
+        UIZona.ActualizarLabel("¡Listo!");
     }
 
     public IEnumerator Limpiar()
     {
         estado = LIMPIANDO;
-        UIZona.ActualizarLabel("Limpiando");
+        UIZona.ActualizarLabel("Limpiando...");
         preparacion = 0;
         while (preparacion < tiempoPreparacion)
         {
