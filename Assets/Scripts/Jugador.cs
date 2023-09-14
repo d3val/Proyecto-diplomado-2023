@@ -54,7 +54,7 @@ public class Jugador : MonoBehaviour
             case 1:
 
                 animator.SetTrigger("trigger_ordenar");
-                StartCoroutine(zonaComidaActual.Preparar());
+                zonaComidaActual.IniciarPreparacion();
 
                 break;
             // Cuando se va a recoger la orden
@@ -64,7 +64,7 @@ public class Jugador : MonoBehaviour
                     comidaActual = zonaComidaActual.comidaServida;
                     UILevelManager.instance.SetImagenComida(comidaActual.sprite);
                     UILevelManager.instance.SetActiveMensajeAccion(false);
-                    StartCoroutine(zonaComidaActual.Limpiar());
+                    zonaComidaActual.IniciarLimpieza();
                 }
                 break;
 
@@ -166,7 +166,7 @@ public class Jugador : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Zona reparacion"))
         {
-            zonaComidaActual = null;
+            zonaReparacionActual = null;
             return;
         }
 

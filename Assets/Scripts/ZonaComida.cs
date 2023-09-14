@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq.Expressions;
+using UnityEngine.Rendering.Universal;
 
 public class ZonaComida : MonoBehaviour
 {
@@ -10,13 +12,13 @@ public class ZonaComida : MonoBehaviour
     [SerializeField] private float estaminaComida = 50f;
     [SerializeField] private float tiempoParaConsumir = 10f;
     [SerializeField] private float tiempoPreparacion = 10f;
-    float preparacion;
+    public float preparacion;
     [SerializeField] private Sprite spriteComida = null;
     public Comida comidaServida { private set; get; }
 
     private UIZona UIZona;
 
-    public int estado { private set; get; }
+    public int estado;/*{ private set; get; }*/
     const int ESPERA = 1;
     const int PREPARANDO = 2;
     const int LISTO = 3;
@@ -38,7 +40,18 @@ public class ZonaComida : MonoBehaviour
         UIZona.SetSliderMaxValue(tiempoPreparacion);
     }
 
-    public IEnumerator Preparar()
+    private void Update()
+    {
+    }
+
+    public void IniciarPreparacion()
+    {
+        if (estado == PREPARANDO)
+            return;
+        StartCoroutine(Preparar());
+    }
+
+    IEnumerator Preparar()
     {
         estado = PREPARANDO;
         UIZona.ActivarUI();
@@ -48,8 +61,14 @@ public class ZonaComida : MonoBehaviour
             audioSource.clip = clipCocinando;
             audioSource.Play();
         }
-        while (preparacion < tiempoPreparacion)
+        while (estado == PREPARANDO)
         {
+            Debug.Log("Preparando");
+            if (preparacion >= tiempoPreparacion)
+            {
+                estado = LISTO;
+                preparacion = tiempoPreparacion;
+            }
             preparacion += Time.deltaTime;
             UIZona.ActualizarSlider(preparacion);
             yield return null;
@@ -57,23 +76,35 @@ public class ZonaComida : MonoBehaviour
 
         audioSource.Stop();
         audioSource.PlayOneShot(clipComidaLista);
-        estado = LISTO;
         UIZona.ActualizarLabel("¡Listo!");
     }
 
-    public IEnumerator Limpiar()
+    public void IniciarLimpieza()
+    {
+        if (estado == LIMPIANDO)
+            return;
+        StartCoroutine(Limpiar());
+    }
+
+    IEnumerator Limpiar()
     {
         estado = LIMPIANDO;
         UIZona.ActualizarLabel("Limpiando...");
-        preparacion = 0;
-        while (preparacion < tiempoPreparacion)
+        while (estado == LIMPIANDO)
         {
-            preparacion += Time.deltaTime;
+            Debug.Log("limpiando");
+
+            if (preparacion <= 0)
+            {
+                preparacion = 0;
+                estado = ESPERA;
+            }
+            
+
+            preparacion -= Time.deltaTime;
             UIZona.ActualizarSlider(preparacion);
             yield return null;
         }
-        preparacion = 0;
-        estado = ESPERA;
         UIZona.DesactivarUI();
     }
 
