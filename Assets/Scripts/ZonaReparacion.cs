@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZonaReparacion : MonoBehaviour
 {
-    
+
     public float condicion { get; private set; }
     [Header("Configuración zona reparación")]
     [SerializeField] float tiempoInmunidad;
@@ -27,14 +27,19 @@ public class ZonaReparacion : MonoBehaviour
         UIZona = GetComponent<UIZona>();
     }
 
+    public void IniciarReparacion()
+    {
+        if (estado == REPARANDO)
+            return;
+        StartCoroutine(Reparar());
+    }
+
     public IEnumerator Reparar()
     {
         estado = REPARANDO;
         UIZona.ActivarUI();
         UIZona.ActualizarLabel("Reparando...");
         UILevelManager.instance.SetActiveMensajeAccion(false);
-
-
         while (condicion < 100)
         {
             yield return null;

@@ -73,18 +73,21 @@ public class Jugador : MonoBehaviour
 
     IEnumerator Reparando()
     {
+        zonaReparacionActual.IniciarReparacion();
         martillo.SetActive(true);
         animator.SetTrigger("trigger_reparando");
+        animator.SetBool("bool_reparando", true);
         movimientoJugador.FrenarMovimiento();
         movimientoJugador.enabled = false;
-        while (zonaReparacionActual.estado == 2)
+        while (zonaReparacionActual != null)
         {
+            if (zonaReparacionActual.estado != 2)
+                zonaReparacionActual = null;
             yield return null;
         }
-        animator.SetTrigger("trigger_reparadoFinalizado");
+        animator.SetBool("bool_reparando", false);
         martillo.SetActive(false);
         movimientoJugador.enabled = true;
-        zonaReparacionActual = null;
     }
 
     private void AccionZonaReparacion()
@@ -95,7 +98,7 @@ public class Jugador : MonoBehaviour
         {
             case 1:
                 StopAllCoroutines();
-                StartCoroutine(zonaReparacionActual.Reparar());
+                zonaReparacionActual.IniciarReparacion();
                 StartCoroutine(Reparando());
 
                 break;
@@ -105,7 +108,6 @@ public class Jugador : MonoBehaviour
                     goldKeys--;
                     UILevelManager.instance.RemoveWrench();
                     StopAllCoroutines();
-                    StartCoroutine(zonaReparacionActual.Reparar());
                     StartCoroutine(Reparando());
                 }
                 break;
@@ -181,10 +183,5 @@ public class Jugador : MonoBehaviour
             zonaComederoActual = null;
             return;
         }
-
-        movimientoJugador.enabled = true;
-        animator.Play("Movimiento.Idle");
-        StopAllCoroutines();
-
     }
 }

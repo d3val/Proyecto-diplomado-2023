@@ -40,10 +40,6 @@ public class ZonaComida : MonoBehaviour
         UIZona.SetSliderMaxValue(tiempoPreparacion);
     }
 
-    private void Update()
-    {
-    }
-
     public void IniciarPreparacion()
     {
         if (estado == PREPARANDO)
@@ -63,7 +59,6 @@ public class ZonaComida : MonoBehaviour
         }
         while (estado == PREPARANDO)
         {
-            Debug.Log("Preparando");
             if (preparacion >= tiempoPreparacion)
             {
                 estado = LISTO;
@@ -92,14 +87,13 @@ public class ZonaComida : MonoBehaviour
         UIZona.ActualizarLabel("Limpiando...");
         while (estado == LIMPIANDO)
         {
-            Debug.Log("limpiando");
 
             if (preparacion <= 0)
             {
                 preparacion = 0;
                 estado = ESPERA;
             }
-            
+
 
             preparacion -= Time.deltaTime;
             UIZona.ActualizarSlider(preparacion);

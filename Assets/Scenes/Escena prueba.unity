@@ -6068,7 +6068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.32500002, y: 0}
   m_AnchorMax: {x: 0.952, y: 1}
-  m_AnchoredPosition: {x: -0.28779984, y: 0}
+  m_AnchoredPosition: {x: -0.28779602, y: 0}
   m_SizeDelta: {x: 0.13979912, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753819197
@@ -6217,7 +6217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.751465, y: -7.249695}
+  m_AnchoredPosition: {x: -8.751465, y: -7.249634}
   m_SizeDelta: {x: -67.5, y: -64.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &759309590
@@ -8160,7 +8160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoNivel: 300
-  limiteAtraccionesRotas: 3
+  limiteAtraccionesRotas: 5
   exitPoint: {fileID: 2082710384}
 --- !u!1 &914423524
 GameObject:
